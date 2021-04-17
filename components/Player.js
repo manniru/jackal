@@ -2,6 +2,7 @@ import React from "react";
 import ReactPlayer from "react-player";
 import { FaListUl } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
+import { Button } from "react-bootstrap";
 
 const Player = ({ url }) => {
   const handleClearStorage = (e) => {
@@ -13,10 +14,16 @@ const Player = ({ url }) => {
     <>
       {url === null ? (
         <div className="banner min-vh-100 vw-100 d-flex flex-column justify-content-center align-items-center text-white">
-          <div className="banner__text mx-3 text-center">
-            <h1 className="m-0 mb-3">
-              <strong>Jackal</strong> brings you IPTV for Web!
+          <div className="banner__text mx-3 py-3 text-center">
+            <h1 className="m-0 mb-2">
+              <strong>Jackal</strong>
             </h1>
+            <h3 className="mb-3">
+              <em>
+                Watch live TV channels from across the globe with your friends
+                and family...
+              </em>
+            </h3>
             <p>
               Watch live streams via M3U8 URL or see available channels by
               pressing{" "}
@@ -63,7 +70,9 @@ const Player = ({ url }) => {
               it in your browser to improve speed. If you want to get a fresh
               stream of data from IPTV, please click "Refresh" button below.
             </p>
-            <button onClick={handleClearStorage}>Refresh</button>
+            <Button variant="outline-light" onClick={handleClearStorage}>
+              Refresh
+            </Button>
           </div>
         </div>
       ) : (

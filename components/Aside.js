@@ -53,16 +53,16 @@ const Aside = ({ keyword, toggle, channel, setShow, setChannel }) => {
               <ButtonGroup>
                 <Button
                   className="rounded-0"
+                  type="submit"
                   variant="outline-light"
-                  onClick={handleShow}
                 >
                   <Icon>
-                    <FaListUl />
+                    <FaPlayCircle />
                   </Icon>
                 </Button>
-                <Button type="submit" variant="outline-light">
+                <Button variant="outline-light" onClick={handleShow}>
                   <Icon>
-                    <FaPlayCircle />
+                    <FaListUl />
                   </Icon>
                 </Button>
               </ButtonGroup>
