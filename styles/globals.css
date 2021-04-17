@@ -24,6 +24,7 @@ aside {
   position: fixed;
   top: 1rem;
   right: 1rem;
+  left: 1rem;
 }
 
 table {
@@ -95,6 +96,7 @@ a:focus {
 }
 
 .banner {
+  padding-top: 100px;
   background: transparent no-repeat
     url('https://images.unsplash.com/photo-1500658374795-49d41946e9cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60')
     center center/cover;
@@ -115,4 +117,10 @@ a:focus {
   content: '';
   background: rgba(0, 0, 0, 0.75);
   z-index: 0;
+}
+
+@media screen and (min-width: 900px) {
+  .banner {
+    padding-top: 0;
+  }
 }

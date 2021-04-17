@@ -38,7 +38,7 @@ const Aside = ({ keyword, toggle, channel, setShow, setChannel }) => {
     setChannel({ ...channel, toggle: !toggle });
   };
   return (
-    <aside className="d-flex">
+    <aside className="d-flex justify-content-end">
       {!toggle && (
         <Form className="d-flex justify-content-end" onSubmit={handleSubmit}>
           <InputGroup className="input">
