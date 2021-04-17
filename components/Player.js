@@ -13,8 +13,8 @@ const Player = ({ url }) => {
               <strong>Jackal</strong> brings you IPTV for Web!
             </h1>
             <p>
-              Enter M3U8 URL <em className="mx-1">or</em> See available channels
-              by pressing{" "}
+              Watch live streams via M3U8 URL or see available channels by
+              pressing{" "}
               <span className="mx-1">
                 <FaListUl />
               </span>{" "}
@@ -27,9 +27,12 @@ const Player = ({ url }) => {
               </span>{" "}
               button
             </p>
-            <p>If you are using a phone, Stream will open in a new tab.</p>
             <p>
-              This application endorse general content only. The database comes
+              If you are using a phone where M3U8 is not supported, stream will
+              open in a new tab.
+            </p>
+            <p>
+              This application endorses general content only. The database comes
               from{" "}
               <a
                 href="https://github.com/iptv-org/iptv"
@@ -39,13 +42,13 @@ const Player = ({ url }) => {
                 <strong>IPTV</strong>
               </a>
               's repository. If a user notice any unwanted stream listed here,
-              please report the stream &nbsp;
+              please report the stream
               <a
-                href="https://github.com/tpkahlon/javascript/pulls"
+                href="https://github.com/tpkahlon/jackal/pulls"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <strong>here</strong>
+                <strong>&nbsp;here</strong>
               </a>
               . Such stream will be taken down immediately.
             </p>
