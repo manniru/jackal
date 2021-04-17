@@ -5,16 +5,41 @@ import Player from "../components/Player";
 import Popup from "../components/Popup";
 
 export default function Home({ listing }) {
+  let localListing = [];
+  if (process.browser) {
+    if (localStorage.getItem("listing")) {
+      localListing = JSON.parse(localStorage.getItem("listing"));
+    } else {
+      localStorage.setItem("listing", JSON.stringify(listing));
+      localListing = JSON.parse(localStorage.getItem("listing"));
+    }
+  }
   const [show, setShow] = useState(false);
   const [channel, setChannel] = useState({
     url: null,
-    urls: listing,
+    urls: localListing,
     keyword: "",
     toggle: false,
   });
   const { keyword, url, toggle, urls } = channel;
   return (
     <>
+      <Head>
+        <meta name="title" content="Jackal" />
+        <meta name="description" content="Watch live TV from your browser." />
+        <meta
+          name="keywords"
+          content="tv, live-tv, open-source, internet, video, entertainment, jackal"
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <title>Jackal</title>
+      </Head>
       <Aside
         keyword={keyword}
         toggle={toggle}
@@ -88,7 +113,6 @@ Home.getInitialProps = async () => {
       .map((i) => i[0])
       .map((i) => i.split(","))
       .map((i) => i[1]);
-    codes.unshift("Universal");
     const urls = myPromise
       .split("#")
       .map((i) => i.replace(/\n/gi, ""))
@@ -103,9 +127,6 @@ Home.getInitialProps = async () => {
         (i) =>
           `https://raw.githubusercontent.com/iptv-org/iptv/master/channels/${i}.m3u`
       );
-    urls.unshift(
-      "https://raw.githubusercontent.com/iptv-org/iptv/master/channels/unsorted.m3u"
-    );
     const promises = urls.map(async (url) => {
       const req = await fetch(url);
       const text = await req.text();
@@ -118,7 +139,13 @@ Home.getInitialProps = async () => {
   const [promiseMainList, promiseBadList] = results;
   const badList = parseBadLinks(promiseBadList);
   const mainList = await parseLinks(promiseMainList, badList);
+  const keyedListing = mainList.map((i, idx) => {
+    return {
+      id: ++idx,
+      content: [...i],
+    };
+  });
   return {
-    listing: mainList,
+    listing: keyedListing,
   };
 };

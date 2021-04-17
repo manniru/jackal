@@ -4,11 +4,16 @@ import { FaListUl } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 
 const Player = ({ url }) => {
+  const handleClearStorage = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("listing");
+    window.location.reload();
+  };
   return (
     <>
       {url === null ? (
         <div className="banner min-vh-100 vw-100 d-flex flex-column justify-content-center align-items-center text-white">
-          <div className="banner__text mx-3 text-center w-75">
+          <div className="banner__text mx-3 text-center">
             <h1 className="m-0 mb-3">
               <strong>Jackal</strong> brings you IPTV for Web!
             </h1>
@@ -50,8 +55,15 @@ const Player = ({ url }) => {
               >
                 <strong>&nbsp;here</strong>
               </a>
-              . Such stream will be taken down immediately.
+              . Such stream will be taken down immediately. If you notice any
+              bugs, you can report them using the same link.
             </p>
+            <p>
+              We use localStorage API to store data received from IPTV and store
+              it in your browser to improve speed. If you want to get a fresh
+              stream of data from IPTV, please click "Refresh" button below.
+            </p>
+            <button onClick={handleClearStorage}>Refresh</button>
           </div>
         </div>
       ) : (

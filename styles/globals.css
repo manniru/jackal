@@ -1,12 +1,12 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 :root {
-  --font-family-sans-serif: 'Manrope', sans-serif;
+  --font-family-sans-serif: "Manrope", sans-serif;
 }
 
 html {
@@ -98,7 +98,7 @@ a:focus {
 .banner {
   padding-top: 100px;
   background: transparent no-repeat
-    url('https://images.unsplash.com/photo-1500658374795-49d41946e9cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60')
+    url("https://images.unsplash.com/photo-1500658374795-49d41946e9cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60")
     center center/cover;
   position: relative;
 }
@@ -106,6 +106,8 @@ a:focus {
 .banner__text {
   position: relative;
   z-index: 1;
+  max-width: 100%;
+  margin: auto;
 }
 
 .banner::after {
@@ -114,7 +116,7 @@ a:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  content: '';
+  content: "";
   background: rgba(0, 0, 0, 0.75);
   z-index: 0;
 }
@@ -122,5 +124,8 @@ a:focus {
 @media screen and (min-width: 900px) {
   .banner {
     padding-top: 0;
+  }
+  .banner__text {
+    max-width: 650px;
   }
 }
