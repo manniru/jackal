@@ -54,6 +54,7 @@ a:focus {
 .app {
   width: 100vw !important;
   height: 100vh !important;
+  background: black;
 }
 
 .input {
