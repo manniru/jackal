@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Aside from "../components/Aside";
 import Player from "../components/Player";
 import Popup from "../components/Popup";
+import lookup from "country-code-lookup";
 
 export default function Home({ listing }) {
   let localListing = [];
@@ -142,6 +143,7 @@ Home.getInitialProps = async () => {
   const keyedListing = mainList.map((i, idx) => {
     return {
       id: ++idx,
+      code: lookup.byCountry(i[0].country),
       content: [...i],
     };
   });

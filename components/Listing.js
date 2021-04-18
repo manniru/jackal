@@ -19,7 +19,14 @@ const Listing = ({ item, channel, setChannel }) => {
     }
   };
   return (
-    <Table variant="dark" size="sm" striped bordered responsive className="m-0">
+    <Table
+      variant="dark"
+      striped
+      responsive
+      borderless
+      className="m-0"
+      size="sm"
+    >
       <thead>
         <tr>
           <td className="p-3">

@@ -528,6 +528,11 @@ core-util-is@~1.0.0:
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
+country-code-lookup@^0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/country-code-lookup/-/country-code-lookup-0.0.19.tgz#3fbf0192758ecf0d5eee0efbc220d62706c50fd6"
+  integrity sha512-lpvgdPyj8RuP0CSZhACNf5ueKlLbv/IQUAQfg7yr/qJbFrdcWV7Y+aDN9K/u/bx3MXRfcsjuW+TdIc0AEj7kDw==
+
 create-ecdh@^4.0.0:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.4.tgz#d6e7f4bffa66736085a0762fd3a632684dabcc4e"
@@ -1590,6 +1595,11 @@ react-copy-to-clipboard@^5.0.3:
   dependencies:
     copy-to-clipboard "^3"
     prop-types "^15.5.8"
+
+react-country-flag@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-country-flag/-/react-country-flag-2.3.0.tgz#dd78906551fdc231f9e02084e87f9a62f8ea6d7b"
+  integrity sha512-Lb2nhMoTOxNjlQoun3iPwqIgpluSyzr8jN45cN0mXYbeDi10/MhGJKZa1cvgyrnfCtOh/IHdhA0MkSuls78bBw==
 
 react-device-detect@^1.17.0:
   version "1.17.0"
