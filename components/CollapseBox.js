@@ -4,20 +4,18 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { Card, Accordion, Badge } from "react-bootstrap";
 
 const CollapseBox = ({ urls, channel, setChannel }) => {
+  const [show, setShow] = useState(null);
   return (
     <Accordion className="rounded-0">
       {urls.map(({ content, id }) => {
-        const [show, setShow] = useState(false);
-        const [chevron, setChevron] = useState(false);
         const handleClick = (e, id) => {
           const key = e.currentTarget.dataset.key
             ? Number(e.currentTarget.dataset.key)
             : 0;
-          setChevron(!chevron);
           if (key === id) {
-            setShow(true);
+            setShow(id);
           } else {
-            setShow(false);
+            setShow(null);
           }
         };
         return (
@@ -31,13 +29,17 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
               onClick={(e) => handleClick(e, id)}
             >
               {content.length !== 0 ? (
-                <div className="d-flex align-items-center">
+                <div
+                  className={`d-flex align-items-center ${
+                    show === id ? "bg-black" : ""
+                  }`}
+                >
                   <Badge variant="secondary" className="p-3 rounded-0 badge">
                     {content.length}
                   </Badge>
                   <div className="mx-3 w-100 d-flex justify-content-between align-items-center">
                     <span className="channel-title">{content[0].country} </span>
-                    {chevron ? (
+                    {show === id ? (
                       <FaChevronUp style={{ fill: "#888" }} />
                     ) : (
                       <FaChevronDown style={{ fill: "#888" }} />
@@ -48,7 +50,7 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
                 "Undefined"
               )}
             </Accordion.Toggle>
-            {show ? (
+            {show === id ? (
               <Accordion.Collapse
                 eventKey={id}
                 children={
