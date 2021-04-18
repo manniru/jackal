@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import { FaListUl, FaPlayCircle } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button } from "react-bootstrap";
+import Version from "./Version";
 
 const Player = ({ url }) => {
   const handleClearStorage = (e) => {
@@ -91,6 +92,7 @@ const Player = ({ url }) => {
             >
               Refresh
             </Button>
+            <Version />
           </div>
         </div>
       ) : (

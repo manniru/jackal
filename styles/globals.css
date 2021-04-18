@@ -107,17 +107,25 @@ a:focus {
   position: relative;
 }
 
-.close span {
+.modal .close span {
   color: white;
   text-shadow: none;
   font-size: 30px;
   font-weight: 300;
+  line-height: 16px;
   top: 0;
   position: absolute;
   right: 8px;
   top: -22px;
   bottom: auto;
-  line-height: 16px;
+}
+
+.alert .close {
+  padding: 0 0.4rem !important;
+}
+
+.alert-heading {
+  text-align: left;
 }
 
 .channel-title {
