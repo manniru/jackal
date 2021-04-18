@@ -43,7 +43,7 @@ const Listing = ({ item, channel, setChannel }) => {
       <tbody>
         {item.map((j, id) => {
           const { title, url } = j;
-          const isHTTP = url.includes("http://") ? true : false;
+          const isHTTP = url && url.includes("http://") ? true : false;
           const status = isHTTP ? (
             <FaCheck style={{ fill: "orange" }} />
           ) : (
