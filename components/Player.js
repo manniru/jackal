@@ -16,6 +16,7 @@ const Player = ({ url }) => {
       {url === null ? (
         <div className="banner min-vh-100 vw-100 d-flex flex-column justify-content-center align-items-center text-white">
           <div className="banner__text mx-3 py-3 text-center">
+            <Version />
             <h1 className="m-0 mb-2">
               <strong>Jackal</strong>
             </h1>
@@ -92,7 +93,6 @@ const Player = ({ url }) => {
             >
               Refresh
             </Button>
-            <Version />
           </div>
         </div>
       ) : (

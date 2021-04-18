@@ -2,7 +2,7 @@ import React from "react";
 import Icon from "./Icon";
 import { ButtonGroup, Button, Table } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { FaRegCopy, FaPlayCircle } from "react-icons/fa";
+import { FaRegCopy, FaPlayCircle, FaCheck } from "react-icons/fa";
 import { isBrowser, isMobile } from "react-device-detect";
 
 const Listing = ({ item, channel, setChannel }) => {
@@ -29,17 +29,26 @@ const Listing = ({ item, channel, setChannel }) => {
     >
       <thead>
         <tr>
-          <td className="p-3">
+          <td style={{ width: "50%" }} className="p-3">
             <strong>Channel</strong>
           </td>
-          <td className="p-3">
+          <td style={{ width: "30%" }} className="p-3">
             <strong>Controls</strong>
+          </td>
+          <td style={{ width: "20%" }} className="p-3 text-right">
+            <strong>Status</strong>
           </td>
         </tr>
       </thead>
       <tbody>
         {item.map((j, id) => {
           const { title, url } = j;
+          const isHTTP = url.includes("http://") ? true : false;
+          const status = isHTTP ? (
+            <FaCheck style={{ fill: "orange" }} />
+          ) : (
+            <FaCheck style={{ fill: "green" }} />
+          );
           return (
             <tr key={id}>
               <td className="text-wrap px-3 vm h-100">
@@ -67,6 +76,12 @@ const Listing = ({ item, channel, setChannel }) => {
                     </Button>
                   </CopyToClipboard>
                 </ButtonGroup>
+              </td>
+              <td
+                style={{ verticalAlign: "middle" }}
+                className="p-3 text-right"
+              >
+                {status}
               </td>
             </tr>
           );

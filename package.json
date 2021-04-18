@@ -1,11 +1,13 @@
 {
   "name": "jackal",
-  "version": "0.1.0",
+  "version": "1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next build && next export -o dist",
+    "deploy": "npm run export && npx surge --domain `cat CNAME` dist"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
@@ -18,6 +20,7 @@
     "react-device-detect": "^1.17.0",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
-    "react-player": "^2.9.0"
+    "react-player": "^2.9.0",
+    "surge": "^0.23.0"
   }
 }
