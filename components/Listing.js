@@ -1,9 +1,9 @@
-import React from 'react';
-import Icon from './Icon';
-import { ButtonGroup, Button, Table } from 'react-bootstrap';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { FaRegCopy, FaPlayCircle } from 'react-icons/fa';
-import { isBrowser, isMobile } from 'react-device-detect';
+import React from "react";
+import Icon from "./Icon";
+import { ButtonGroup, Button, Table } from "react-bootstrap";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { FaRegCopy, FaPlayCircle } from "react-icons/fa";
+import { isBrowser, isMobile } from "react-device-detect";
 
 const Listing = ({ item, channel, setChannel }) => {
   const handlePlay = (currentUrl) => {
@@ -11,21 +11,21 @@ const Listing = ({ item, channel, setChannel }) => {
       setChannel({
         ...channel,
         url: `https://cors-unlimited.herokuapp.com/${currentUrl}`,
-        keyword: '',
+        keyword: "",
       });
     }
     if (isMobile) {
-      window.open(currentUrl, '_blank');
+      window.open(currentUrl, "_blank");
     }
   };
   return (
-    <Table variant='light' size='sm' hover striped className='m-0'>
+    <Table variant="dark" size="sm" striped bordered responsive className="m-0">
       <thead>
         <tr>
-          <td className='p-3'>
+          <td className="p-3">
             <strong>Channel</strong>
           </td>
-          <td className='p-3'>
+          <td className="p-3">
             <strong>Controls</strong>
           </td>
         </tr>
@@ -35,14 +35,12 @@ const Listing = ({ item, channel, setChannel }) => {
           const { title, url } = j;
           return (
             <tr key={id}>
-              <td className='text-wrap p-3 d-flex align-items-center'>
-                {title}
-              </td>
-              <td className='text-wrap p-3'>
+              <td className="text-wrap px-3 vm h-100">{title}</td>
+              <td className="text-wrap p-3">
                 <ButtonGroup>
                   <Button
-                    variant='dark'
-                    className='shadow-lg'
+                    variant="success"
+                    className="shadow-lg"
                     onClick={() => handlePlay(url)}
                   >
                     <Icon>
@@ -51,9 +49,9 @@ const Listing = ({ item, channel, setChannel }) => {
                   </Button>
                   <CopyToClipboard
                     text={url}
-                    onCopy={() => alert('URL copied successfully!')}
+                    onCopy={() => alert("URL copied successfully!")}
                   >
-                    <Button variant='secondary' className='shadow-lg'>
+                    <Button variant="info" className="shadow-lg">
                       <Icon>
                         <FaRegCopy />
                       </Icon>

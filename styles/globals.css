@@ -32,8 +32,12 @@ table {
   word-wrap: break-word;
 }
 
+td {
+  line-height: 1;
+}
+
 aside {
-  z-index: 1;
+  z-index: 2;
   display: flex;
 }
 
@@ -51,6 +55,10 @@ a:focus {
   background: black;
 }
 
+.vm {
+  vertical-align: middle !important;
+}
+
 .app {
   width: 100vw !important;
   height: 100vh !important;
@@ -63,11 +71,6 @@ a:focus {
 
 .menu {
   height: 2.375rem;
-}
-
-.card:hover,
-.card:focus {
-  cursor: pointer;
 }
 
 .modal-title {
@@ -94,6 +97,11 @@ a:focus {
 
 .close span {
   color: white;
+}
+
+.badge {
+  min-width: 70px;
+  font-size: 14px !important;
 }
 
 .banner {

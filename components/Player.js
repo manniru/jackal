@@ -1,6 +1,6 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import { FaListUl } from "react-icons/fa";
+import { FaListUl, FaPlayCircle } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button } from "react-bootstrap";
 
@@ -25,52 +25,70 @@ const Player = ({ url }) => {
               </em>
             </h3>
             <p>
-              Watch live streams via M3U8 URL or see available channels by
-              pressing{" "}
+              See available channels by pressing{" "}
               <span className="mx-1">
                 <FaListUl />
               </span>{" "}
               button
             </p>
             <p>
-              Watch TV channel in theatre mode by pressing{" "}
+              Open a live stream by pasting a M3U8 link in the box and hit the{" "}
+              <span className="mx-1">
+                <FaPlayCircle />
+              </span>{" "}
+              button
+            </p>
+            <p>
+              View live stream in theatre mode by pressing{" "}
               <span className="mx-1">
                 <BsArrowsFullscreen />
               </span>{" "}
               button
             </p>
             <p>
-              If you are using a phone where M3U8 is not supported, stream will
-              open in a new tab.
+              <em>
+                If you are using a phone where M3U8 is not supported, stream
+                will open in a new tab.
+              </em>
             </p>
             <p>
-              This application endorses general content only. The database comes
-              from{" "}
-              <a
-                href="https://github.com/iptv-org/iptv"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <strong>IPTV</strong>
-              </a>
-              's repository. If a user notice any unwanted stream listed here,
-              please report the stream
-              <a
-                href="https://github.com/tpkahlon/jackal/pulls"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <strong>&nbsp;here</strong>
-              </a>
-              . Such stream will be taken down immediately. If you notice any
-              bugs, you can report them using the same link.
+              <em>
+                This application endorses general content only. The database
+                comes from{" "}
+                <a
+                  href="https://github.com/iptv-org/iptv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none text-danger"
+                >
+                  <strong>IPTV</strong>
+                </a>
+                's repository. If you notice any unwanted stream, please report
+                the stream
+                <a
+                  href="https://github.com/tpkahlon/jackal/pulls"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none text-danger"
+                >
+                  <strong>&nbsp;here</strong>
+                </a>
+                . Such stream will be taken down immediately. If you notice any
+                bugs, you can report them using the same provided link.
+              </em>
             </p>
             <p>
-              We use localStorage API to store data received from IPTV and store
-              it in your browser to improve speed. If you want to get a fresh
-              stream of data from IPTV, please click "Refresh" button below.
+              <em>
+                We use localStorage API to store data received from IPTV, in
+                your browser. If you want to get a fresh stream of data from
+                IPTV, please click "Refresh" button below.
+              </em>
             </p>
-            <Button variant="outline-light" onClick={handleClearStorage}>
+            <Button
+              className="mb-3"
+              variant="secondary"
+              onClick={handleClearStorage}
+            >
               Refresh
             </Button>
           </div>

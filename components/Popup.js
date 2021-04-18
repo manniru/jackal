@@ -9,7 +9,7 @@ const Popup = ({ urls, show, setShow, channel, setChannel }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header
-        className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center"
+        className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center border-0"
         closeButton
       >
         <Modal.Title>
