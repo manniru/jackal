@@ -35,7 +35,9 @@ const Listing = ({ item, channel, setChannel }) => {
           const { title, url } = j;
           return (
             <tr key={id}>
-              <td className="text-wrap px-3 vm h-100">{title}</td>
+              <td className="text-wrap px-3 vm h-100">
+                {++id}: <strong>{title}</strong>
+              </td>
               <td className="text-wrap p-3">
                 <ButtonGroup>
                   <Button
