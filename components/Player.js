@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { FaListUl, FaPlayCircle } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup } from "react-bootstrap";
-import Version from "./Version";
+// import Version from "./Version";
 
 const Player = ({ url }) => {
   const handleClearStorage = (e) => {
@@ -16,7 +16,7 @@ const Player = ({ url }) => {
       {url === null ? (
         <div className="banner min-vh-100 d-flex flex-column justify-content-center align-items-center text-white pt-5">
           <div className="banner__text mx-3 py-3 text-center">
-            <Version />
+            {/* <Version /> */}
             <h1 className="m-0 mb-2">
               <strong>Jackal</strong>
             </h1>
@@ -27,6 +27,28 @@ const Player = ({ url }) => {
               </em>
             </h3>
             <ListGroup variant="flush" className="mb-3">
+              <ListGroup.Item className="text-left" variant="dark">
+                All live streams come from{" "}
+                <a
+                  href="https://github.com/iptv-org/iptv/tree/master/channels"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none text-danger"
+                >
+                  <strong>IPTV</strong>
+                </a>{" "}
+                project. In case you notice a broken/outdated stream, please
+                raise the issue{" "}
+                <a
+                  href="https://github.com/iptv-org/iptv/issues"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none text-danger"
+                >
+                  <strong>here</strong>
+                </a>
+                .
+              </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
                 See available channels by pressing{" "}
                 <span className="mx-1">
@@ -49,25 +71,14 @@ const Player = ({ url }) => {
                 button
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
-                <em>
-                  If you are using a phone where M3U8 is not supported, stream
-                  will open in a new tab.
-                </em>
+                If you are using a phone where M3U8 is not supported, stream
+                will open in a new tab. If it tries to download a file, it
+                means, your device does not support M3U8 format.
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
-                <em>
-                  This application endorses general content only. The database
-                  comes from{" "}
-                  <a
-                    href="https://github.com/iptv-org/iptv"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-decoration-none text-danger"
-                  >
-                    <strong>IPTV</strong>
-                  </a>
-                  's repository. If you notice any unwanted stream, please
-                  report the stream
+                <small>
+                  This application endorses general content only. If you notice
+                  any unwanted stream, please report the stream
                   <a
                     href="https://github.com/tpkahlon/jackal/pulls"
                     target="_blank"
@@ -78,13 +89,13 @@ const Player = ({ url }) => {
                   </a>
                   . Such stream will be taken down immediately. If you notice
                   any bugs, you can report them using the same provided link.
-                </em>
+                </small>
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
                 <em className="d-block">
                   We use localStorage API to store data received from IPTV, in
-                  your browser. If you want to get a fresh stream of data from
-                  IPTV, please click "Refresh" button below.
+                  your browser. If you want to remove the local data, please
+                  click "Refresh" button below.
                 </em>
                 <Button
                   className="mt-2 mb-2"
