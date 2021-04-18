@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Listing from "./Listing";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { Card, Accordion, Badge } from "react-bootstrap";
 
 const CollapseBox = ({ urls, channel, setChannel }) => {
@@ -8,10 +8,12 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
     <Accordion className="rounded-0">
       {urls.map(({ content, id }) => {
         const [show, setShow] = useState(false);
+        const [chevron, setChevron] = useState(false);
         const handleClick = (e, id) => {
           const key = e.currentTarget.dataset.key
             ? Number(e.currentTarget.dataset.key)
             : 0;
+          setChevron(!chevron);
           if (key === id) {
             setShow(true);
           } else {
@@ -35,7 +37,11 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
                   </Badge>
                   <div className="mx-3 w-100 d-flex justify-content-between align-items-center">
                     <span className="channel-title">{content[0].country} </span>
-                    <FaChevronDown style={{ fill: "#888" }} />
+                    {chevron ? (
+                      <FaChevronUp style={{ fill: "#888" }} />
+                    ) : (
+                      <FaChevronDown style={{ fill: "#888" }} />
+                    )}
                   </div>
                 </div>
               ) : (

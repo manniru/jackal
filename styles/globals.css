@@ -97,6 +97,10 @@ a:focus {
   min-height: 4rem;
 }
 
+.modal-backdrop.show {
+  opacity: 0.9 !important;
+}
+
 .close {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
