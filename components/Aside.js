@@ -18,7 +18,7 @@ const Aside = ({ keyword, toggle, channel, setShow, setChannel }) => {
     if (isBrowser) {
       setChannel({
         ...channel,
-        url: `https://cors-unlimited.herokuapp.com/${keyword}`,
+        url: keyword,
         keyword: "",
       });
     }

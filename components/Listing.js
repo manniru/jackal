@@ -10,7 +10,7 @@ const Listing = ({ item, channel, setChannel }) => {
     if (isBrowser) {
       setChannel({
         ...channel,
-        url: `https://cors-unlimited.herokuapp.com/${currentUrl}`,
+        url: currentUrl,
         keyword: "",
       });
     }
