@@ -77,9 +77,16 @@ a:focus {
   line-height: 1;
 }
 
-.modal-dialog,
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto !important;
+}
+
 .modal-content {
   height: 80vh;
+  margin: 0 1rem;
 }
 
 .modal-body {
@@ -97,6 +104,9 @@ a:focus {
 
 .close span {
   color: white;
+  text-shadow: none;
+  font-size: 2rem;
+  font-weight: 100;
 }
 
 .badge {

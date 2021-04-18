@@ -22,7 +22,7 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
                   </Badge>
                   <div className="mx-3 w-100 d-flex justify-content-between align-items-center">
                     <span>{content[0].country} </span>
-                    <FaChevronDown />
+                    <FaChevronDown style={{ fill: "#888" }} />
                   </div>
                 </div>
               ) : (
