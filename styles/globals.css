@@ -100,13 +100,25 @@ a:focus {
 .close {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  position: relative;
 }
 
 .close span {
   color: white;
   text-shadow: none;
-  font-size: 2rem;
-  font-weight: 100;
+  font-size: 30px;
+  font-weight: 300;
+  top: 0;
+  position: absolute;
+  right: 8px;
+  top: -22px;
+  bottom: auto;
+  line-height: 16px;
+}
+
+.channel-title {
+  line-height: 1;
+  margin-right: 15px;
 }
 
 .badge {

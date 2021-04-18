@@ -15,7 +15,7 @@ const Popup = ({ urls, show, setShow, channel, setChannel }) => {
         <Modal.Title>
           <Icon>
             <FaSatelliteDish />
-            <span className="ml-3">Available Channels</span>
+            <span className="ml-3">Live Channels</span>
           </Icon>
         </Modal.Title>
       </Modal.Header>

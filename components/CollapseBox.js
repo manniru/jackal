@@ -34,7 +34,7 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
                     {content.length}
                   </Badge>
                   <div className="mx-3 w-100 d-flex justify-content-between align-items-center">
-                    <span>{content[0].country} </span>
+                    <span className="channel-title">{content[0].country} </span>
                     <FaChevronDown style={{ fill: "#888" }} />
                   </div>
                 </div>
