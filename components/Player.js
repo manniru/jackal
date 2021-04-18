@@ -14,7 +14,7 @@ const Player = ({ url }) => {
   return (
     <>
       {url === null ? (
-        <div className="banner min-vh-100 vw-100 d-flex flex-column justify-content-center align-items-center text-white pt-5">
+        <div className="banner min-vh-100 d-flex flex-column justify-content-center align-items-center text-white pt-5">
           <div className="banner__text mx-3 py-3 text-center">
             <Version />
             <h1 className="m-0 mb-2">
