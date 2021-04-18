@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap";
 import Version from "./Version";
 
 const Player = ({ url }) => {
+  const sanitizeUrl = url === null ? null : url.replace("http://", "//");
   const handleClearStorage = (e) => {
     e.preventDefault();
     localStorage.removeItem("listing");
@@ -100,7 +101,7 @@ const Player = ({ url }) => {
           className="app"
           playing
           controls
-          url={url}
+          url={sanitizeUrl}
           config={{
             file: {
               attributes: {
