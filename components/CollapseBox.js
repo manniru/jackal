@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Listing from "./Listing";
 import { FaChevronDown } from "react-icons/fa";
 import { Card, Accordion, Badge } from "react-bootstrap";
@@ -7,6 +7,17 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
   return (
     <Accordion className="rounded-0">
       {urls.map(({ content, id }) => {
+        const [show, setShow] = useState(false);
+        const handleClick = (e, id) => {
+          const key = e.currentTarget.dataset.key
+            ? Number(e.currentTarget.dataset.key)
+            : 0;
+          if (key === id) {
+            setShow(true);
+          } else {
+            setShow(false);
+          }
+        };
         return (
           <Card key={id} className="rounded-0 border-0 shadow-lg">
             <Accordion.Toggle
@@ -14,6 +25,8 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
               variant="dark"
               as={Card.Header}
               eventKey={id}
+              data-key={id}
+              onClick={(e) => handleClick(e, id)}
             >
               {content.length !== 0 ? (
                 <div className="d-flex align-items-center">
@@ -29,15 +42,20 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
                 "Undefined"
               )}
             </Accordion.Toggle>
-            <Accordion.Collapse eventKey={id}>
-              <Card.Body className="bg-dark p-0">
-                <Listing
-                  item={content}
-                  channel={channel}
-                  setChannel={setChannel}
-                />
-              </Card.Body>
-            </Accordion.Collapse>
+            {show ? (
+              <Accordion.Collapse
+                eventKey={id}
+                children={
+                  <Card.Body className="bg-dark p-0">
+                    <Listing
+                      item={content}
+                      channel={channel}
+                      setChannel={setChannel}
+                    />
+                  </Card.Body>
+                }
+              />
+            ) : null}
           </Card>
         );
       })}
