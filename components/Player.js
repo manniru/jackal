@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactPlayer from "react-player";
 import { FaListUl, FaPlayCircle } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
@@ -96,7 +96,19 @@ const Player = ({ url }) => {
           </div>
         </div>
       ) : (
-        <ReactPlayer className="app" playing controls url={url} />
+        <ReactPlayer
+          className="app"
+          playing
+          controls
+          url={url}
+          config={{
+            file: {
+              attributes: {
+                crossOrigin: "true",
+              },
+            },
+          }}
+        />
       )}
     </>
   );
