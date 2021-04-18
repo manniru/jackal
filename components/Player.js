@@ -6,7 +6,6 @@ import { Button } from "react-bootstrap";
 import Version from "./Version";
 
 const Player = ({ url }) => {
-  const sanitizeUrl = url === null ? null : url.replace("http://", "//");
   const handleClearStorage = (e) => {
     e.preventDefault();
     localStorage.removeItem("listing");
@@ -97,19 +96,7 @@ const Player = ({ url }) => {
           </div>
         </div>
       ) : (
-        <ReactPlayer
-          className="app"
-          playing
-          controls
-          url={sanitizeUrl}
-          config={{
-            file: {
-              attributes: {
-                crossOrigin: "true",
-              },
-            },
-          }}
-        />
+        <ReactPlayer className="app" playing controls url={url} />
       )}
     </>
   );
