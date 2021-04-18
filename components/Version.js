@@ -31,6 +31,24 @@ const Version = () => {
           </a>
           to make sure our visitors can view live streams seamlessly.
         </p>
+        <p className="text-left m-0 mb-2">
+          <strong>
+            Going forward, we recommend you use Jackal hosted on{" "}
+            <a
+              href="http://jackal.surge.sh/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-decoration-none text-danger"
+            >
+              <strong>SURGE&nbsp;</strong>
+            </a>
+            server for quality experience without any hiccups. We'll always look
+            out for any bugs or issues that may affect streaming for our
+            visitors. Thank you for your patience and we apologize for any
+            inconvenience. Jackal is clear and functional on{" "}
+            <strong>Surge</strong>.
+          </strong>
+        </p>
       </Alert>
     );
   }
