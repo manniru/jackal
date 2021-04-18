@@ -7,7 +7,7 @@ const Version = () => {
   if (show) {
     return (
       <Alert
-        className=" mt-2 mb-3"
+        className=" mt-2 mb-3 position-relative overflow-hidden pb-5"
         onClose={() => setShow(false)}
         variant="success"
         dismissible
@@ -49,6 +49,17 @@ const Version = () => {
             <strong>Surge</strong>.
           </strong>
         </p>
+        <footer className="alert-footer">
+          We have moved to{" "}
+          <a
+            href="http://jackal.surge.sh/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-decoration-none text-danger"
+          >
+            <strong>JACKAL.SURGE.SH</strong>
+          </a>
+        </footer>
       </Alert>
     );
   }
