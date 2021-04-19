@@ -1,6 +1,6 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import { FaListUl, FaPlayCircle } from "react-icons/fa";
+import { FaListUl, FaPlayCircle, FaCheck } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup } from "react-bootstrap";
 // import Version from "./Version";
@@ -76,6 +76,29 @@ const Player = ({ url }) => {
                 means, your device does not support M3U8 format.
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
+                <em className="d-block">
+                  We use localStorage API to store data received from IPTV, in
+                  your browser. If you want to remove the local data, please
+                  click "Refresh" button below.
+                </em>
+                <Button
+                  className="mt-2 mb-2"
+                  variant="secondary"
+                  onClick={handleClearStorage}
+                >
+                  Refresh
+                </Button>
+              </ListGroup.Item>
+              <ListGroup.Item className="text-left" variant="dark">
+                <small>
+                  In status column, orange check-mark (
+                  <FaCheck style={{ fill: "orange" }} />) means stream comes
+                  from a server that uses HTTP protocol and green check-mark (
+                  <FaCheck style={{ fill: "green" }} />) means stream uses HTTPS
+                  protocol.
+                </small>
+              </ListGroup.Item>
+              <ListGroup.Item className="text-left" variant="dark">
                 <small>
                   This application endorses general content only. If you notice
                   any unwanted stream, please report the stream
@@ -90,20 +113,6 @@ const Player = ({ url }) => {
                   . Such stream will be taken down immediately. If you notice
                   any bugs, you can report them using the same provided link.
                 </small>
-              </ListGroup.Item>
-              <ListGroup.Item className="text-left" variant="dark">
-                <em className="d-block">
-                  We use localStorage API to store data received from IPTV, in
-                  your browser. If you want to remove the local data, please
-                  click "Refresh" button below.
-                </em>
-                <Button
-                  className="mt-2 mb-2"
-                  variant="secondary"
-                  onClick={handleClearStorage}
-                >
-                  Refresh
-                </Button>
               </ListGroup.Item>
             </ListGroup>
           </div>
