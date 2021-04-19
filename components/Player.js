@@ -75,9 +75,21 @@ const Player = ({ url }) => {
                   >
                     <strong>http://jackal.surge.sh</strong>
                   </a>{" "}
-                  rather than <strong>https://jackal.surge.sh</strong>
+                  rather than <strong>https://jackal.surge.sh</strong>.
                 </span>
-                .
+                <span className="mt-2 d-block text-danger">
+                  If a stream does not load, please copy its URL and test it{" "}
+                  <a
+                    href="https://hls-js.netlify.app/demo/"
+                    className="text-decoration-none text-danger"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <strong>here</strong>
+                  </a>
+                  . If it does not load, please skip that stream. It is likely
+                  broken or outdated.
+                </span>
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
                 Open a live stream by pasting a M3U8 link in the box and hit the{" "}
