@@ -18,7 +18,7 @@ We use open source data provided by [IPTV](https://github.com/iptv-org/iptv) and
 
 ## Note
 
-- Some live streams use HTTP packet (in order to view them, use this URL: [http://jackal.surge.sh](http://jackal.surge.sh))
+- Some live streams use HTTP packet (in order to view them, use this URL: [http://jackal.surge.sh](http://jackal.surge.sh)). For example, under Vietnam list, channel number 1 uses HTTP.
 
 ## Issues
 
