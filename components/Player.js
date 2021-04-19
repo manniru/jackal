@@ -47,6 +47,29 @@ const Player = ({ url }) => {
                 >
                   <strong>here</strong>
                 </a>
+                .{" "}
+              </ListGroup.Item>
+              <ListGroup.Item className="text-left" variant="dark">
+                <small className="d-block mb-2">
+                  In status column, orange check-mark (
+                  <FaCheck style={{ fill: "orange" }} />) means stream comes
+                  from a server that uses HTTP protocol and green check-mark (
+                  <FaCheck style={{ fill: "green" }} />) means stream uses HTTPS
+                  protocol.
+                </small>
+                <span className="text-danger">
+                  If a TV channel has orange check-mark besides it, please
+                  reload this page with http protocol instead of https protocol
+                  to view the TV channel. For example, under Vietnam, channel
+                  no.1 (ANTV) will work if you load the page{" "}
+                  <a
+                    href="http://jackal.surge.sh"
+                    className="text-decoration-none text-danger"
+                  >
+                    <strong>http://jackal.surge.sh</strong>
+                  </a>{" "}
+                  rather than <strong>https://jackal.surge.sh</strong>
+                </span>
                 .
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
@@ -54,21 +77,26 @@ const Player = ({ url }) => {
                 <span className="mx-1">
                   <FaListUl />
                 </span>{" "}
-                button
+                button.
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
                 Open a live stream by pasting a M3U8 link in the box and hit the{" "}
                 <span className="mx-1">
                   <FaPlayCircle />
                 </span>{" "}
-                button
+                button.
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
                 View live stream in theatre mode by pressing{" "}
                 <span className="mx-1">
                   <BsArrowsFullscreen />
                 </span>{" "}
-                button
+                button.
+              </ListGroup.Item>
+              <ListGroup.Item className="text-left" variant="dark">
+                If you have a Chromsecast, cast any tv channel to your TV by
+                using Google Chrome browser from your PC/Laptop. Right click on
+                the stream and click Cast.
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
                 If you are using a phone where M3U8 is not supported, stream
@@ -90,16 +118,7 @@ const Player = ({ url }) => {
                 </Button>
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
-                <small>
-                  In status column, orange check-mark (
-                  <FaCheck style={{ fill: "orange" }} />) means stream comes
-                  from a server that uses HTTP protocol and green check-mark (
-                  <FaCheck style={{ fill: "green" }} />) means stream uses HTTPS
-                  protocol.
-                </small>
-              </ListGroup.Item>
-              <ListGroup.Item className="text-left" variant="dark">
-                <small>
+                <small className="d-block">
                   This application endorses general content only. If you notice
                   any unwanted stream, please report the stream
                   <a
