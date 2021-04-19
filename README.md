@@ -16,6 +16,10 @@ We use open source data provided by [IPTV](https://github.com/iptv-org/iptv) and
 
 - Please use Google Chrome browser using PC/Laptop to cast live streams to your TV via Chromecast
 
+## Note
+
+- Some live streams use HTTP packet (in order to view them, use this URL: [http://jackal.surge.sh](http://jackal.surge.sh))
+
 ## Issues
 
 - Please open any issues or bugs you notice [here](https://github.com/tpkahlon/jackal/issues)
