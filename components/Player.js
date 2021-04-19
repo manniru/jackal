@@ -50,6 +50,13 @@ const Player = ({ url }) => {
                 .{" "}
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
+                See available channels by pressing{" "}
+                <span className="mx-1">
+                  <FaListUl />
+                </span>{" "}
+                button.
+              </ListGroup.Item>
+              <ListGroup.Item className="text-left" variant="dark">
                 <small className="d-block mb-2">
                   In status column, orange check-mark (
                   <FaCheck style={{ fill: "orange" }} />) means stream comes
@@ -61,7 +68,7 @@ const Player = ({ url }) => {
                   If a TV channel has orange check-mark besides it, please
                   reload this page with http protocol instead of https protocol
                   to view the TV channel. For example, under Vietnam, channel
-                  no.1 (ANTV) will work if you load the page{" "}
+                  no. 1 (ANTV) will work if you load the page{" "}
                   <a
                     href="http://jackal.surge.sh"
                     className="text-decoration-none text-danger"
@@ -71,13 +78,6 @@ const Player = ({ url }) => {
                   rather than <strong>https://jackal.surge.sh</strong>
                 </span>
                 .
-              </ListGroup.Item>
-              <ListGroup.Item className="text-left" variant="dark">
-                See available channels by pressing{" "}
-                <span className="mx-1">
-                  <FaListUl />
-                </span>{" "}
-                button.
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
                 Open a live stream by pasting a M3U8 link in the box and hit the{" "}
@@ -94,7 +94,7 @@ const Player = ({ url }) => {
                 button.
               </ListGroup.Item>
               <ListGroup.Item className="text-left" variant="dark">
-                If you have a Chromsecast, cast any tv channel to your TV by
+                If you have a Chromecast, cast any tv channel to your TV by
                 using Google Chrome browser from your PC/Laptop. Right click on
                 the stream and click Cast.
               </ListGroup.Item>
