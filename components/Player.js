@@ -45,7 +45,8 @@ const Player = ({ url }) => {
               <Modal.Body className="p-0">
                 <ListGroup variant="flush">
                   <ListGroup.Item className="text-left">
-                    The site performs best on iPhone devices.
+                    The site performs best on iPhone devices. If you are using
+                    an iPhone, every stream will open in a new tab.
                   </ListGroup.Item>
                   <ListGroup.Item className="text-left">
                     All live streams come from{" "}
@@ -115,11 +116,10 @@ const Player = ({ url }) => {
                       HTTPS protocol.
                     </small>
                     <span className="text-danger">
-                      If a TV channel has orange check-mark besides it, please
-                      reload this page with http protocol instead of https
-                      protocol to view the TV channel. For example, under
-                      Vietnam, channel no. 1 (ANTV) will work if you load the
-                      page{" "}
+                      <strong>Note:</strong> For Windows users, make sure you
+                      load site with http protocol instead of https protocol to
+                      view streams. For example, under Vietnam, channel no. 1
+                      (ANTV) will work if you load the page{" "}
                       <a
                         href="http://jackal.surge.sh"
                         className="text-decoration-none text-danger"
@@ -138,19 +138,15 @@ const Player = ({ url }) => {
                       >
                         <strong>here</strong>
                       </a>
-                      . If it does not load, please skip that stream. It is
-                      likely broken or outdated.
+                      . If it does not load, it can likely work on iOS/iPhone
+                      devices but may not work on Windows system. In such cases,
+                      you may use VLC.
                     </span>
                   </ListGroup.Item>
                   <ListGroup.Item className="text-left">
                     If you have a Chromecast, cast any tv channel to your TV by
                     using Google Chrome browser from your PC/Laptop. Right click
                     on the stream and click Cast.
-                  </ListGroup.Item>
-                  <ListGroup.Item className="text-left">
-                    If you are using a phone where M3U8 is not supported, stream
-                    will open in a new tab. If it tries to download a file, it
-                    means, your device does not support M3U8 format.
                   </ListGroup.Item>
                   <ListGroup.Item className="text-left">
                     <small className="d-block">
