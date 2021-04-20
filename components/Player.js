@@ -118,9 +118,9 @@ const Player = ({ url }) => {
                       HTTPS protocol.
                     </small>
                     <span className="text-danger">
-                      <strong>Note:</strong> For Windows users, make sure you
-                      load site with http protocol instead of https protocol to
-                      view streams. For example, under Vietnam, channel no. 1
+                      <strong>Note:</strong> For desktop/laptop users, make sure
+                      you load site with http protocol instead of https protocol
+                      to view streams. For example, under Vietnam, channel no. 1
                       (ANTV) will work if you load the page{" "}
                       <a
                         href="http://jackal.surge.sh"
@@ -140,8 +140,8 @@ const Player = ({ url }) => {
                       >
                         <strong>here</strong>
                       </a>
-                      . If it does not load, it can likely work on iOS/iPhone
-                      devices but may not work on Windows system. In such cases,
+                      . If it does not load, it can likely work on iPad/iPhone
+                      devices but may not work on desktop/laptop. In such cases,
                       you may use VLC.
                     </span>
                   </ListGroup.Item>
@@ -155,7 +155,7 @@ const Player = ({ url }) => {
                       This application endorses general content only. If you
                       notice any unwanted stream, please report the stream
                       <a
-                        href="https://github.com/tpkahlon/jackal/pulls"
+                        href="https://github.com/tpkahlon/jackal/issues"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-decoration-none text-danger"
