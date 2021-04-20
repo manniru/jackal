@@ -40,9 +40,9 @@ const Player = ({ url }) => {
             </Button>
             <Modal className="modal--faq" show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title>Frequently Asked Questions</Modal.Title>
+                <Modal.Title>FAQs</Modal.Title>
               </Modal.Header>
-              <Modal.Body className="px-0 pt-0">
+              <Modal.Body className="p-0">
                 <ListGroup variant="flush">
                   <ListGroup.Item className="text-left">
                     The site performs best on iPhone devices.
