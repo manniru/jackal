@@ -45,6 +45,9 @@ const Player = ({ url }) => {
               <Modal.Body className="px-0 pt-0">
                 <ListGroup variant="flush">
                   <ListGroup.Item className="text-left">
+                    The site performs best on iPhone devices.
+                  </ListGroup.Item>
+                  <ListGroup.Item className="text-left">
                     All live streams come from{" "}
                     <a
                       href="https://github.com/iptv-org/iptv/tree/master/channels"
@@ -148,9 +151,6 @@ const Player = ({ url }) => {
                     If you are using a phone where M3U8 is not supported, stream
                     will open in a new tab. If it tries to download a file, it
                     means, your device does not support M3U8 format.
-                  </ListGroup.Item>
-                  <ListGroup.Item className="text-left">
-                    The site performs best on iPhone devices.
                   </ListGroup.Item>
                   <ListGroup.Item className="text-left">
                     <small className="d-block">
