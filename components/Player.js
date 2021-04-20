@@ -121,7 +121,7 @@ const Player = ({ url }) => {
                       <strong>Note:</strong> For desktop/laptop users, make sure
                       you load site with http protocol instead of https protocol
                       to view streams. For example, under Vietnam, channel no. 1
-                      (ANTV) will work if you load the page{" "}
+                      (ANTV) stream will work if you load the page{" "}
                       <a
                         href="http://jackal.surge.sh"
                         className="text-decoration-none text-danger"
@@ -143,6 +143,11 @@ const Player = ({ url }) => {
                       . If it does not load, it can likely work on iPad/iPhone
                       devices but may not work on desktop/laptop. In such cases,
                       you may use VLC.
+                    </span>
+                    <span className="mt-2 d-block text-danger">
+                      <strong>Note:</strong> For example, under Vietnam, channel
+                      no. 4 (Bến Tre) stream does not work on desktop/laptop
+                      devices but it works on iPhone/iOS devices or VLC.
                     </span>
                   </ListGroup.Item>
                   <ListGroup.Item className="text-left">
