@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import { FaListUl, FaPlayCircle, FaCheck } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup, Modal } from "react-bootstrap";
-import Version from "./Version";
+// import Version from "./Version";
 
 const Player = ({ url }) => {
   const [show, setShow] = useState(false);
@@ -21,7 +21,7 @@ const Player = ({ url }) => {
       {url === null ? (
         <div className="banner min-vh-100 d-flex flex-column justify-content-center align-items-center text-white pt-5">
           <div className="banner__text mx-3 py-3 text-center">
-            <Version />
+            {/* <Version /> */}
             <h1 className="m-0 mb-2">
               <strong>Jackal</strong>
             </h1>
