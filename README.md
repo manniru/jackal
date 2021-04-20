@@ -1,4 +1,4 @@
-# Jackal
+# [Jackal](http://jackal.surge.sh)
 
 Watch live TV channels from across the globe with your friends and family...
 
