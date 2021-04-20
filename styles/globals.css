@@ -120,6 +120,18 @@ a:focus {
   bottom: auto;
 }
 
+.modal--faq .close span {
+  color: black;
+  text-shadow: none;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 16px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  bottom: auto;
+}
+
 .alert .close {
   padding: 0 0.4rem !important;
 }
@@ -166,17 +178,6 @@ a:focus {
   max-width: 100%;
   margin: auto;
 }
-
-/* .banner::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: "";
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 0;
-} */
 
 @media screen and (min-width: 900px) {
   .banner {
