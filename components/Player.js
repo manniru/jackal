@@ -44,6 +44,108 @@ const Player = ({ url }) => {
               </Modal.Header>
               <Modal.Body className="p-0">
                 <ListGroup variant="flush">
+                  <ListGroup.Item className="text-left bg-warning">
+                    Powered by{" "}
+                    <a
+                      href="https://nextjs.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>Next</strong>
+                    </a>
+                    ,{" "}
+                    <a
+                      href="https://reactjs.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>React</strong>
+                    </a>
+                    ,&nbsp;
+                    <a
+                      href="https://react-bootstrap.github.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>Bootstrap</strong>
+                    </a>
+                    . Hosted on&nbsp;
+                    <a
+                      href="https://surge.sh/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>Surge</strong>
+                    </a>
+                    . Source code is available on{" "}
+                    <a
+                      href="https://github.com/tpkahlon/jackal"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>GitHub</strong>
+                    </a>
+                    . Huge thanks to&nbsp;
+                    <a
+                      href="https://www.npmjs.com/package/country-code-lookup"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>country-code-lookup</strong>
+                    </a>
+                    ,&nbsp;
+                    <a
+                      href="https://www.npmjs.com/package/react-copy-to-clipboard"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>react-copy-to-clipboard</strong>
+                    </a>
+                    ,&nbsp;
+                    <a
+                      href="https://www.npmjs.com/package/react-country-flag"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>react-country-flag</strong>
+                    </a>
+                    ,&nbsp;
+                    <a
+                      href="https://www.npmjs.com/package/react-device-detect"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>react-device-detect</strong>
+                    </a>
+                    ,&nbsp;
+                    <a
+                      href="https://www.npmjs.com/package/react-icons"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>react-icons</strong>
+                    </a>
+                    ,&nbsp;
+                    <a
+                      href="https://www.npmjs.com/package/react-player"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-danger"
+                    >
+                      <strong>react-player</strong>
+                    </a>
+                    &nbsp;libraries.
+                  </ListGroup.Item>
                   <ListGroup.Item className="text-left">
                     The site performs best on iPhone devices. If you are using
                     an iPhone, every stream will open in a new tab. We recommend
