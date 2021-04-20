@@ -46,7 +46,8 @@ const Player = ({ url }) => {
                 <ListGroup variant="flush">
                   <ListGroup.Item className="text-left">
                     The site performs best on iPhone devices. If you are using
-                    an iPhone, every stream will open in a new tab.
+                    an iPhone, every stream will open in a new tab. We recommend
+                    you use Safari to view this site on iPhone.
                   </ListGroup.Item>
                   <ListGroup.Item className="text-left">
                     All live streams come from{" "}
@@ -96,7 +97,8 @@ const Player = ({ url }) => {
                     <em className="d-block">
                       We use localStorage API to store data received from IPTV,
                       in your browser. If you want to remove the local data,
-                      please click "Refresh" button below.
+                      please click "Refresh" button below. This step is done to
+                      make sure site loads faster on your browser.
                     </em>
                     <Button
                       className="mt-2 mb-2"
@@ -144,7 +146,7 @@ const Player = ({ url }) => {
                     </span>
                   </ListGroup.Item>
                   <ListGroup.Item className="text-left">
-                    If you have a Chromecast, cast any tv channel to your TV by
+                    If you have a Chromecast, cast any stream to your TV by
                     using Google Chrome browser from your PC/Laptop. Right click
                     on the stream and click Cast.
                   </ListGroup.Item>
