@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Icon from "./Icon";
 import {
   Form,
@@ -12,6 +12,7 @@ import { BsArrowsFullscreen } from "react-icons/bs";
 import { isBrowser, isMobile } from "react-device-detect";
 
 const Aside = ({ keyword, toggle, channel, setShow, setChannel }) => {
+  const [isEmpty, setIsEmpty] = useState(true);
   const handleShow = () => setShow(true);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +34,11 @@ const Aside = ({ keyword, toggle, channel, setShow, setChannel }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setChannel({ ...channel, [name]: value });
+    if (value && value.trim() !== "") {
+      setIsEmpty(false);
+    } else {
+      setIsEmpty(true);
+    }
   };
   const handleToggle = () => {
     setChannel({ ...channel, toggle: !toggle });
@@ -55,6 +61,7 @@ const Aside = ({ keyword, toggle, channel, setShow, setChannel }) => {
                   className="rounded-0"
                   type="submit"
                   variant="outline-light"
+                  disabled={isEmpty ? "disabled" : ""}
                 >
                   <Icon>
                     <FaPlayCircle />

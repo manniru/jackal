@@ -1,9 +1,4 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
-
-* {
-  box-sizing: border-box;
-}
 
 :root {
   --font-family-sans-serif: "Manrope", sans-serif;
@@ -39,11 +34,6 @@ td {
 aside {
   z-index: 2;
   display: flex;
-}
-
-iframe {
-  width: 100vw;
-  height: 100vh;
 }
 
 a:hover,
@@ -177,6 +167,18 @@ a:focus {
   z-index: 1;
   max-width: 100%;
   margin: auto;
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.site-footer svg {
+  font-size: 1.25rem;
 }
 
 @media screen and (min-width: 900px) {

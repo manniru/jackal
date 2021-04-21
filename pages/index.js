@@ -63,6 +63,7 @@ export default function Home({ listing }) {
 Home.getInitialProps = async () => {
   const mainUrls = [
     `https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u`,
+    // Clean/filter garbage data
     `https://iptv-org.github.io/iptv/categories/xxx.m3u`,
   ];
   const mainPromises = mainUrls.map(async (url) => {

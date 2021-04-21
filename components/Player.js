@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
-import { FaListUl, FaPlayCircle, FaCheck } from "react-icons/fa";
+import { FaListUl, FaPlayCircle, FaCheck, FaTwitter } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup, Modal } from "react-bootstrap";
 // import Version from "./Version";
@@ -38,6 +38,19 @@ const Player = ({ url }) => {
             >
               Need assistance?
             </Button>
+            <nav className="site-footer d-flex justify-content-center align-items-center">
+              <span className="d-flex align-items-center">
+                Follow Jackal on
+                <a
+                  href="https://twitter.com/jackalislive"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none d-flex align-items-center"
+                >
+                  <FaTwitter className="ml-2" />
+                </a>
+              </span>
+            </nav>
             <Modal className="modal--faq" show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>FAQs</Modal.Title>
