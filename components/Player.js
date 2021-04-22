@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
-import { FaListUl, FaPlayCircle, FaCheck, FaTwitter } from "react-icons/fa";
+import {
+  FaListUl,
+  FaPlayCircle,
+  FaCheck,
+  FaTwitter,
+  // FaShoppingCart,
+} from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup, Modal } from "react-bootstrap";
 // import Version from "./Version";
@@ -16,6 +22,7 @@ const Player = ({ url }) => {
     localStorage.removeItem("listing");
     window.location.reload();
   };
+
   return (
     <>
       {url === null ? (
@@ -215,13 +222,6 @@ const Player = ({ url }) => {
                       please click "Refresh" button below. This step is done to
                       make sure site loads faster on your browser.
                     </em>
-                    <Button
-                      className="mt-2 mb-2"
-                      variant="secondary"
-                      onClick={handleClearStorage}
-                    >
-                      Refresh
-                    </Button>
                   </ListGroup.Item>
                   <ListGroup.Item className="text-left">
                     <small className="d-block mb-2">
@@ -290,6 +290,13 @@ const Player = ({ url }) => {
                 </ListGroup>
               </Modal.Body>
               <Modal.Footer>
+                <Button
+                  className="mr-2"
+                  variant="success"
+                  onClick={handleClearStorage}
+                >
+                  Refresh
+                </Button>
                 <Button variant="secondary" onClick={handleClose}>
                   Close
                 </Button>

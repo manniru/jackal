@@ -10,6 +10,7 @@ import {
 import { FaListUl, FaPlayCircle } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { isBrowser, isMobile } from "react-device-detect";
+import Cart from "./Cart";
 
 const Aside = ({ keyword, toggle, channel, setShow, setChannel }) => {
   const [isEmpty, setIsEmpty] = useState(true);
@@ -67,6 +68,7 @@ const Aside = ({ keyword, toggle, channel, setShow, setChannel }) => {
                     <FaPlayCircle />
                   </Icon>
                 </Button>
+                <Cart channel={channel} setChannel={setChannel} />
                 <Button variant="outline-light" onClick={handleShow}>
                   <Icon>
                     <FaListUl />

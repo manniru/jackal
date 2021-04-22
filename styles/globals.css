@@ -59,6 +59,10 @@ a:focus {
   width: 50vw;
 }
 
+.form-control {
+  max-width: 170px;
+}
+
 .menu {
   height: 2.375rem;
 }
