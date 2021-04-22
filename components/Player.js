@@ -5,7 +5,8 @@ import {
   FaPlayCircle,
   FaCheck,
   FaTwitter,
-  // FaShoppingCart,
+  FaHeart,
+  FaShoppingCart,
 } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup, Modal } from "react-bootstrap";
@@ -212,6 +213,17 @@ const Player = ({ url }) => {
                     View live stream in theatre mode by pressing{" "}
                     <span className="mx-1">
                       <BsArrowsFullscreen />
+                    </span>{" "}
+                    button.
+                  </ListGroup.Item>
+                  <ListGroup.Item className="text-left">
+                    Save your favorite channels on your device by pressing{" "}
+                    <span className="mx-1">
+                      <FaHeart />
+                    </span>{" "}
+                    button. View your liked channels by pressing{" "}
+                    <span className="mx-1">
+                      <FaShoppingCart />
                     </span>{" "}
                     button.
                   </ListGroup.Item>
