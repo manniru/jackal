@@ -43,23 +43,19 @@ const Listing = ({ item, channel, setChannel }) => {
     }
   };
   return (
-    <Table
-      variant="dark"
-      striped
-      responsive
-      borderless
-      className="m-0"
-      size="sm"
-    >
+    <Table variant="dark" striped responsive borderless className="m-0">
       <thead>
         <tr>
-          <td style={{ width: "50%" }} className="p-3">
+          <td>
+            <strong>ID</strong>
+          </td>
+          <td>
             <strong>Channel</strong>
           </td>
-          <td style={{ width: "30%" }} className="p-3">
+          <td>
             <strong>Controls</strong>
           </td>
-          <td style={{ width: "20%" }} className="p-3 text-right">
+          <td className="text-right">
             <strong>Status</strong>
           </td>
         </tr>
@@ -75,10 +71,9 @@ const Listing = ({ item, channel, setChannel }) => {
           );
           return (
             <tr key={id}>
-              <td className="text-wrap px-3 vm h-100">
-                {++id}: <strong>{title}</strong>
-              </td>
-              <td className="text-wrap p-3">
+              <td className="text-wrap vm h-100">{++id}</td>
+              <td className="text-wrap vm h-100">{title}</td>
+              <td className="text-wrap vm">
                 <ButtonGroup>
                   <Button
                     variant="success"
@@ -101,10 +96,7 @@ const Listing = ({ item, channel, setChannel }) => {
                   </CopyToClipboard>
                 </ButtonGroup>
               </td>
-              <td
-                style={{ verticalAlign: "middle" }}
-                className="p-3 text-right"
-              >
+              <td className="vm text-right">
                 <a
                   className="shadow-lg mr-3"
                   onClick={() => handleStoreChannel(j)}
