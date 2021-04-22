@@ -16,7 +16,10 @@ const Cart = ({ channel, setChannel }) => {
   const myPlaylist = playlist ? (
     <CartList playlist={playlist} channel={channel} setChannel={setChannel} />
   ) : (
-    "Your playlist is empty. Please add your favorite channels here by pressing Heart next to the channels."
+    <p className="p-3">
+      Your playlist is empty. Please add your favorite channels here by pressing
+      Heart next to the channels.
+    </p>
   );
 
   const [show, setShow] = useState(false);
