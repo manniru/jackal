@@ -50,6 +50,10 @@ a:focus {
   pointer-events: none;
 }
 
+.bg-danger--css button {
+  opacity: 0.5;
+}
+
 .vm {
   vertical-align: middle !important;
 }

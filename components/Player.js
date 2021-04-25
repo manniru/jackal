@@ -11,18 +11,12 @@ import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup, Modal } from "react-bootstrap";
 // import Version from "./Version";
 
-const Player = ({ channel, banTV }) => {
+const Player = ({ channel, banTV, handleClearStorage }) => {
   const { url } = channel;
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const handleClearStorage = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("listing");
-    window.location.reload();
-  };
 
   return (
     <>
@@ -315,7 +309,7 @@ const Player = ({ channel, banTV }) => {
           playing
           controls
           url={url}
-          onError={() => banTV(url)}
+          // onError={() => banTV(url)}
         />
       )}
     </>

@@ -1,10 +1,17 @@
 import React from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import CollapseBox from "./CollapseBox";
 import Icon from "./Icon";
 import { FaSatelliteDish } from "react-icons/fa";
 
-const Popup = ({ urls, show, setShow, channel, setChannel }) => {
+const Popup = ({
+  urls,
+  show,
+  setShow,
+  channel,
+  setChannel,
+  handleClearStorage,
+}) => {
   const handleClose = () => setShow(false);
   return (
     <Modal show={show} onHide={handleClose}>
@@ -26,6 +33,14 @@ const Popup = ({ urls, show, setShow, channel, setChannel }) => {
           <CollapseBox urls={urls} channel={channel} setChannel={setChannel} />
         )}
       </Modal.Body>
+      <Modal.Footer className="rounded-0 bg-dark border-top border-secondary">
+        <Button className="mr-2" variant="success" onClick={handleClearStorage}>
+          Refresh
+        </Button>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+      </Modal.Footer>
     </Modal>
   );
 };

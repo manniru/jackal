@@ -23,6 +23,12 @@ export default function Home({ listing }) {
     toggle: false,
   });
   const { keyword, toggle, urls } = channel;
+
+  const handleClearStorage = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("listing");
+    window.location.reload();
+  };
   const banTV = (tv) => {
     const newListing = [...localListing];
     const foundCountry = newListing.filter((i) => {
@@ -83,13 +89,18 @@ export default function Home({ listing }) {
         setShow={setShow}
         setChannel={setChannel}
       />
-      <Player channel={channel} banTV={banTV} />
+      <Player
+        channel={channel}
+        banTV={banTV}
+        handleClearStorage={handleClearStorage}
+      />
       <Popup
         urls={urls}
         show={show}
         setShow={setShow}
         channel={channel}
         setChannel={setChannel}
+        handleClearStorage={handleClearStorage}
       />
     </>
   );

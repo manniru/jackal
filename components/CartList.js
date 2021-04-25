@@ -34,10 +34,10 @@ const CartList = ({ playlist, channel, setChannel }) => {
       </thead>
       <tbody>
         {JSON.parse(playlist).map((j, id) => {
-          const { title, url } = j;
+          const { title, url, ban } = j;
           const isHTTP = url && url.includes("http://") ? true : false;
           return (
-            <tr key={id}>
+            <tr key={id} className={ban ? "bg-danger bg-danger--css" : ""}>
               <td
                 className="text-wrap vm h-100"
                 style={{ background: isHTTP ? "orange" : "green" }}
