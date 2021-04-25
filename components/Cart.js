@@ -16,7 +16,7 @@ const Cart = ({ channel, setChannel }) => {
   const myPlaylist = playlist ? (
     <CartList playlist={playlist} channel={channel} setChannel={setChannel} />
   ) : (
-    <p className="p-3">
+    <p className="p-3 text-white">
       Your playlist is empty. Please add your favorite channels here by pressing
       Heart next to the channels.
     </p>
