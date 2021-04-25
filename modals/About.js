@@ -185,7 +185,7 @@ const About = () => {
               Inside ID column, orange box means stream comes from a server that
               uses HTTP protocol and green box means stream uses HTTPS protocol.
             </small>
-            <span className="text-warning">
+            <span className="text-success">
               <strong>Note:</strong> For desktop/laptop users, make sure you
               load site with http protocol instead of https protocol to view
               streams. For example, under Vietnam, channel no. 1 (ANTV) stream
@@ -198,7 +198,7 @@ const About = () => {
               </a>{" "}
               rather than <strong>https://jackal.surge.sh</strong>.
             </span>
-            <span className="mt-2 d-block text-warning">
+            <span className="mt-2 d-block text-success">
               If a stream does not load, please copy its URL and test it{" "}
               <a
                 href="https://hls-js.netlify.app/demo/"
@@ -212,7 +212,7 @@ const About = () => {
               but may not work on desktop/laptop. In such cases, you may use
               VLC.
             </span>
-            <span className="mt-2 d-block text-warning">
+            <span className="mt-2 d-block text-success">
               <strong>Note:</strong> For example, under Vietnam, channel no. 4
               (Bến Tre) stream does not work on desktop/laptop devices but it
               works on iPhone/iOS devices or VLC.
