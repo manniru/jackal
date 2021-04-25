@@ -29,41 +29,6 @@ export default function Home({ listing }) {
     localStorage.removeItem("listing");
     window.location.reload();
   };
-  const banTV = (tv) => {
-    const newListing = [...localListing];
-    const foundCountry = newListing.filter((i) => {
-      return i.content.find((j) => j.url === tv);
-    });
-    const revisedCountry = foundCountry.map((i) => {
-      const newContent = i.content.map((j) => {
-        if (j.url === tv) {
-          return {
-            ...j,
-            ban: true,
-          };
-        }
-        return j;
-      });
-      return {
-        ...i,
-        content: newContent,
-      };
-    });
-    const revisedListing = newListing.map((i) => {
-      if (i.id === revisedCountry[0].id) {
-        return revisedCountry[0];
-      }
-      return i;
-    });
-    setChannel({
-      ...channel,
-      urls: revisedListing,
-    });
-    localStorage.setItem("listing", JSON.stringify(revisedListing));
-    alert(
-      "This live stream is either broken or outdated. We are so sorry about this."
-    );
-  };
   return (
     <>
       <Head>
@@ -91,7 +56,7 @@ export default function Home({ listing }) {
       />
       <Player
         channel={channel}
-        banTV={banTV}
+        setChannel={setChannel}
         handleClearStorage={handleClearStorage}
       />
       <Popup

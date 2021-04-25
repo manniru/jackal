@@ -9,14 +9,62 @@ import {
 } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup, Modal } from "react-bootstrap";
-// import Version from "./Version";
+import { ToastContainer, toast } from "react-toastify";
 
-const Player = ({ channel, banTV, handleClearStorage }) => {
-  const { url } = channel;
+const Player = ({ channel, setChannel, handleClearStorage }) => {
+  const { url, urls } = channel;
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const notifyOkay = () =>
+    toast.success(
+      "This live stream seems healthy. It will start playing in few seconds."
+    );
+  const notifyWarn = () =>
+    toast.error(
+      "This live stream is either broken or outdated. We are so sorry for this."
+    );
+
+  const changeTV = (e, tv, decision) => {
+    if (decision && e.type === "error") {
+      const newListing = [...urls];
+      const foundCountry = newListing.filter((i) => {
+        return i.content.find((j) => j.url === tv);
+      });
+      const revisedCountry = foundCountry.map((i) => {
+        const newContent = i.content.map((j) => {
+          if (j.url === tv) {
+            return {
+              ...j,
+              ban: decision,
+            };
+          }
+          return j;
+        });
+        return {
+          ...i,
+          content: newContent,
+        };
+      });
+      const revisedListing = newListing.map((i) => {
+        if (i.id === revisedCountry[0].id) {
+          return revisedCountry[0];
+        }
+        return i;
+      });
+      setChannel({
+        ...channel,
+        urls: revisedListing,
+      });
+      localStorage.setItem("listing", JSON.stringify(revisedListing));
+      notifyWarn();
+    } else {
+      notifyOkay();
+    }
+  };
+  const banTV = (e, tv) => changeTV(e, tv, true);
 
   return (
     <>
@@ -309,9 +357,16 @@ const Player = ({ channel, banTV, handleClearStorage }) => {
           playing
           controls
           url={url}
-          // onError={() => banTV(url)}
+          // onReady={() => console.log("1")}
+          // onStart={() => console.log("2")}
+          // onPlay={() => console.log("3")}
+          // onBuffer={() => console.log("4")}
+          // onError={() => console.log("5")}
+          // onProgress={() => console.log("6")}
+          onError={(e) => banTV(e, url)}
         />
       )}
+      <ToastContainer />
     </>
   );
 };

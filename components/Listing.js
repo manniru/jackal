@@ -3,8 +3,14 @@ import { ButtonGroup, Button, Table } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FaRegCopy, FaPlay, FaHeart } from "react-icons/fa";
 import { isBrowser, isMobile } from "react-device-detect";
+import { ToastContainer, toast } from "react-toastify";
 
 const Listing = ({ item, channel, setChannel }) => {
+  const notifyCopy = () => toast.dark("URL copied successfully!");
+  const notifyWarn = () =>
+    toast.error("This channel is already available in your playlist!");
+  const notifyAdd = () =>
+    toast.dark("Channel added successfully to your playlist!");
   const handlePlay = (currentUrl) => {
     if (isBrowser) {
       setChannel({
@@ -24,78 +30,78 @@ const Listing = ({ item, channel, setChannel }) => {
     if (getPlaylist) {
       const playList = JSON.parse(getPlaylist);
       if (checkDuplicates(playList)) {
-        alert("This channel is already available in your playlist.");
+        notifyWarn();
       } else {
         const revisedPlaylist = playList.concat(item);
         const sortedPlaylist = revisedPlaylist.sort((a, b) =>
           a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1
         );
         localStorage.setItem("playlist", JSON.stringify(sortedPlaylist));
-        alert("Channel added successfully to your playlist.");
+        notifyAdd();
       }
     } else {
       const newPlaylist = [];
       const revisedPlaylist = newPlaylist.concat(item);
       localStorage.setItem("playlist", JSON.stringify(revisedPlaylist));
-      alert("Channel added successfully to your playlist.");
+      notifyAdd();
     }
   };
   return (
-    <Table variant="dark" striped responsive borderless className="m-0">
-      <thead>
-        <tr>
-          <td style={{ width: "15%" }}>
-            <strong>ID</strong>
-          </td>
-          <td>
-            <strong>Channel</strong>
-          </td>
-          <td>
-            <strong>Controls</strong>
-          </td>
-        </tr>
-      </thead>
-      <tbody>
-        {item.map((j, id) => {
-          const { title, url, ban } = j;
-          const isHTTP = url && url.includes("http://") ? true : false;
-          return (
-            <tr key={id} className={ban ? "bg-danger bg-danger--css" : ""}>
-              <td
-                className="text-wrap vm h-100"
-                style={{ background: isHTTP ? "orange" : "green" }}
-              >
-                {++id}
-              </td>
-              <td className="text-wrap vm h-100">{title}</td>
-              <td className="text-wrap vm">
-                <div className="d-flex align-items-center">
-                  <ButtonGroup>
-                    <Button variant="success" onClick={() => handlePlay(url)}>
-                      <FaPlay />
-                    </Button>
-                    <CopyToClipboard
-                      text={url}
-                      onCopy={() => alert("URL copied successfully!")}
-                    >
-                      <Button variant="info">
-                        <FaRegCopy />
+    <>
+      <Table variant="dark" striped responsive borderless className="m-0">
+        <thead>
+          <tr>
+            <td style={{ width: "15%" }}>
+              <strong>ID</strong>
+            </td>
+            <td>
+              <strong>Channel</strong>
+            </td>
+            <td>
+              <strong>Controls</strong>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {item.map((j, id) => {
+            const { title, url, ban } = j;
+            const isHTTP = url && url.includes("http://") ? true : false;
+            return (
+              <tr key={id} className={ban ? "bg-danger bg-danger--css" : ""}>
+                <td
+                  className="text-wrap vm h-100"
+                  style={{ background: isHTTP ? "orange" : "green" }}
+                >
+                  {++id}
+                </td>
+                <td className="text-wrap vm h-100">{title}</td>
+                <td className="text-wrap vm">
+                  <div className="d-flex align-items-center">
+                    <ButtonGroup>
+                      <Button variant="success" onClick={() => handlePlay(url)}>
+                        <FaPlay />
                       </Button>
-                    </CopyToClipboard>
-                    <Button
-                      variant="secondary"
-                      onClick={() => handleStoreChannel(j)}
-                    >
-                      <FaHeart />
-                    </Button>
-                  </ButtonGroup>
-                </div>
-              </td>
-            </tr>
-          );
-        })}
-      </tbody>
-    </Table>
+                      <CopyToClipboard text={url} onCopy={notifyCopy}>
+                        <Button variant="info">
+                          <FaRegCopy />
+                        </Button>
+                      </CopyToClipboard>
+                      <Button
+                        variant="secondary"
+                        onClick={() => handleStoreChannel(j)}
+                      >
+                        <FaHeart />
+                      </Button>
+                    </ButtonGroup>
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </Table>
+      <ToastContainer />
+    </>
   );
 };
 
