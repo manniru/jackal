@@ -30,7 +30,6 @@ const Cart = ({ channel, setChannel }) => {
   const handleClear = () => {
     localStorage.removeItem("playlist");
     setCart(false);
-    // window.location.reload();
   };
 
   return (
@@ -42,12 +41,17 @@ const Cart = ({ channel, setChannel }) => {
       >
         <FaShoppingCart />
       </Button>
-      <Modal show={show} onHide={handleClose} className="modal--faq">
-        <Modal.Header closeButton>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header
+          closeButton
+          className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center border-0"
+        >
           <Modal.Title>My Playlist</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="p-0">{myPlaylist}</Modal.Body>
-        <Modal.Footer>
+        <Modal.Body className="p-0 bg-dark border-top border-secondary">
+          {myPlaylist}
+        </Modal.Body>
+        <Modal.Footer className="rounded-0 bg-dark border-top border-secondary">
           <Button variant="danger" onClick={handleClear}>
             Clear
           </Button>

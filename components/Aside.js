@@ -7,7 +7,7 @@ import {
   FormControl,
   ButtonGroup,
 } from "react-bootstrap";
-import { FaListUl, FaPlayCircle } from "react-icons/fa";
+import { FaListUl, FaPlay } from "react-icons/fa";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { isBrowser, isMobile } from "react-device-detect";
 import Cart from "./Cart";
@@ -65,7 +65,7 @@ const Aside = ({ keyword, toggle, channel, setShow, setChannel }) => {
                   disabled={isEmpty ? "disabled" : ""}
                 >
                   <Icon>
-                    <FaPlayCircle />
+                    <FaPlay />
                   </Icon>
                 </Button>
                 <Cart channel={channel} setChannel={setChannel} />

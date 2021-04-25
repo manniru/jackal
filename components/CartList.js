@@ -1,8 +1,7 @@
 import React from "react";
-import Icon from "./Icon";
-import { ButtonGroup, Button, Table, Alert } from "react-bootstrap";
+import { ButtonGroup, Button, Table } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { FaRegCopy, FaPlayCircle, FaCheck, FaHeart } from "react-icons/fa";
+import { FaRegCopy, FaPlay } from "react-icons/fa";
 import { isBrowser, isMobile } from "react-device-detect";
 
 const CartList = ({ playlist, channel, setChannel }) => {
@@ -37,30 +36,31 @@ const CartList = ({ playlist, channel, setChannel }) => {
         {JSON.parse(playlist).map((j, id) => {
           const { title, url } = j;
           const isHTTP = url && url.includes("http://") ? true : false;
-          const status = isHTTP ? (
-            <FaCheck style={{ fill: "orange" }} />
-          ) : (
-            <FaCheck style={{ fill: "green" }} />
-          );
           return (
             <tr key={id}>
-              <td className="text-wrap vm h-100">{++id}</td>
+              <td
+                className="text-wrap vm h-100"
+                style={{ background: isHTTP ? "orange" : "green" }}
+              >
+                {++id}
+              </td>
               <td className="text-wrap vm h-100">{title}</td>
               <td className="text-wrap vm">
-                <ButtonGroup>
-                  <Button variant="success" onClick={() => handlePlay(url)}>
-                    <FaPlayCircle />
-                  </Button>
-                  <CopyToClipboard
-                    text={url}
-                    onCopy={() => alert("Channel link copied successfully!")}
-                  >
-                    <Button variant="info">
-                      <FaRegCopy />
+                <div className="d-flex align-items-center">
+                  <ButtonGroup>
+                    <Button variant="success" onClick={() => handlePlay(url)}>
+                      <FaPlay />
                     </Button>
-                  </CopyToClipboard>
-                </ButtonGroup>
-                <span className="ml-2">{status}</span>
+                    <CopyToClipboard
+                      text={url}
+                      onCopy={() => alert("Channel link copied successfully!")}
+                    >
+                      <Button variant="info">
+                        <FaRegCopy />
+                      </Button>
+                    </CopyToClipboard>
+                  </ButtonGroup>
+                </div>
               </td>
             </tr>
           );
