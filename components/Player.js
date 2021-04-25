@@ -210,6 +210,15 @@ const Player = ({ channel, setChannel, handleClearStorage }) => {
                     >
                       <strong>react-player</strong>
                     </a>
+                    ,&nbsp;
+                    <a
+                      href="https://www.npmjs.com/package/react-toastify"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-warning"
+                    >
+                      <strong>react-toastify</strong>
+                    </a>
                     &nbsp;libraries.
                   </ListGroup.Item>
                   <ListGroup.Item className="bg-dark text-white text-left">
