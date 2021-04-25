@@ -22,17 +22,14 @@ const CartList = ({ playlist, channel, setChannel }) => {
     <Table variant="dark" striped responsive borderless className="m-0">
       <thead>
         <tr>
-          <td>
+          <td style={{ width: "15%" }}>
             <strong>ID</strong>
           </td>
-          <td>
+          <td style={{ width: "50%" }}>
             <strong>Channel</strong>
           </td>
           <td>
             <strong>Controls</strong>
-          </td>
-          <td className="text-right">
-            <strong>Status</strong>
           </td>
         </tr>
       </thead>
@@ -51,28 +48,20 @@ const CartList = ({ playlist, channel, setChannel }) => {
               <td className="text-wrap vm h-100">{title}</td>
               <td className="text-wrap vm">
                 <ButtonGroup>
-                  <Button
-                    variant="success"
-                    className="shadow-lg"
-                    onClick={() => handlePlay(url)}
-                  >
-                    <Icon>
-                      <FaPlayCircle />
-                    </Icon>
+                  <Button variant="success" onClick={() => handlePlay(url)}>
+                    <FaPlayCircle />
                   </Button>
                   <CopyToClipboard
                     text={url}
                     onCopy={() => alert("Channel link copied successfully!")}
                   >
-                    <Button variant="info" className="shadow-lg">
-                      <Icon>
-                        <FaRegCopy />
-                      </Icon>
+                    <Button variant="info">
+                      <FaRegCopy />
                     </Button>
                   </CopyToClipboard>
                 </ButtonGroup>
+                <span className="ml-2">{status}</span>
               </td>
-              <td className="vm text-right">{status}</td>
             </tr>
           );
         })}
