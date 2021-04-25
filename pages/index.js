@@ -1,9 +1,9 @@
 import Head from "next/head";
 import React, { useState } from "react";
-import Aside from "../components/Aside";
-import Player from "../components/Player";
-import Popup from "../components/Popup";
 import lookup from "country-code-lookup";
+import AppContext from "../context/MenuContext";
+import Menu from "../components/Menu";
+import Main from "../components/Main";
 
 export default function Home({ listing }) {
   let localListing = [];
@@ -15,15 +15,12 @@ export default function Home({ listing }) {
       localListing = JSON.parse(localStorage.getItem("listing"));
     }
   }
-  const [show, setShow] = useState(false);
   const [channel, setChannel] = useState({
     url: null,
     urls: localListing,
     keyword: "",
     toggle: false,
   });
-  const { keyword, toggle, urls } = channel;
-
   const handleClearStorage = (e) => {
     e.preventDefault();
     localStorage.removeItem("listing");
@@ -47,26 +44,16 @@ export default function Home({ listing }) {
         <meta name="language" content="English" />
         <title>Jackal</title>
       </Head>
-      <Aside
-        keyword={keyword}
-        toggle={toggle}
-        channel={channel}
-        setShow={setShow}
-        setChannel={setChannel}
-      />
-      <Player
-        channel={channel}
-        setChannel={setChannel}
-        handleClearStorage={handleClearStorage}
-      />
-      <Popup
-        urls={urls}
-        show={show}
-        setShow={setShow}
-        channel={channel}
-        setChannel={setChannel}
-        handleClearStorage={handleClearStorage}
-      />
+      <AppContext.Provider
+        value={{
+          channel,
+          setChannel,
+          handleClearStorage,
+        }}
+      >
+        <Menu />
+        <Main />
+      </AppContext.Provider>
     </>
   );
 }

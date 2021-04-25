@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ReactPlayer from "react-player";
 import {
   FaListUl,
@@ -10,14 +10,14 @@ import {
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup, Modal } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
+import AppContext from "../context/MenuContext";
 
-const Player = ({ channel, setChannel, handleClearStorage }) => {
+const Main = () => {
+  const { channel, setChannel, handleClearStorage } = useContext(AppContext);
   const { url, urls } = channel;
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const notifyOkay = () =>
     toast.success(
       "This live stream seems healthy. It will start playing in few seconds."
@@ -26,7 +26,6 @@ const Player = ({ channel, setChannel, handleClearStorage }) => {
     toast.error(
       "This live stream is either broken or outdated. We are so sorry for this."
     );
-
   const changeTV = (e, tv, decision) => {
     if (decision && e.type === "error") {
       const newListing = [...urls];
@@ -65,13 +64,11 @@ const Player = ({ channel, setChannel, handleClearStorage }) => {
     }
   };
   const banTV = (e, tv) => changeTV(e, tv, true);
-
   return (
     <>
       {url === null ? (
         <div className="banner min-vh-100 d-flex flex-column justify-content-center align-items-center text-white pt-5">
           <div className="banner__text mx-3 py-3 text-center">
-            {/* <Version /> */}
             <h1 className="m-0 mb-2">
               <strong>Jackal</strong>
             </h1>
@@ -366,12 +363,6 @@ const Player = ({ channel, setChannel, handleClearStorage }) => {
           playing
           controls
           url={url}
-          // onReady={() => console.log("1")}
-          // onStart={() => console.log("2")}
-          // onPlay={() => console.log("3")}
-          // onBuffer={() => console.log("4")}
-          // onError={() => console.log("5")}
-          // onProgress={() => console.log("6")}
           onError={(e) => banTV(e, url)}
         />
       )}
@@ -380,4 +371,4 @@ const Player = ({ channel, setChannel, handleClearStorage }) => {
   );
 };
 
-export default Player;
+export default Main;

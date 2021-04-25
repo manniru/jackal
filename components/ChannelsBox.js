@@ -1,10 +1,14 @@
-import React, { useState } from "react";
-import Listing from "./Listing";
+import React, { useState, useContext } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { Card, Accordion, Badge } from "react-bootstrap";
 import ReactCountryFlag from "react-country-flag";
+import MenuContext from "../context/MenuContext";
+import ChannelsListContext from "../context/ChannelsListContext";
+import ChannelsList from "./ChannelsList";
 
-const CollapseBox = ({ urls, channel, setChannel }) => {
+const ChannelsBox = () => {
+  const { channel } = useContext(MenuContext);
+  const { urls } = channel;
   const [show, setShow] = useState(null);
   const edgeFlags = (country) => {
     if (country === "Gambia")
@@ -86,11 +90,13 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
                 eventKey={id}
                 children={
                   <Card.Body className="bg-dark p-0">
-                    <Listing
-                      item={content}
-                      channel={channel}
-                      setChannel={setChannel}
-                    />
+                    <ChannelsListContext.Provider
+                      value={{
+                        item: content,
+                      }}
+                    >
+                      <ChannelsList />
+                    </ChannelsListContext.Provider>
                   </Card.Body>
                 }
               />
@@ -102,4 +108,4 @@ const CollapseBox = ({ urls, channel, setChannel }) => {
   );
 };
 
-export default CollapseBox;
+export default ChannelsBox;

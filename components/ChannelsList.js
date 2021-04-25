@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ButtonGroup, Button, Table } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FaRegCopy, FaPlay, FaHeart } from "react-icons/fa";
 import { isBrowser, isMobile } from "react-device-detect";
 import { ToastContainer, toast } from "react-toastify";
+import ChannelsListContext from "../context/ChannelsListContext";
+import MenuContext from "../context/MenuContext";
 
-const Listing = ({ item, channel, setChannel }) => {
+const ChannelsList = () => {
+  const { item } = useContext(ChannelsListContext);
+  const { channel, setChannel } = useContext(MenuContext);
   const notifyCopy = () => toast.dark("URL copied successfully!");
   const notifyWarn = () =>
     toast.error("This channel is already available in your playlist!");
@@ -105,4 +109,4 @@ const Listing = ({ item, channel, setChannel }) => {
   );
 };
 
-export default Listing;
+export default ChannelsList;

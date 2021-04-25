@@ -1,17 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Modal, Button } from "react-bootstrap";
-import CollapseBox from "./CollapseBox";
-import Icon from "./Icon";
 import { FaSatelliteDish } from "react-icons/fa";
+import MenuContext from "../context/MenuContext";
+import ChannelsContext from "../context/ChannelsContext";
+import ChannelsBox from "./ChannelsBox";
 
-const Popup = ({
-  urls,
-  show,
-  setShow,
-  channel,
-  setChannel,
-  handleClearStorage,
-}) => {
+const Channels = () => {
+  const { channel, handleClearStorage } = useContext(MenuContext);
+  const { show, setShow } = useContext(ChannelsContext);
+  const { urls } = channel;
   const handleClose = () => setShow(false);
   return (
     <Modal show={show} onHide={handleClose}>
@@ -19,18 +16,16 @@ const Popup = ({
         className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center border-0"
         closeButton
       >
-        <Modal.Title>
-          <Icon>
-            <FaSatelliteDish />
-            <span className="ml-3">Live Channels</span>
-          </Icon>
+        <Modal.Title className="d-flex justify-content-center align-items-center">
+          <FaSatelliteDish />
+          <span className="ml-3">Live Channels</span>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="bg-dark text-white p-0 rounded-0">
         {urls.length === 0 ? (
           <p className="pt-3 px-3">Loading Channels...</p>
         ) : (
-          <CollapseBox urls={urls} channel={channel} setChannel={setChannel} />
+          <ChannelsBox />
         )}
       </Modal.Body>
       <Modal.Footer className="rounded-0 bg-dark border-top border-secondary">
@@ -45,4 +40,4 @@ const Popup = ({
   );
 };
 
-export default Popup;
+export default Channels;

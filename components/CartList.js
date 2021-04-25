@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ButtonGroup, Button, Table } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FaRegCopy, FaPlay } from "react-icons/fa";
 import { isBrowser, isMobile } from "react-device-detect";
 import { ToastContainer, toast } from "react-toastify";
+import MenuContext from "../context/MenuContext";
+import PlaylistContext from "../context/PlaylistContext";
 
-const CartList = ({ playlist, channel, setChannel }) => {
+const CartList = () => {
+  const { channel, setChannel } = useContext(MenuContext);
+  const { playlist } = useContext(PlaylistContext);
   const notify = () => toast.dark("Channel link copied successfully!");
   const handlePlay = (currentUrl) => {
     if (isBrowser) {
