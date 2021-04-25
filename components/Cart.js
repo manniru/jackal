@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
-import PlaylistContext from "../context/PlaylistContext";
+import MyPlaylistContext from "../context/MyPlaylistContext";
 import CartList from "./CartList";
+import MyPlaylist from "../modals/MyPlaylist";
 
 const Cart = () => {
   let playlist =
@@ -13,7 +14,7 @@ const Cart = () => {
   useEffect(() => {
     setCart(localStorage.getItem("playlist"));
   }, [playlist]);
-  const myPlaylist = playlist ? (
+  const playlistComponent = playlist ? (
     <CartList />
   ) : (
     <p className="p-3 text-white">
@@ -37,31 +38,17 @@ const Cart = () => {
       >
         <FaShoppingCart />
       </Button>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header
-          closeButton
-          className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center border-0"
-        >
-          <Modal.Title>My Playlist</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="p-0 bg-dark border-top border-secondary">
-          <PlaylistContext.Provider
-            value={{
-              playlist,
-            }}
-          >
-            {myPlaylist}
-          </PlaylistContext.Provider>
-        </Modal.Body>
-        <Modal.Footer className="rounded-0 bg-dark border-top border-secondary">
-          <Button variant="danger" onClick={handleClear}>
-            Clear
-          </Button>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <MyPlaylistContext.Provider
+        value={{
+          show,
+          playlist,
+          playlistComponent,
+          handleClose,
+          handleClear,
+        }}
+      >
+        <MyPlaylist />
+      </MyPlaylistContext.Provider>
     </>
   );
 };

@@ -12,7 +12,7 @@ import { isBrowser, isMobile } from "react-device-detect";
 import MenuContext from "../context/MenuContext";
 import ChannelsContext from "../context/ChannelsContext";
 import Cart from "./Cart";
-import Channels from "./Channels";
+import Channels from "../modals/Channels";
 
 const Menu = () => {
   const { channel, setChannel } = useContext(MenuContext);

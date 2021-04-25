@@ -3,7 +3,7 @@ import { Modal, Button } from "react-bootstrap";
 import { FaSatelliteDish } from "react-icons/fa";
 import MenuContext from "../context/MenuContext";
 import ChannelsContext from "../context/ChannelsContext";
-import ChannelsBox from "./ChannelsBox";
+import ChannelsBox from "../components/ChannelsBox";
 
 const Channels = () => {
   const { channel, handleClearStorage } = useContext(MenuContext);

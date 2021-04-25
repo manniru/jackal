@@ -5,11 +5,11 @@ import { FaRegCopy, FaPlay } from "react-icons/fa";
 import { isBrowser, isMobile } from "react-device-detect";
 import { ToastContainer, toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
-import PlaylistContext from "../context/PlaylistContext";
+import MyPlaylistContext from "../context/MyPlaylistContext";
 
 const CartList = () => {
   const { channel, setChannel } = useContext(MenuContext);
-  const { playlist } = useContext(PlaylistContext);
+  const { playlist } = useContext(MyPlaylistContext);
   const notify = () => toast.dark("Channel link copied successfully!");
   const handlePlay = (currentUrl) => {
     if (isBrowser) {
