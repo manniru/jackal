@@ -73,13 +73,13 @@ const ChannelsList = () => {
             return (
               <tr key={id} className={ban ? "bg-danger bg-danger--css" : ""}>
                 <td
-                  className="text-wrap vm h-100"
+                  className="text-wrap h-100"
                   style={{ background: isHTTP ? "orange" : "green" }}
                 >
                   {++id}
                 </td>
-                <td className="text-wrap vm h-100">{title}</td>
-                <td className="text-wrap vm">
+                <td className="text-wrap h-100">{title}</td>
+                <td className="text-wrap">
                   <div className="d-flex align-items-center">
                     <ButtonGroup>
                       <Button variant="success" onClick={() => handlePlay(url)}>

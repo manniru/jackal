@@ -62,7 +62,7 @@ const ChannelsBox = () => {
                     {content.length}
                   </Badge>
                   <div className="mx-3 w-100 d-flex justify-content-between align-items-center">
-                    <span className="channel-title d-flex align-items-center">
+                    <span className="title d-flex align-items-center">
                       {code !== null ? (
                         <ReactCountryFlag
                           className="mr-2"

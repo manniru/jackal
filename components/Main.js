@@ -79,7 +79,7 @@ const Main = () => {
             >
               Need assistance?
             </Button>
-            <nav className="site-footer position-fixed d-flex justify-content-center align-items-center">
+            <nav className="footer position-fixed d-flex justify-content-center align-items-center">
               <span className="d-flex align-items-center">
                 Follow Jackal on
                 <a
@@ -109,6 +109,8 @@ const Main = () => {
           controls
           url={url}
           onError={(e) => banTV(e, url)}
+          width="inherit"
+          height="inherit"
         />
       )}
       <ToastContainer />
