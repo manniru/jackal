@@ -11,7 +11,8 @@ import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup, Modal } from "react-bootstrap";
 // import Version from "./Version";
 
-const Player = ({ url }) => {
+const Player = ({ channel, banTV }) => {
+  const { url } = channel;
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -309,7 +310,13 @@ const Player = ({ url }) => {
           </div>
         </div>
       ) : (
-        <ReactPlayer className="app" playing controls url={url} />
+        <ReactPlayer
+          className="app"
+          playing
+          controls
+          url={url}
+          onError={() => banTV(url)}
+        />
       )}
     </>
   );

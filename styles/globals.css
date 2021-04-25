@@ -45,6 +45,11 @@ a:focus {
   background: black;
 }
 
+.bg-danger--css {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 .vm {
   vertical-align: middle !important;
 }

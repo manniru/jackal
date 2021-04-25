@@ -57,10 +57,10 @@ const Listing = ({ item, channel, setChannel }) => {
       </thead>
       <tbody>
         {item.map((j, id) => {
-          const { title, url } = j;
+          const { title, url, ban } = j;
           const isHTTP = url && url.includes("http://") ? true : false;
           return (
-            <tr key={id}>
+            <tr key={id} className={ban ? "bg-danger bg-danger--css" : ""}>
               <td
                 className="text-wrap vm h-100"
                 style={{ background: isHTTP ? "orange" : "green" }}
