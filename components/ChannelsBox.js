@@ -12,21 +12,21 @@ const ChannelsBox = () => {
   const [show, setShow] = useState(null);
   const edgeFlags = (country) => {
     if (country === "Gambia")
-      return <ReactCountryFlag className="mr-2" svg countryCode="gm" />;
+      return <ReactCountryFlag className="w-100" svg countryCode="gm" />;
     if (country === "Bahamas")
-      return <ReactCountryFlag className="mr-2" svg countryCode="bs" />;
+      return <ReactCountryFlag className="w-100" svg countryCode="bs" />;
     if (country === "Ivory Coast")
-      return <ReactCountryFlag className="mr-2" svg countryCode="ie" />;
+      return <ReactCountryFlag className="w-100" svg countryCode="ie" />;
     if (country === "Kosovo")
-      return <ReactCountryFlag className="mr-2" svg countryCode="xk" />;
+      return <ReactCountryFlag className="w-100" svg countryCode="xk" />;
     if (country === "Myanmar")
-      return <ReactCountryFlag className="mr-2" svg countryCode="mm" />;
+      return <ReactCountryFlag className="w-100" svg countryCode="mm" />;
     if (country === "Palestine")
-      return <ReactCountryFlag className="mr-2" svg countryCode="ps" />;
+      return <ReactCountryFlag className="w-100" svg countryCode="ps" />;
     if (country === "Vatican City")
-      return <ReactCountryFlag className="mr-2" svg countryCode="va" />;
+      return <ReactCountryFlag className="w-100" svg countryCode="va" />;
     if (country === "Virgin Islands of the United States")
-      return <ReactCountryFlag className="mr-2" svg countryCode="vi" />;
+      return <ReactCountryFlag className="w-100" svg countryCode="vi" />;
     return null;
   };
   return (
@@ -45,7 +45,9 @@ const ChannelsBox = () => {
         return (
           <Card key={id} className="rounded-0 border-0 shadow-lg">
             <Accordion.Toggle
-              className="bg-dark p-0"
+              className={`bg-dark p-0 d-flex align-items-center ${
+                show === id ? "bg-black" : ""
+              }`}
               variant="dark"
               as={Card.Header}
               eventKey={id}
@@ -53,26 +55,24 @@ const ChannelsBox = () => {
               onClick={(e) => handleClick(e, id)}
             >
               {content.length !== 0 ? (
-                <div
-                  className={`d-flex align-items-center ${
-                    show === id ? "bg-black" : ""
-                  }`}
-                >
-                  <Badge variant="secondary" className="p-3 rounded-0 badge">
-                    {content.length}
+                <>
+                  <Badge variant="secondary" className="badge">
+                    <div>
+                      <span>{content.length}</span>
+                    </div>
+                    {code !== null ? (
+                      <ReactCountryFlag
+                        className="w-100"
+                        svg
+                        countryCode={code.iso2}
+                      />
+                    ) : (
+                      edgeFlags(content[0].country)
+                    )}
                   </Badge>
                   <div className="mx-3 w-100 d-flex justify-content-between align-items-center">
                     <span className="title d-flex align-items-center">
-                      {code !== null ? (
-                        <ReactCountryFlag
-                          className="mr-2"
-                          svg
-                          countryCode={code.iso2}
-                        />
-                      ) : (
-                        edgeFlags(content[0].country)
-                      )}
-                      <span>{content[0].country}</span>
+                      {content[0].country}
                     </span>
                     {show === id ? (
                       <FaChevronUp style={{ fill: "#888" }} />
@@ -80,7 +80,7 @@ const ChannelsBox = () => {
                       <FaChevronDown style={{ fill: "#888" }} />
                     )}
                   </div>
-                </div>
+                </>
               ) : (
                 "Undefined"
               )}

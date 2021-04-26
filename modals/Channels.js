@@ -21,7 +21,7 @@ const Channels = () => {
           <span className="ml-3">Live Channels</span>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body className="bg-dark text-white p-0 rounded-0">
+      <Modal.Body className="bg-dark text-white p-0 rounded-0 border-top border-secondary">
         {urls.length === 0 ? (
           <p className="pt-3 px-3">Loading Channels...</p>
         ) : (
