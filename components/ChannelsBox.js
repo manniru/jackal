@@ -57,9 +57,7 @@ const ChannelsBox = () => {
               {content.length !== 0 ? (
                 <>
                   <Badge variant="secondary" className="badge">
-                    <div>
-                      <span>{content.length}</span>
-                    </div>
+                    <div>{content.length}</div>
                     {code !== null ? (
                       <ReactCountryFlag
                         className="w-100"

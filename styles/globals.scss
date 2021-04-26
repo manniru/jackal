@@ -74,7 +74,15 @@ aside {
   border-radius: 0;
   display: block;
   padding: 1.9rem 1rem;
-  div,
+  div {
+    font-size: 0.9rem;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    padding: 5px 8px;
+    background: rgba(0, 0, 0, 0.8);
+  }
   img {
     position: absolute;
     top: 0;
@@ -82,26 +90,9 @@ aside {
     right: 0;
     bottom: 0;
     width: inherit;
-    content: "";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  div {
-    span {
-      font-size: 0.9rem;
-      position: absolute;
-      z-index: 3;
-      right: 0;
-      bottom: 0;
-      padding: 5px 8px;
-      background: rgba(0, 0, 0, 0.8);
-    }
-  }
-  img {
+    height: 100% !important;
     z-index: 1;
     object-fit: cover;
-    height: 100% !important;
   }
 }
 
