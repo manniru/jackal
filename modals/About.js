@@ -5,6 +5,7 @@ import {
   FaPlayCircle,
   FaShoppingCart,
 } from "react-icons/fa";
+import { MdHelp } from "react-icons/md";
 import { BsArrowsFullscreen } from "react-icons/bs";
 import { Button, ListGroup, Modal } from "react-bootstrap";
 import MenuContext from "../context/MenuContext";
@@ -20,7 +21,10 @@ const About = () => {
         closeButton
         className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center border-0 shadow-lg modal-header"
       >
-        <Modal.Title>FAQs</Modal.Title>
+        <Modal.Title className="d-flex justify-content-center align-items-center">
+          <MdHelp />
+          <span className="ml-3">FAQs</span>
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body className="p-0 bg-dark border-top border-secondary">
         <ListGroup variant="flush">

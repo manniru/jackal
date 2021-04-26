@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { BiUserCircle } from "react-icons/bi";
 import { Button, Modal } from "react-bootstrap";
 import MyPlaylistContext from "../context/MyPlaylistContext";
 
@@ -12,7 +13,10 @@ const MyPlaylist = () => {
         closeButton
         className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center border-0"
       >
-        <Modal.Title>My Playlist</Modal.Title>
+        <Modal.Title className="d-flex justify-content-center align-items-center">
+          <BiUserCircle />
+          <span className="ml-3">My Playlist</span>
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body className="p-0 bg-dark border-top border-secondary">
         {playlistComponent}
