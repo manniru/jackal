@@ -7,11 +7,11 @@ import ChannelsBox from "../components/ChannelsBox";
 
 const Channels = () => {
   const { channel, handleClearStorage } = useContext(MenuContext);
-  const { show, setShow } = useContext(ChannelsContext);
+  const { showList, setShowList } = useContext(ChannelsContext);
   const { urls } = channel;
-  const handleClose = () => setShow(false);
+  const handleClose = () => setShowList(false);
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={showList} onHide={handleClose}>
       <Modal.Header
         className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center border-0"
         closeButton

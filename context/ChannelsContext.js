@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
 const ChannelsContext = createContext({
-  show: true,
-  setShow: () => {},
+  showList: true,
+  setShowList: () => {},
 });
 
 export default ChannelsContext;

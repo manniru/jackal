@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
 const AboutContext = createContext({
-  show: true,
-  setShow: () => {},
+  showFaq: true,
+  setShowFaq: () => {},
 });
 
 export default AboutContext;

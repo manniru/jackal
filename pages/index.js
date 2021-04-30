@@ -1,9 +1,10 @@
 import Head from "next/head";
 import React, { useState } from "react";
 import lookup from "country-code-lookup";
-import AppContext from "../context/MenuContext";
+import MenuContext from "../context/MenuContext";
 import Menu from "../components/Menu";
 import Main from "../components/Main";
+import { ToastContainer } from "react-toastify";
 
 export default function Home({ listing }) {
   let localListing = [];
@@ -15,11 +16,14 @@ export default function Home({ listing }) {
       localListing = JSON.parse(localStorage.getItem("listing"));
     }
   }
+  const [showFaq, setShowFaq] = useState(false);
+  const handleShowFaq = () => setShowFaq(true);
+  const [showList, setShowList] = useState(false);
+  const handleShowList = () => setShowList(true);
   const [channel, setChannel] = useState({
     url: null,
     urls: localListing,
     keyword: "",
-    toggle: false,
   });
   const handleClearStorage = (e) => {
     e.preventDefault();
@@ -44,16 +48,23 @@ export default function Home({ listing }) {
         <meta name="language" content="English" />
         <title>Jackal</title>
       </Head>
-      <AppContext.Provider
+      <MenuContext.Provider
         value={{
           channel,
           setChannel,
           handleClearStorage,
+          showFaq,
+          setShowFaq,
+          handleShowFaq,
+          showList,
+          setShowList,
+          handleShowList,
         }}
       >
         <Menu />
         <Main />
-      </AppContext.Provider>
+      </MenuContext.Provider>
+      <ToastContainer />
     </>
   );
 }

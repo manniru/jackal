@@ -1,22 +1,17 @@
 import React, { useContext } from "react";
-import {
-  FaHeart,
-  FaListUl,
-  FaPlayCircle,
-  FaShoppingCart,
-} from "react-icons/fa";
+import { FaHeart, FaSatelliteDish, FaPlayCircle } from "react-icons/fa";
 import { MdHelp } from "react-icons/md";
-import { BsArrowsFullscreen } from "react-icons/bs";
+import { BiUserCircle } from "react-icons/bi";
 import { Button, ListGroup, Modal } from "react-bootstrap";
 import MenuContext from "../context/MenuContext";
 import AboutContext from "../context/AboutContext";
 
 const About = () => {
   const { handleClearStorage } = useContext(MenuContext);
-  const { show, setShow } = useContext(AboutContext);
-  const handleClose = () => setShow(false);
+  const { showFaq, setShowFaq } = useContext(AboutContext);
+  const handleClose = () => setShowFaq(false);
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={showFaq} onHide={handleClose}>
       <Modal.Header
         closeButton
         className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center border-0 shadow-lg modal-header"
@@ -147,7 +142,7 @@ const About = () => {
           <ListGroup.Item className="bg-dark text-white text-left">
             See available channels by pressing{" "}
             <span className="mx-1">
-              <FaListUl />
+              <FaSatelliteDish />
             </span>{" "}
             button.
           </ListGroup.Item>
@@ -159,20 +154,13 @@ const About = () => {
             button.
           </ListGroup.Item>
           <ListGroup.Item className="bg-dark text-white text-left">
-            View live stream in theatre mode by pressing{" "}
-            <span className="mx-1">
-              <BsArrowsFullscreen />
-            </span>{" "}
-            button.
-          </ListGroup.Item>
-          <ListGroup.Item className="bg-dark text-white text-left">
             Save your favorite channels on your device by pressing{" "}
             <span className="mx-1">
               <FaHeart />
             </span>{" "}
             button. View your liked channels by pressing{" "}
             <span className="mx-1">
-              <FaShoppingCart />
+              <BiUserCircle />
             </span>{" "}
             button.
           </ListGroup.Item>

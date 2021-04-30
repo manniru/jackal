@@ -1,24 +1,29 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import ReactPlayer from "react-player";
 import { FaTwitter } from "react-icons/fa";
-import { Button } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
 import AboutContext from "../context/AboutContext";
 import About from "../modals/About";
 
 const Main = () => {
-  const { channel, setChannel } = useContext(MenuContext);
-  const [show, setShow] = useState(false);
+  const { channel, setChannel, showFaq, setShowFaq } = useContext(MenuContext);
   const { url, urls } = channel;
-  const handleShow = () => setShow(true);
   const notifyOkay = () =>
     toast.success(
-      "This live stream seems healthy. It will start playing in few seconds."
+      "This live stream seems healthy. It will start playing in few seconds.",
+      {
+        autoClose: 2000,
+        pauseOnHover: false,
+      }
     );
   const notifyWarn = () =>
     toast.error(
-      "This live stream is either broken or outdated. We are so sorry for this."
+      "This live stream is either broken or outdated. We are so sorry for this.",
+      {
+        autoClose: 2000,
+        pauseOnHover: false,
+      }
     );
   const changeTV = (e, tv, decision) => {
     if (decision && e.type === "error") {
@@ -72,13 +77,6 @@ const Main = () => {
                 and family...
               </em>
             </h3>
-            <Button
-              variant="outline-light"
-              className="mb-3"
-              onClick={handleShow}
-            >
-              Need assistance?
-            </Button>
             <nav className="footer position-fixed d-flex justify-content-center align-items-center">
               <span className="d-flex align-items-center">
                 Follow Jackal on
@@ -92,14 +90,6 @@ const Main = () => {
                 </a>
               </span>
             </nav>
-            <AboutContext.Provider
-              value={{
-                show,
-                setShow,
-              }}
-            >
-              <About />
-            </AboutContext.Provider>
           </div>
         </div>
       ) : (
@@ -113,7 +103,14 @@ const Main = () => {
           height="inherit"
         />
       )}
-      <ToastContainer />
+      <AboutContext.Provider
+        value={{
+          showFaq,
+          setShowFaq,
+        }}
+      >
+        <About />
+      </AboutContext.Provider>
     </>
   );
 };

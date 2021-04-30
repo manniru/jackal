@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { FaShoppingCart } from "react-icons/fa";
+import { BiUserCircle } from "react-icons/bi";
 import MyPlaylistContext from "../context/MyPlaylistContext";
 import CartList from "./CartList";
 import MyPlaylist from "../modals/MyPlaylist";
 
 const Cart = () => {
+  let myCart = "";
   let playlist =
     typeof localStorage === "undefined"
       ? false
       : localStorage.getItem("playlist");
-  const [cart, setCart] = useState(null);
+  const [cart, setCart] = useState(false);
   useEffect(() => {
     setCart(localStorage.getItem("playlist"));
-  }, [playlist]);
+    myCart = cart ? "" : "disabled";
+  }, [playlist, myCart]);
   const playlistComponent = playlist ? (
     <CartList />
   ) : (
@@ -31,12 +33,8 @@ const Cart = () => {
   };
   return (
     <>
-      <Button
-        variant="outline-light"
-        onClick={handleShow}
-        disabled={cart ? "" : "disabled"}
-      >
-        <FaShoppingCart />
+      <Button variant="outline-light" onClick={handleShow} disabled={myCart}>
+        <BiUserCircle />
       </Button>
       <MyPlaylistContext.Provider
         value={{
