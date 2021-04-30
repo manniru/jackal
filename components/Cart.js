@@ -6,16 +6,14 @@ import CartList from "./CartList";
 import MyPlaylist from "../modals/MyPlaylist";
 
 const Cart = () => {
-  let myCart = "";
   let playlist =
     typeof localStorage === "undefined"
       ? false
       : localStorage.getItem("playlist");
-  const [cart, setCart] = useState(false);
+  const [cart, setCart] = useState(null);
   useEffect(() => {
     setCart(localStorage.getItem("playlist"));
-    myCart = cart ? "" : "disabled";
-  }, [playlist, myCart]);
+  }, [playlist]);
   const playlistComponent = playlist ? (
     <CartList />
   ) : (
@@ -24,6 +22,7 @@ const Cart = () => {
       Heart next to the channels.
     </p>
   );
+  const myCart = cart ? "" : "disabled";
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
