@@ -2,22 +2,29 @@
 
 Watch live TV channels from across the globe with your friends and family...
 
-We use open source data provided by [IPTV](https://github.com/iptv-org/iptv) and truncate explicit data so you can stream and watch channels with general purpose content.
+It is an open source project that uses dataset provided by [IPTV](https://github.com/iptv-org/iptv) and truncate explicit data so streams are suitable as general purpose content for viewers.
+
+## Shoutouts
+
+Jackal is proud to pass and score 100 in each of Google's Lightbox tests. As Jackal is hosted on Surge, some metrics that ask for HTTP lowers the score from 100 to 93.
+
+How did I achieve that?
+
+- Cut CSS framework (previously, I used React bootstrap which added on lot of overhead like jQuery, Popper, Bootstrap etc.)
+- Cut unique dependencies and look for minute plugins. Site reqiures accordion for data presentation so it was dependent on Bootstrap. After careful review of source code, I managed to get rid of Bootstrap with help from react-accessible-accordion plugin.
+- Focus on accessibility, semantic markup that offers best SEO practices
+- Cut down on external media if possible (any large background banners etc.)
+- Cut down on external or google fonts
+- Investigate server side code to cut down Javascript usage. Jackal has quite a code to parse dataset from IPTV's repository. After investigation, I found that every page load, refresh or render triggers server to make those calls to IPTV repository and parse entire dataset. I managed to use ncookies plugin and put in check via cookies and localStorage to test if data was parsed successfully, unload any server request. It helped in making user experience more snappier.
 
 ## Features
 
 - Jackal is built using NextJS and React
-- It uses React Icons for web icons
-- It uses React player to handle player related code
-- Hosted on Surge so we can leverage HTTP based deployment service for seamless live streams
+- Hosted on Surge so it can run HTTP based streams for seamless user experience
 
 ## Addons
 
 - Please use Google Chrome browser using PC/Laptop to cast live streams to your TV via Chromecast
-
-## Note
-
-- Some live streams use HTTP packet (in order to view them, use this URL: [http://jackal.surge.sh](http://jackal.surge.sh)). For example, under Vietnam list, channel number 1 uses HTTP.
 
 ## Issues
 
