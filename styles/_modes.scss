@@ -49,18 +49,24 @@ a {
   }
 }
 
-table {
-  thead {
+.table {
+  .thead {
     background: $darker__;
   }
-  tbody {
+  .tbody {
     background: $darkest__;
   }
   th {
-    border-color: $darker__;
+    border-color: $dark__;
+    &:last-child {
+      border-color: $dark__;
+    }
   }
   td {
     border-color: $dark__;
+    &:last-child {
+      border-color: $dark__;
+    }
   }
   .light & {
     thead {
@@ -70,10 +76,16 @@ table {
       background: $darkest;
     }
     th {
-      border-color: $darker;
+      border-color: $dark;
+      &:last-child {
+        border-color: $dark;
+      }
     }
     td {
       border-color: $dark;
+      &:last-child {
+        border-color: $dark;
+      }
     }
   }
 }

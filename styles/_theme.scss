@@ -16,13 +16,19 @@ table {
   width: 100%;
   border-collapse: collapse;
   th {
-    border: solid 1px;
     word-break: break-word;
     text-align: left;
     font-weight: normal;
+    &:last-child {
+      border-left: solid 1px;
+    }
   }
   td {
-    border: solid 1px;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+    &:last-child {
+      border-left: solid 1px;
+    }
   }
   th,
   td {
@@ -32,11 +38,11 @@ table {
       padding: 0.5rem 1rem;
     }
   }
-  //   tr:last-child {
-  //     td {
-  //       border-bottom: 0;
-  //     }
-  //   }
+  tr:last-child {
+    td {
+      border-bottom: 0;
+    }
+  }
   button {
     margin-right: 0.5rem;
   }
@@ -95,6 +101,9 @@ table {
   }
   &__btn {
     margin-left: 0.5rem;
+    &--hide {
+      display: none;
+    }
   }
 }
 
@@ -152,8 +161,11 @@ table {
 .accordion {
   &__item {
     border-top: 1px solid;
+    &:first-child {
+      border-top: 0;
+    }
     .active {
-      border-bottom: 1px solid;
+      border-bottom: 1px solid transparent;
     }
     .accordion__panel {
       padding: 0;

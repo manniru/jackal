@@ -33,9 +33,8 @@ const Cart = () => {
   return (
     <>
       <button
-        className="nav__btn"
+        className={`nav__btn ${myCart ? "nav__btn--hide" : ""}`}
         onClick={handleShow}
-        disabled={myCart}
         aria-label="My playlist"
       >
         Likes

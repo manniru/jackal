@@ -59,8 +59,8 @@ const ChannelsList = () => {
     }
   };
   return (
-    <table>
-      <thead>
+    <table className="table">
+      <thead className="thead">
         <tr>
           <th>Channel</th>
           <th>
@@ -75,7 +75,7 @@ const ChannelsList = () => {
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="tbody">
         {item.map((j, id) => {
           const { title, url, ban } = j;
           const isHTTP = url && url.includes("http://") ? true : false;

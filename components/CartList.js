@@ -26,8 +26,8 @@ const CartList = () => {
     }
   };
   return (
-    <table>
-      <thead>
+    <table className="table">
+      <thead className="thead">
         <tr>
           <th>
             <strong>Channel</strong>
@@ -43,7 +43,7 @@ const CartList = () => {
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="tbody">
         {JSON.parse(playlist).map((j, id) => {
           const { title, url, ban } = j;
           const isHTTP = url && url.includes("http://") ? true : false;
