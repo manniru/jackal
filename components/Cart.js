@@ -22,7 +22,7 @@ const Cart = () => {
       Heart next to the channels.
     </p>
   );
-  const myCart = cart ? "" : "disabled";
+  const myCart = cart ? false : true;
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
