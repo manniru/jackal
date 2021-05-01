@@ -1,6 +1,12 @@
+import "react-accessible-accordion/dist/fancy-example.css";
 import React, { useState, useContext } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { Card, Accordion, Badge } from "react-bootstrap";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from "react-accessible-accordion";
 import ReactCountryFlag from "react-country-flag";
 import MenuContext from "../context/MenuContext";
 import ChannelsListContext from "../context/ChannelsListContext";
@@ -12,25 +18,73 @@ const ChannelsBox = () => {
   const [show, setShow] = useState(null);
   const edgeFlags = (country) => {
     if (country === "Gambia")
-      return <ReactCountryFlag className="w-100" svg countryCode="gm" />;
+      return (
+        <ReactCountryFlag
+          className="accordion__flag__img"
+          svg
+          countryCode="gm"
+        />
+      );
     if (country === "Bahamas")
-      return <ReactCountryFlag className="w-100" svg countryCode="bs" />;
+      return (
+        <ReactCountryFlag
+          className="accordion__flag__img"
+          svg
+          countryCode="bs"
+        />
+      );
     if (country === "Ivory Coast")
-      return <ReactCountryFlag className="w-100" svg countryCode="ie" />;
+      return (
+        <ReactCountryFlag
+          className="accordion__flag__img"
+          svg
+          countryCode="ie"
+        />
+      );
     if (country === "Kosovo")
-      return <ReactCountryFlag className="w-100" svg countryCode="xk" />;
+      return (
+        <ReactCountryFlag
+          className="accordion__flag__img"
+          svg
+          countryCode="xk"
+        />
+      );
     if (country === "Myanmar")
-      return <ReactCountryFlag className="w-100" svg countryCode="mm" />;
+      return (
+        <ReactCountryFlag
+          className="accordion__flag__img"
+          svg
+          countryCode="mm"
+        />
+      );
     if (country === "Palestine")
-      return <ReactCountryFlag className="w-100" svg countryCode="ps" />;
+      return (
+        <ReactCountryFlag
+          className="accordion__flag__img"
+          svg
+          countryCode="ps"
+        />
+      );
     if (country === "Vatican City")
-      return <ReactCountryFlag className="w-100" svg countryCode="va" />;
+      return (
+        <ReactCountryFlag
+          className="accordion__flag__img"
+          svg
+          countryCode="va"
+        />
+      );
     if (country === "Virgin Islands of the United States")
-      return <ReactCountryFlag className="w-100" svg countryCode="vi" />;
+      return (
+        <ReactCountryFlag
+          className="accordion__flag__img"
+          svg
+          countryCode="vi"
+        />
+      );
     return null;
   };
   return (
-    <Accordion className="rounded-0">
+    <Accordion>
       {urls.map(({ content, id, code }) => {
         const handleClick = (e, id) => {
           const key = e.currentTarget.dataset.key
@@ -43,63 +97,54 @@ const ChannelsBox = () => {
           }
         };
         return (
-          <Card key={id} className="rounded-0 border-0 shadow-lg">
-            <Accordion.Toggle
-              className={`bg-dark p-0 d-flex align-items-center ${
-                show === id ? "bg-black" : ""
-              }`}
-              variant="dark"
-              as={Card.Header}
+          <AccordionItem key={id}>
+            <AccordionItemHeading
+              className={`${show === id ? "active" : ""}`}
               eventKey={id}
               data-key={id}
               onClick={(e) => handleClick(e, id)}
             >
               {content.length !== 0 ? (
-                <>
-                  <Badge variant="secondary" className="badge">
-                    <div>{content.length}</div>
-                    {code !== null ? (
-                      <ReactCountryFlag
-                        className="w-100"
-                        svg
-                        countryCode={code.iso2}
-                      />
-                    ) : (
-                      edgeFlags(content[0].country)
-                    )}
-                  </Badge>
-                  <div className="mx-3 w-100 d-flex justify-content-between align-items-center">
-                    <span className="title d-flex align-items-center">
+                <AccordionItemButton>
+                  <div className="accordion__details">
+                    <div className="accordion__country">
                       {content[0].country}
-                    </span>
-                    {show === id ? (
-                      <FaChevronUp style={{ fill: "#888" }} />
-                    ) : (
-                      <FaChevronDown style={{ fill: "#888" }} />
-                    )}
+                    </div>
+                    <div className="accordion__data">
+                      <div className="accordion__flag">
+                        {code !== null ? (
+                          <ReactCountryFlag
+                            className="accordion__flag__img"
+                            svg
+                            countryCode={code.iso2}
+                          />
+                        ) : (
+                          edgeFlags(content[0].country)
+                        )}
+                      </div>
+                      <div className="accordion__content">{content.length}</div>
+                    </div>
                   </div>
-                </>
+                </AccordionItemButton>
               ) : (
                 "Undefined"
               )}
-            </Accordion.Toggle>
+            </AccordionItemHeading>
             {show === id ? (
-              <Accordion.Collapse
+              <AccordionItemPanel
                 eventKey={id}
                 children={
-                  <Card.Body className="bg-dark p-0">
-                    <ChannelsListContext.Provider
-                      value={{
-                        item: content,
-                      }}
-                    >
-                      <ChannelsList />
-                    </ChannelsListContext.Provider>
-                  </Card.Body>
+                  <ChannelsListContext.Provider
+                    value={{
+                      item: content,
+                    }}
+                  >
+                    <ChannelsList />
+                  </ChannelsListContext.Provider>
                 }
               />
             ) : null}
-          </Card>
+          </AccordionItem>
         );
       })}
     </Accordion>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
 import { BiUserCircle } from "react-icons/bi";
+import { destroyCookie } from "nookies";
 import MyPlaylistContext from "../context/MyPlaylistContext";
 import CartList from "./CartList";
 import MyPlaylist from "../modals/MyPlaylist";
@@ -17,7 +17,7 @@ const Cart = () => {
   const playlistComponent = playlist ? (
     <CartList />
   ) : (
-    <p className="p-3 text-white">
+    <p className="empty-cart">
       Your playlist is empty. Please add your favorite channels here by pressing
       Heart next to the channels.
     </p>
@@ -28,13 +28,19 @@ const Cart = () => {
   const handleShow = () => setShow(true);
   const handleClear = () => {
     localStorage.removeItem("playlist");
+    destroyCookie(null, "goodCall");
     setCart(false);
   };
   return (
     <>
-      <Button variant="outline-light" onClick={handleShow} disabled={myCart}>
+      <button
+        className="nav__btn"
+        onClick={handleShow}
+        disabled={myCart}
+        aria-label="My playlist"
+      >
         <BiUserCircle />
-      </Button>
+      </button>
       <MyPlaylistContext.Provider
         value={{
           show,

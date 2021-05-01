@@ -2,34 +2,45 @@ import React, { useContext } from "react";
 import { FaHeart, FaSatelliteDish, FaPlayCircle } from "react-icons/fa";
 import { MdHelp } from "react-icons/md";
 import { BiUserCircle } from "react-icons/bi";
-import { Button, ListGroup, Modal } from "react-bootstrap";
+import Modal from "react-modal";
 import MenuContext from "../context/MenuContext";
 import AboutContext from "../context/AboutContext";
+
+Modal.setAppElement("#about");
 
 const About = () => {
   const { handleClearStorage } = useContext(MenuContext);
   const { showFaq, setShowFaq } = useContext(AboutContext);
   const handleClose = () => setShowFaq(false);
   return (
-    <Modal show={showFaq} onHide={handleClose}>
-      <Modal.Header
-        closeButton
-        className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center border-0 shadow-lg modal-header"
-      >
-        <Modal.Title className="d-flex justify-content-center align-items-center">
+    <Modal
+      isOpen={showFaq}
+      onRequestClose={handleClose}
+      className="modal"
+      overlayClassName="overlay"
+    >
+      <header className="modal__header">
+        <aside className="modal__aside">
           <MdHelp />
-          <span className="ml-3">FAQs</span>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body className="p-0 bg-dark border-top border-secondary">
-        <ListGroup variant="flush">
-          <ListGroup.Item className="bg-dark text-white text-left bg-warning">
+          <span>FAQs</span>
+        </aside>
+        <footer className="modal__footer">
+          <button onClick={handleClearStorage} aria-label="Refresh">
+            Refresh
+          </button>
+          <button onClick={handleClose} aria-label="Close">
+            Close
+          </button>
+        </footer>
+      </header>
+      <section className="modal__section">
+        <ul className="modal__ul">
+          <li>
             Powered by{" "}
             <a
               href="https://nextjs.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>Next</strong>
             </a>
@@ -38,25 +49,14 @@ const About = () => {
               href="https://reactjs.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>React</strong>
-            </a>
-            ,&nbsp;
-            <a
-              href="https://react-bootstrap.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
-            >
-              <strong>Bootstrap</strong>
             </a>
             . Hosted on&nbsp;
             <a
               href="https://surge.sh/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>Surge</strong>
             </a>
@@ -65,7 +65,6 @@ const About = () => {
               href="https://github.com/tpkahlon/jackal"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>GitHub</strong>
             </a>
@@ -74,7 +73,6 @@ const About = () => {
               href="https://www.npmjs.com/package/country-code-lookup"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>country-code-lookup</strong>
             </a>
@@ -83,7 +81,6 @@ const About = () => {
               href="https://www.npmjs.com/package/react-copy-to-clipboard"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>react-copy-to-clipboard</strong>
             </a>
@@ -92,7 +89,6 @@ const About = () => {
               href="https://www.npmjs.com/package/react-country-flag"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>react-country-flag</strong>
             </a>
@@ -101,7 +97,6 @@ const About = () => {
               href="https://www.npmjs.com/package/react-device-detect"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>react-device-detect</strong>
             </a>
@@ -110,7 +105,6 @@ const About = () => {
               href="https://www.npmjs.com/package/react-icons"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>react-icons</strong>
             </a>
@@ -119,7 +113,6 @@ const About = () => {
               href="https://www.npmjs.com/package/react-player"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>react-player</strong>
             </a>
@@ -128,73 +121,82 @@ const About = () => {
               href="https://www.npmjs.com/package/react-toastify"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-decoration-none text-warning"
             >
               <strong>react-toastify</strong>
             </a>
+            ,&nbsp;
+            <a
+              href="https://www.npmjs.com/package/react-modal"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>react-modal</strong>
+            </a>
+            ,&nbsp;
+            <a
+              href="https://www.npmjs.com/package/react-accessible-accordion"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>react-accessible-accordion</strong>
+            </a>
             &nbsp;libraries.
-          </ListGroup.Item>
-          <ListGroup.Item className="bg-dark text-white text-left">
+          </li>
+          <li>
             The site performs best on iPhone devices. If you are using an
             iPhone, every stream will open in a new tab. We recommend you use
             Safari to view this site on iPhone.
-          </ListGroup.Item>
-          <ListGroup.Item className="bg-dark text-white text-left">
+          </li>
+          <li>
             See available channels by pressing{" "}
-            <span className="mx-1">
+            <span>
               <FaSatelliteDish />
             </span>{" "}
             button.
-          </ListGroup.Item>
-          <ListGroup.Item className="bg-dark text-white text-left">
+          </li>
+          <li>
             Open a live stream by pasting a M3U8 link in the box and hit the{" "}
-            <span className="mx-1">
+            <span>
               <FaPlayCircle />
             </span>{" "}
             button.
-          </ListGroup.Item>
-          <ListGroup.Item className="bg-dark text-white text-left">
+          </li>
+          <li>
             Save your favorite channels on your device by pressing{" "}
-            <span className="mx-1">
+            <span>
               <FaHeart />
             </span>{" "}
             button. View your liked channels by pressing{" "}
-            <span className="mx-1">
+            <span>
               <BiUserCircle />
             </span>{" "}
             button.
-          </ListGroup.Item>
-          <ListGroup.Item className="bg-dark text-white text-left">
-            <em className="d-block">
-              We use localStorage API to store data received from IPTV, in your
-              browser. If you want to remove the local data, please click
-              "Refresh" button below. This step is done to make sure site loads
-              faster on your browser.
-            </em>
-          </ListGroup.Item>
-          <ListGroup.Item className="bg-dark text-white text-left">
-            <small className="d-block mb-2">
+          </li>
+          <li>
+            We use localStorage API to store data received from IPTV, in your
+            browser. If you want to remove the local data, please click
+            "Refresh" button below. This step is done to make sure site loads
+            faster on your browser.
+          </li>
+          <li>
+            <span>
               Inside ID column, orange box means stream comes from a server that
               uses HTTP protocol and green box means stream uses HTTPS protocol.
-            </small>
-            <span className="text-success">
+            </span>
+            <p>
               <strong>Note:</strong> For desktop/laptop users, make sure you
               load site with http protocol instead of https protocol to view
               streams. For example, under Vietnam, channel no. 1 (ANTV) stream
               will work if you load the page{" "}
-              <a
-                href="http://jackal.surge.sh"
-                className="text-decoration-none text-warning"
-              >
+              <a href="http://jackal.surge.sh">
                 <strong>http://jackal.surge.sh</strong>
               </a>{" "}
               rather than <strong>https://jackal.surge.sh</strong>.
-            </span>
-            <span className="mt-2 d-block text-success">
+            </p>
+            <p>
               If a stream does not load, please copy its URL and test it{" "}
               <a
                 href="https://hls-js.netlify.app/demo/"
-                className="text-decoration-none text-warning"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -203,58 +205,36 @@ const About = () => {
               . If it does not load, it can likely work on iPad/iPhone devices
               but may not work on desktop/laptop. In such cases, you may use
               VLC.
-            </span>
-            <span className="mt-2 d-block text-success">
+            </p>
+            <span>
               <strong>Note:</strong> For example, under Vietnam, channel no. 4
               (Bến Tre) stream does not work on desktop/laptop devices but it
               works on iPhone/iOS devices or VLC.
             </span>
-          </ListGroup.Item>
-          <ListGroup.Item className="bg-dark text-white text-left">
+          </li>
+          <li>
             If you have a Chromecast, cast any stream to your TV by using Google
             Chrome browser from your PC/Laptop. Right click on the stream and
             click Cast.
-          </ListGroup.Item>
-          <ListGroup.Item className="bg-dark text-white text-left">
-            <small className="d-block">
-              This application endorses general content only. If you notice any
-              unwanted stream, please report the stream
-              <a
-                href="https://github.com/tpkahlon/jackal/issues"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-decoration-none text-warning"
-              >
-                <strong>&nbsp;here</strong>
-              </a>
-              . Such stream will be taken down immediately. If you notice any
-              bugs, you can report them using the same provided link. No video
-              files are stored in this repository. The repository simply
-              contains user-submitted links to publicly available video stream
-              URLs, which to the best of our knowledge have been intentionally
-              made publicly by the copyright holders. If any links in these
-              playlists infringe on your rights as a copyright holder, they may
-              be removed by sending a pull request or opening an issue. However,
-              note that we have no control over the destination of the link, and
-              just removing the link from the playlist will not remove its
-              contents from the web. Note that linking does not directly
-              infringe copyright because no copy is made on the site providing
-              the link, and thus this is not a valid reason to send a DMCA
-              notice to GitHub. To remove this content from the web, you should
-              contact the web host that's actually hosting the content (not
-              GitHub, nor the maintainers of this repository).
-            </small>
-          </ListGroup.Item>
-        </ListGroup>
-      </Modal.Body>
-      <Modal.Footer className="rounded-0 bg-dark border-top border-secondary">
-        <Button className="mr-2" variant="success" onClick={handleClearStorage}>
-          Refresh
-        </Button>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-      </Modal.Footer>
+          </li>
+          <li>
+            No video files are stored in this repository. The repository simply
+            contains user-submitted links to publicly available video stream
+            URLs, which to the best of our knowledge have been intentionally
+            made publicly by the copyright holders. If any links in these
+            playlists infringe on your rights as a copyright holder, they may be
+            removed by sending a pull request or opening an issue. However, note
+            that we have no control over the destination of the link, and just
+            removing the link from the playlist will not remove its contents
+            from the web. Note that linking does not directly infringe copyright
+            because no copy is made on the site providing the link, and thus
+            this is not a valid reason to send a DMCA notice to GitHub. To
+            remove this content from the web, you should contact the web host
+            that's actually hosting the content (not GitHub, nor the maintainers
+            of this repository).
+          </li>
+        </ul>
+      </section>
     </Modal>
   );
 };

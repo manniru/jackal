@@ -7,7 +7,6 @@ We use open source data provided by [IPTV](https://github.com/iptv-org/iptv) and
 ## Features
 
 - Jackal is built using NextJS and React
-- It uses React Bootstrap for styling
 - It uses React Icons for web icons
 - It uses React player to handle player related code
 - Hosted on Surge so we can leverage HTTP based deployment service for seamless live streams

@@ -64,37 +64,31 @@ const Main = () => {
   };
   const banTV = (e, tv) => changeTV(e, tv, true);
   return (
-    <>
+    <main role="main" className="main">
       {url === null ? (
-        <div className="banner position-relative min-vh-100 d-flex flex-column justify-content-center align-items-center text-white pt-5">
-          <div className="banner__text mx-3 py-3 text-center position-relative mx-auto">
-            <h1 className="m-0 mb-2">
-              <strong>Jackal</strong>
-            </h1>
-            <h3 className="mb-3">
-              <em>
-                Watch live TV channels from across the globe with your friends
-                and family...
-              </em>
-            </h3>
-            <nav className="footer position-fixed d-flex justify-content-center align-items-center">
-              <span className="d-flex align-items-center">
-                Follow Jackal on
-                <a
-                  href="https://twitter.com/jackalislive"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-decoration-none d-flex align-items-center"
-                >
-                  <FaTwitter className="ml-2" />
-                </a>
-              </span>
-            </nav>
-          </div>
+        <div className="main__text">
+          <h1 role="heading">Jackal</h1>
+          <p>
+            <em>
+              Watch live TV channels from across the globe with your friends and
+              family...
+            </em>
+          </p>
+          <p>
+            Follow Jackal on
+            <a
+              href="https://twitter.com/jackalislive"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="main__a"
+              aria-label="Follow our Twitter account for latest updates"
+            >
+              <FaTwitter />
+            </a>
+          </p>
         </div>
       ) : (
         <ReactPlayer
-          className="app"
           playing
           controls
           url={url}
@@ -111,7 +105,7 @@ const Main = () => {
       >
         <About />
       </AboutContext.Provider>
-    </>
+    </main>
   );
 };
 

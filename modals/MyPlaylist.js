@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { BiUserCircle } from "react-icons/bi";
-import { Button, Modal } from "react-bootstrap";
+import Modal from "react-modal";
 import MyPlaylistContext from "../context/MyPlaylistContext";
 
 const MyPlaylist = () => {
@@ -8,27 +8,27 @@ const MyPlaylist = () => {
     MyPlaylistContext
   );
   return (
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Header
-        closeButton
-        className="bg-dark text-white rounded-0 d-flex justify-content-between align-items-center border-0"
-      >
-        <Modal.Title className="d-flex justify-content-center align-items-center">
+    <Modal
+      className="modal"
+      overlayClassName="overlay"
+      isOpen={show}
+      onRequestClose={handleClose}
+    >
+      <header className="modal__header">
+        <aside className="modal__aside">
           <BiUserCircle />
-          <span className="ml-3">My Playlist</span>
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body className="p-0 bg-dark border-top border-secondary">
-        {playlistComponent}
-      </Modal.Body>
-      <Modal.Footer className="rounded-0 bg-dark border-top border-secondary">
-        <Button variant="danger" onClick={handleClear}>
-          Clear
-        </Button>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-      </Modal.Footer>
+          <span>My Playlist</span>
+        </aside>
+        <footer className="modal__footer">
+          <button onClick={handleClear} aria-label="Clear playlist">
+            Clear
+          </button>
+          <button onClick={handleClose} aria-label="Close">
+            Close
+          </button>
+        </footer>
+      </header>
+      <section className="modal__section">{playlistComponent}</section>
     </Modal>
   );
 };

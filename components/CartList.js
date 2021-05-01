@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { ButtonGroup, Button, Table } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { FaRegCopy, FaPlay } from "react-icons/fa";
 import { isBrowser, isMobile } from "react-device-detect";
@@ -28,13 +27,13 @@ const CartList = () => {
     }
   };
   return (
-    <Table variant="dark" striped responsive borderless className="m-0">
+    <table>
       <thead>
         <tr>
-          <td style={{ width: "15%" }}>
+          <td>
             <strong>ID</strong>
           </td>
-          <td style={{ width: "50%" }}>
+          <td>
             <strong>Channel</strong>
           </td>
           <td>
@@ -47,33 +46,28 @@ const CartList = () => {
           const { title, url, ban } = j;
           const isHTTP = url && url.includes("http://") ? true : false;
           return (
-            <tr key={id} className={ban ? "bg-danger bg-danger--css" : ""}>
-              <td
-                className="text-wrap h-100"
-                style={{ background: isHTTP ? "orange" : "green" }}
-              >
-                {++id}
-              </td>
-              <td className="text-wrap h-100">{title}</td>
-              <td className="text-wrap">
-                <div className="d-flex align-items-center">
-                  <ButtonGroup>
-                    <Button variant="success" onClick={() => handlePlay(url)}>
-                      <FaPlay />
-                    </Button>
-                    <CopyToClipboard text={url} onCopy={notify}>
-                      <Button variant="info">
-                        <FaRegCopy />
-                      </Button>
-                    </CopyToClipboard>
-                  </ButtonGroup>
-                </div>
+            <tr key={id} className={ban ? "danger" : ""}>
+              <td className={isHTTP ? "orange" : "green"}>{++id}</td>
+              <td>{title}</td>
+              <td>
+                <button onClick={() => handlePlay(url)} aria-label="Play">
+                  <FaPlay />
+                </button>
+                <CopyToClipboard
+                  text={url}
+                  onCopy={notify}
+                  aria-label="Copy URL"
+                >
+                  <button>
+                    <FaRegCopy />
+                  </button>
+                </CopyToClipboard>
               </td>
             </tr>
           );
         })}
       </tbody>
-    </Table>
+    </table>
   );
 };
 

@@ -1,11 +1,4 @@
 import React, { useState, useContext } from "react";
-import {
-  Form,
-  Button,
-  InputGroup,
-  FormControl,
-  ButtonGroup,
-} from "react-bootstrap";
 import { FaSatelliteDish, FaPlay, FaLink } from "react-icons/fa";
 import { MdHelp } from "react-icons/md";
 import { isBrowser, isMobile } from "react-device-detect";
@@ -55,58 +48,56 @@ const Menu = () => {
   };
   return (
     <>
-      <aside className="d-flex justify-content-end">
-        <Form
-          className="d-flex justify-content-end mr-3"
-          onSubmit={handleSubmit}
-        >
+      <nav className="nav" role="navigation">
+        <div className="nav__row">
+          <button
+            className="nav__btn"
+            onClick={handleLink}
+            aria-label="Paste URL"
+          >
+            <FaLink />
+          </button>
+          <button
+            className="nav__btn"
+            onClick={handleShowFaq}
+            aria-label="Get help"
+          >
+            <MdHelp />
+          </button>
+          <button
+            className="nav__btn"
+            onClick={handleShowList}
+            aria-label="See channels"
+          >
+            <FaSatelliteDish />
+          </button>
+          <Cart channel={channel} setChannel={setChannel} />
+        </div>
+        <form className="nav__form" onSubmit={handleSubmit}>
           {link && (
-            <InputGroup className="input">
-              <FormControl
+            <>
+              <input
+                className="nav__form__input"
                 type="url"
                 name="keyword"
                 value={keyword}
                 onChange={handleChange}
-                placeholder="Enter M3U8 URL"
+                placeholder="M3U8 URL..."
               />
-              <InputGroup.Append>
-                {link && (
-                  <Button
-                    className="d-flex justify-content-center align-items-center"
-                    type="submit"
-                    variant="outline-light"
-                    disabled={isEmpty ? "disabled" : ""}
-                  >
-                    <FaPlay />
-                  </Button>
-                )}
-              </InputGroup.Append>
-            </InputGroup>
+              {link && (
+                <button
+                  className="nav__form__btn"
+                  type="submit"
+                  aria-label="Play"
+                  disabled={isEmpty ? "disabled" : ""}
+                >
+                  <FaPlay />
+                </button>
+              )}
+            </>
           )}
-        </Form>
-        <ButtonGroup>
-          <Button
-            className="d-flex justify-content-center align-items-center"
-            type="submit"
-            variant="outline-light"
-            onClick={handleLink}
-          >
-            <FaLink />
-          </Button>
-
-          <Button variant="outline-light" onClick={handleShowFaq}>
-            <MdHelp />
-          </Button>
-          <Button
-            variant="outline-light"
-            onClick={handleShowList}
-            className="d-flex justify-content-center align-items-center"
-          >
-            <FaSatelliteDish />
-          </Button>
-          <Cart channel={channel} setChannel={setChannel} />
-        </ButtonGroup>
-      </aside>
+        </form>
+      </nav>
       <ChannelsContext.Provider
         value={{
           showList,
