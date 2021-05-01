@@ -100,7 +100,6 @@ const ChannelsBox = () => {
           <AccordionItem key={id}>
             <AccordionItemHeading
               className={`${show === id ? "active" : ""}`}
-              eventKey={id}
               data-key={id}
               onClick={(e) => handleClick(e, id)}
             >
@@ -132,7 +131,6 @@ const ChannelsBox = () => {
             </AccordionItemHeading>
             {show === id ? (
               <AccordionItemPanel
-                eventKey={id}
                 children={
                   <ChannelsListContext.Provider
                     value={{
