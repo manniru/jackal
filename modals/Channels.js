@@ -28,7 +28,11 @@ const Channels = () => {
         </footer>
       </header>
       <section className="modal__section">
-        {urls.length === 0 ? <p>Loading Channels...</p> : <ChannelsBox />}
+        {urls.length === 0 ? (
+          <p className="empty-list">Loading Channels...</p>
+        ) : (
+          <ChannelsBox />
+        )}
       </section>
     </Modal>
   );

@@ -265,11 +265,27 @@ table {
   overflow: hidden;
 }
 
-.empty-cart {
+.empty-cart,
+.empty-list {
   padding: 0 1rem;
 }
 
 .version {
   margin-top: 0;
   line-height: 1;
+}
+
+.error {
+  color: white;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  padding: 1rem;
+  h1 {
+    line-height: 1.25;
+    text-align: center;
+  }
 }

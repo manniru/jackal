@@ -27,7 +27,7 @@ const Cart = () => {
   const handleShow = () => setShow(true);
   const handleClear = () => {
     localStorage.removeItem("playlist");
-    destroyCookie(null, "goodCall");
+    destroyCookie(null, "hasData");
     setCart(false);
   };
   return (
