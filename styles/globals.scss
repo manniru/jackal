@@ -24,10 +24,25 @@ table {
     background: #111;
   }
   th {
-    padding: 1rem;
+    border: solid #222 1px;
+    word-break: break-word;
+    text-align: left;
   }
   td {
-    padding: 0.5rem 1rem;
+    border: solid #333 1px;
+  }
+  th,
+  td {
+    padding: 0;
+    vertical-align: middle;
+    @media screen and (min-width: 320px) {
+      padding: 0.5rem 1rem;
+    }
+  }
+  tr:last-child {
+    td {
+      border-bottom: 0;
+    }
   }
   button {
     margin-right: 0.5rem;
@@ -160,7 +175,9 @@ a {
 
 .accordion {
   &__item {
+    border-top: 1px solid #222;
     .active {
+      border-bottom: 1px solid #333;
       .accordion__btn {
         background: #222;
       }
@@ -204,7 +221,10 @@ a {
     align-items: center;
     justify-content: space-between;
     > * {
-      margin: 0 1rem;
+      margin: 0;
+      @media screen and (min-width: 320px) {
+        margin: 0 1rem;
+      }
     }
   }
   &__country {
@@ -215,17 +235,28 @@ a {
   }
   &__flag {
     &__img {
-      min-height: 2.75rem;
-      min-width: 5rem;
+      min-height: 1rem;
+      min-width: auto;
       object-fit: contain;
+      @media screen and (min-width: 320px) {
+        min-height: 2.75rem;
+        min-width: 5rem;
+      }
     }
   }
   &__content {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    min-width: 3rem;
+    min-width: auto;
     height: inherit;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    @media screen and (min-width: 320px) {
+      min-width: 3rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }
 
@@ -267,4 +298,20 @@ a {
 
 .empty-cart {
   padding: 0 1rem;
+}
+
+.Toastify__toast--dark {
+  background: black;
+}
+
+.Toastify__toast--success {
+  background: green;
+}
+
+.Toastify__toast--error {
+  background: red;
+}
+
+.Toastify__progress-bar--dark {
+  background: orange;
 }

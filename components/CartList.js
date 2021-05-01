@@ -29,12 +29,16 @@ const CartList = () => {
     <table>
       <thead>
         <tr>
-          <td>
+          <th>
             <strong>Channel</strong>
-          </td>
-          <td>
+          </th>
+          <th>
             <strong>Controls</strong>
-          </td>
+            <>
+              <br />
+              P=Play, C=Copy, L=Like,
+            </>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -52,14 +56,14 @@ const CartList = () => {
               <td>
                 <div className="controls">
                   <button onClick={() => handlePlay(url)} aria-label="Play">
-                    Play
+                    P
                   </button>
                   <CopyToClipboard
                     text={url}
                     onCopy={notify}
                     aria-label="Copy URL"
                   >
-                    <button>Copy</button>
+                    <button>C</button>
                   </CopyToClipboard>
                 </div>
               </td>

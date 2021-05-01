@@ -19,11 +19,11 @@ const Channels = () => {
       <header className="modal__header">
         <aside className="modal__aside">Channels</aside>
         <footer className="modal__footer">
-          <button onClick={handleClearStorage} aria-label="Refresh">
-            Refresh
+          <button onClick={handleClearStorage} aria-label="Reset">
+            Reset
           </button>
-          <button onClick={handleClose} aria-label="Close">
-            Close
+          <button onClick={handleClose} aria-label="Exit">
+            Exit
           </button>
         </footer>
       </header>

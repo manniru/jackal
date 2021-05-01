@@ -19,8 +19,8 @@ const MyPlaylist = () => {
           <button onClick={handleClear} aria-label="Clear playlist">
             Clear
           </button>
-          <button onClick={handleClose} aria-label="Close">
-            Close
+          <button onClick={handleClose} aria-label="Exit">
+            Exit
           </button>
         </footer>
       </header>

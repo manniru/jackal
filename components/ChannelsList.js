@@ -62,12 +62,16 @@ const ChannelsList = () => {
     <table>
       <thead>
         <tr>
-          <td>
+          <th>
             <strong>Channel</strong>
-          </td>
-          <td>
+          </th>
+          <th>
             <strong>Controls</strong>
-          </td>
+            <>
+              <br />
+              P=Play, C=Copy, L=Like,
+            </>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -85,20 +89,20 @@ const ChannelsList = () => {
               <td>
                 <div className="controls">
                   <button onClick={() => handlePlay(url)} aria-label="Play">
-                    Play
+                    P
                   </button>
                   <CopyToClipboard
                     text={url}
                     onCopy={notifyCopy}
                     aria-label="Copy URL"
                   >
-                    <button>Copy</button>
+                    <button>C</button>
                   </CopyToClipboard>
                   <button
                     onClick={() => handleStoreChannel(j)}
                     aria-label="Add to my playlist"
                   >
-                    Like
+                    L
                   </button>
                 </div>
               </td>

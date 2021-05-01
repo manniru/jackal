@@ -12,6 +12,7 @@ export default function Home({ listing }) {
   let localListing = [];
   if (process.browser) {
     if (goodCall && localStorage.getItem("listing")) {
+      console.log(localStorage.getItem("listing"));
       localListing = JSON.parse(localStorage.getItem("listing"));
     } else {
       localStorage.setItem("listing", JSON.stringify(listing));

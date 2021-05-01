@@ -19,11 +19,11 @@ const About = () => {
       <header className="modal__header">
         <aside className="modal__aside">FAQs</aside>
         <footer className="modal__footer">
-          <button onClick={handleClearStorage} aria-label="Refresh">
-            Refresh
+          <button onClick={handleClearStorage} aria-label="Reset">
+            Reset
           </button>
-          <button onClick={handleClose} aria-label="Close">
-            Close
+          <button onClick={handleClose} aria-label="Exit">
+            Exit
           </button>
         </footer>
       </header>
@@ -148,8 +148,8 @@ const About = () => {
           <li>
             We use localStorage API to store data received from IPTV, in your
             browser. If you want to remove the local data, please click&nbsp;
-            <strong>Refresh</strong> button below. This step is done to make
-            sure site loads faster on your browser.
+            <strong>Reset</strong> button below. This step is done to make sure
+            site loads faster on your browser.
           </li>
           <li>
             <span>
