@@ -173,7 +173,6 @@ Home.getInitialProps = async (ctx) => {
       nookies.set(ctx, "goodCall", true, {
         maxAge: 30 * 24 * 60 * 60,
         path: "/",
-        sameSite: "none",
       });
     }
   } catch (err) {

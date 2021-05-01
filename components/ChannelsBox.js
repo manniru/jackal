@@ -1,4 +1,3 @@
-import "react-accessible-accordion/dist/fancy-example.css";
 import React, { useState, useContext } from "react";
 import {
   Accordion,
@@ -104,7 +103,7 @@ const ChannelsBox = () => {
               onClick={(e) => handleClick(e, id)}
             >
               {content.length !== 0 ? (
-                <AccordionItemButton>
+                <AccordionItemButton className="accordion__btn">
                   <div className="accordion__details">
                     <div className="accordion__country">
                       {content[0].country}

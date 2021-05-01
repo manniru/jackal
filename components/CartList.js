@@ -31,9 +31,6 @@ const CartList = () => {
       <thead>
         <tr>
           <td>
-            <strong>ID</strong>
-          </td>
-          <td>
             <strong>Channel</strong>
           </td>
           <td>
@@ -47,21 +44,27 @@ const CartList = () => {
           const isHTTP = url && url.includes("http://") ? true : false;
           return (
             <tr key={id} className={ban ? "danger" : ""}>
-              <td className={isHTTP ? "orange" : "green"}>{++id}</td>
-              <td>{title}</td>
               <td>
-                <button onClick={() => handlePlay(url)} aria-label="Play">
-                  <FaPlay />
-                </button>
-                <CopyToClipboard
-                  text={url}
-                  onCopy={notify}
-                  aria-label="Copy URL"
-                >
-                  <button>
-                    <FaRegCopy />
+                <div className="title" title={title}>
+                  <span>{++id}.</span>{" "}
+                  <span className={isHTTP ? "orange" : "green"}>{title}</span>
+                </div>
+              </td>
+              <td>
+                <div className="controls">
+                  <button onClick={() => handlePlay(url)} aria-label="Play">
+                    <FaPlay />
                   </button>
-                </CopyToClipboard>
+                  <CopyToClipboard
+                    text={url}
+                    onCopy={notify}
+                    aria-label="Copy URL"
+                  >
+                    <button>
+                      <FaRegCopy />
+                    </button>
+                  </CopyToClipboard>
+                </div>
               </td>
             </tr>
           );
