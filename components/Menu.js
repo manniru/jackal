@@ -1,6 +1,4 @@
 import React, { useState, useContext } from "react";
-import { FaSatelliteDish, FaPlay, FaLink } from "react-icons/fa";
-import { MdHelp } from "react-icons/md";
 import { isBrowser, isMobile } from "react-device-detect";
 import MenuContext from "../context/MenuContext";
 import ChannelsContext from "../context/ChannelsContext";
@@ -55,21 +53,21 @@ const Menu = () => {
             onClick={handleLink}
             aria-label="Paste URL"
           >
-            <FaLink />
+            Test
           </button>
           <button
             className="nav__btn"
             onClick={handleShowFaq}
             aria-label="Get help"
           >
-            <MdHelp />
+            Help
           </button>
           <button
             className="nav__btn"
             onClick={handleShowList}
             aria-label="See channels"
           >
-            <FaSatelliteDish />
+            List
           </button>
           <Cart channel={channel} setChannel={setChannel} />
         </div>
@@ -91,7 +89,7 @@ const Menu = () => {
                   aria-label="Play"
                   disabled={isEmpty ? "disabled" : ""}
                 >
-                  <FaPlay />
+                  Play
                 </button>
               )}
             </>

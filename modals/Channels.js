@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Modal from "react-modal";
-import { FaSatelliteDish } from "react-icons/fa";
 import MenuContext from "../context/MenuContext";
 import ChannelsContext from "../context/ChannelsContext";
 import ChannelsBox from "../components/ChannelsBox";
@@ -18,10 +17,7 @@ const Channels = () => {
       onRequestClose={handleClose}
     >
       <header className="modal__header">
-        <aside className="modal__aside">
-          <FaSatelliteDish />
-          <span>Channels</span>
-        </aside>
+        <aside className="modal__aside">Channels</aside>
         <footer className="modal__footer">
           <button onClick={handleClearStorage} aria-label="Refresh">
             Refresh

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { FaRegCopy, FaPlay, FaHeart } from "react-icons/fa";
 import { isBrowser, isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
 import ChannelsListContext from "../context/ChannelsListContext";
@@ -86,22 +85,20 @@ const ChannelsList = () => {
               <td>
                 <div className="controls">
                   <button onClick={() => handlePlay(url)} aria-label="Play">
-                    <FaPlay />
+                    Play
                   </button>
                   <CopyToClipboard
                     text={url}
                     onCopy={notifyCopy}
                     aria-label="Copy URL"
                   >
-                    <button>
-                      <FaRegCopy />
-                    </button>
+                    <button>Copy</button>
                   </CopyToClipboard>
                   <button
                     onClick={() => handleStoreChannel(j)}
                     aria-label="Add to my playlist"
                   >
-                    <FaHeart />
+                    Like
                   </button>
                 </div>
               </td>

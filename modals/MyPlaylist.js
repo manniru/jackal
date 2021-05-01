@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { BiUserCircle } from "react-icons/bi";
 import Modal from "react-modal";
 import MyPlaylistContext from "../context/MyPlaylistContext";
 
@@ -15,10 +14,7 @@ const MyPlaylist = () => {
       onRequestClose={handleClose}
     >
       <header className="modal__header">
-        <aside className="modal__aside">
-          <BiUserCircle />
-          <span>My Playlist</span>
-        </aside>
+        <aside className="modal__aside">My Playlist</aside>
         <footer className="modal__footer">
           <button onClick={handleClear} aria-label="Clear playlist">
             Clear

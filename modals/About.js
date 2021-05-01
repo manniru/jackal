@@ -1,7 +1,4 @@
 import React, { useContext } from "react";
-import { FaHeart, FaSatelliteDish, FaPlayCircle } from "react-icons/fa";
-import { MdHelp } from "react-icons/md";
-import { BiUserCircle } from "react-icons/bi";
 import Modal from "react-modal";
 import MenuContext from "../context/MenuContext";
 import AboutContext from "../context/AboutContext";
@@ -20,10 +17,7 @@ const About = () => {
       overlayClassName="overlay"
     >
       <header className="modal__header">
-        <aside className="modal__aside">
-          <MdHelp />
-          <span>FAQs</span>
-        </aside>
+        <aside className="modal__aside">FAQs</aside>
         <footer className="modal__footer">
           <button onClick={handleClearStorage} aria-label="Refresh">
             Refresh
@@ -102,14 +96,6 @@ const About = () => {
             </a>
             ,&nbsp;
             <a
-              href="https://www.npmjs.com/package/react-icons"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <strong>react-icons</strong>
-            </a>
-            ,&nbsp;
-            <a
               href="https://www.npmjs.com/package/react-player"
               target="_blank"
               rel="noopener noreferrer"
@@ -148,35 +134,22 @@ const About = () => {
             Safari to view this site on iPhone.
           </li>
           <li>
-            See available channels by pressing{" "}
-            <span>
-              <FaSatelliteDish />
-            </span>{" "}
-            button.
+            See available channels by pressing <strong>List</strong> button.
           </li>
           <li>
             Open a live stream by pasting a M3U8 link in the box and hit the{" "}
-            <span>
-              <FaPlayCircle />
-            </span>{" "}
-            button.
+            <strong>Play</strong> button.
           </li>
           <li>
             Save your favorite channels on your device by pressing{" "}
-            <span>
-              <FaHeart />
-            </span>{" "}
-            button. View your liked channels by pressing{" "}
-            <span>
-              <BiUserCircle />
-            </span>{" "}
-            button.
+            <strong>Like</strong> button. View your liked channels by pressing{" "}
+            <strong>Likes</strong> button.
           </li>
           <li>
             We use localStorage API to store data received from IPTV, in your
-            browser. If you want to remove the local data, please click
-            "Refresh" button below. This step is done to make sure site loads
-            faster on your browser.
+            browser. If you want to remove the local data, please click&nbsp;
+            <strong>Refresh</strong> button below. This step is done to make
+            sure site loads faster on your browser.
           </li>
           <li>
             <span>

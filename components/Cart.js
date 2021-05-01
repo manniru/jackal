@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BiUserCircle } from "react-icons/bi";
 import { destroyCookie } from "nookies";
 import MyPlaylistContext from "../context/MyPlaylistContext";
 import CartList from "./CartList";
@@ -39,7 +38,7 @@ const Cart = () => {
         disabled={myCart}
         aria-label="My playlist"
       >
-        <BiUserCircle />
+        Likes
       </button>
       <MyPlaylistContext.Provider
         value={{

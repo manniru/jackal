@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import ReactPlayer from "react-player";
-import { FaTwitter } from "react-icons/fa";
 import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
 import AboutContext from "../context/AboutContext";
@@ -83,7 +82,7 @@ const Main = () => {
               className="main__a"
               aria-label="Follow our Twitter account for latest updates"
             >
-              <FaTwitter />
+              Twitter
             </a>
           </p>
         </div>

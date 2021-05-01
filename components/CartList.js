@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { FaRegCopy, FaPlay } from "react-icons/fa";
 import { isBrowser, isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
@@ -53,16 +52,14 @@ const CartList = () => {
               <td>
                 <div className="controls">
                   <button onClick={() => handlePlay(url)} aria-label="Play">
-                    <FaPlay />
+                    Play
                   </button>
                   <CopyToClipboard
                     text={url}
                     onCopy={notify}
                     aria-label="Copy URL"
                   >
-                    <button>
-                      <FaRegCopy />
-                    </button>
+                    <button>Copy</button>
                   </CopyToClipboard>
                 </div>
               </td>
