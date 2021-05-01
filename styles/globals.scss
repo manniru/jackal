@@ -66,6 +66,7 @@ a {
     flex-direction: column;
     max-width: 400px;
     padding: 1rem;
+    text-align: center;
     h1 {
       margin-bottom: 0.75rem;
     }
@@ -96,6 +97,7 @@ a {
   &__form {
     margin: 0;
     display: flex;
+    justify-content: flex-end;
     &__input {
       width: 140px;
     }
