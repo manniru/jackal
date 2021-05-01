@@ -94,6 +94,19 @@ const Main = () => {
               Twitter
             </a>
           </p>
+          <p className="version">
+            <small>
+              Version:&nbsp;
+              <a
+                href="http://jackal.surge.sh/report.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Check latest version metrics"
+              >
+                1.6
+              </a>
+            </small>
+          </p>
         </div>
       ) : (
         <ReactPlayer

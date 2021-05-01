@@ -38,8 +38,7 @@ const CartList = () => {
               <br />
               <strong>P</strong>
               <em>lay</em>, <strong>C</strong>
-              <em>opy</em>, <strong>L</strong>
-              <em>ike</em>
+              <em>opy</em>
             </>
           </th>
         </tr>
