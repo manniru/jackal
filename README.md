@@ -28,7 +28,7 @@ How did it achieve that?
 
 ## Addons
 
-- To run lighthouse test, install lighthouse npm package globally on your machine and perform the test by running `npm run report`
+- To run lighthouse test, install `lighthouse` npm package globally on your machine and perform the test by running `y report`, make sure to create a `public` directory first
 - Please use Google Chrome browser using PC/Laptop to cast live streams to your TV via Chromecast
 
 ## Issues
