@@ -4,9 +4,17 @@ import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
 import AboutContext from "../context/AboutContext";
 import About from "../modals/About";
+import Toggle from "../components/Toggle";
 
 const Main = () => {
-  const { channel, setChannel, showFaq, setShowFaq } = useContext(MenuContext);
+  const {
+    channel,
+    setChannel,
+    showFaq,
+    setShowFaq,
+    theme,
+    toggleTheme,
+  } = useContext(MenuContext);
   const { url, urls } = channel;
   const notifyOkay = () =>
     toast.success(
@@ -73,6 +81,7 @@ const Main = () => {
               family...
             </em>
           </p>
+          <Toggle theme={theme} toggleTheme={toggleTheme} />
           <p>
             Follow Jackal on
             <a

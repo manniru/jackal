@@ -6,13 +6,13 @@ import nookies, { parseCookies, destroyCookie } from "nookies";
 import MenuContext from "../context/MenuContext";
 import Menu from "../components/Menu";
 import Main from "../components/Main";
+import { useDarkMode } from "../common/useDarkMode";
 
 export default function Home({ listing }) {
   const { goodCall } = parseCookies();
   let localListing = [];
   if (process.browser) {
     if (goodCall && localStorage.getItem("listing")) {
-      console.log(localStorage.getItem("listing"));
       localListing = JSON.parse(localStorage.getItem("listing"));
     } else {
       localStorage.setItem("listing", JSON.stringify(listing));
@@ -34,6 +34,17 @@ export default function Home({ listing }) {
     destroyCookie(null, "goodCall");
     window.location.reload();
   };
+  const [theme, toggleTheme] = useDarkMode();
+
+  if (process.browser && theme === "dark") {
+    document.body.classList.add("dark");
+    document.body.classList.remove("light");
+  }
+
+  if (process.browser && theme === "light") {
+    document.body.classList.add("light");
+    document.body.classList.remove("dark");
+  }
   return (
     <>
       <Head>
@@ -60,6 +71,8 @@ export default function Home({ listing }) {
           showList,
           setShowList,
           handleShowList,
+          theme,
+          toggleTheme,
         }}
       >
         <Menu />

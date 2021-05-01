@@ -1,0 +1,261 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+body {
+  font-size: 1rem;
+  font-family: "Verdana";
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  th {
+    border: solid 1px;
+    word-break: break-word;
+    text-align: left;
+    font-weight: normal;
+  }
+  td {
+    border: solid 1px;
+  }
+  th,
+  td {
+    padding: 0;
+    vertical-align: middle;
+    @media screen and (min-width: 320px) {
+      padding: 0.5rem 1rem;
+    }
+  }
+  //   tr:last-child {
+  //     td {
+  //       border-bottom: 0;
+  //     }
+  //   }
+  button {
+    margin-right: 0.5rem;
+  }
+}
+
+.main {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__text {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 1rem;
+    text-align: center;
+    h1 {
+      margin: 0;
+      line-height: 1;
+    }
+    button {
+      text-transform: capitalize;
+    }
+  }
+  &__a {
+    margin-left: 0.5rem;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  &__row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+  &__form {
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    &__input {
+      width: 140px;
+    }
+    &__btn {
+      margin-left: 0.5rem;
+    }
+  }
+  &__btn {
+    margin-left: 0.5rem;
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &__header {
+    background: inherit;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+  }
+  &__aside {
+    display: flex;
+    align-items: center;
+  }
+  &__aside,
+  &__footer {
+    *:last-child {
+      margin-left: 0.5rem;
+    }
+  }
+  &__ul {
+    margin: 0;
+    padding: 0 1rem;
+    list-style: none;
+    li {
+      margin: 0.5rem 0;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid;
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+.accordion {
+  &__item {
+    border-top: 1px solid;
+    .active {
+      border-bottom: 1px solid;
+    }
+    .accordion__panel {
+      padding: 0;
+    }
+    .accordion__btn {
+      min-height: 44px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+    &[aria-expanded="true"] {
+      &::before {
+        content: "-";
+      }
+    }
+    &::before {
+      content: "+";
+      height: inherit;
+      display: flex;
+      align-items: center;
+      margin-left: 1rem;
+    }
+  }
+  &__data {
+    display: flex;
+  }
+  &__details {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    > * {
+      margin: 0;
+      @media screen and (min-width: 320px) {
+        margin: 0 1rem;
+      }
+    }
+  }
+  &__country {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  &__flag {
+    &__img {
+      min-height: 1rem;
+      min-width: auto;
+      object-fit: contain;
+      @media screen and (min-width: 320px) {
+        min-height: 2.75rem;
+        min-width: 5rem;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: auto;
+    height: inherit;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    @media screen and (min-width: 320px) {
+      min-width: 3rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 3;
+}
+
+.controls {
+  display: flex;
+  *:last-child {
+    margin-right: 0;
+  }
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.empty-cart {
+  padding: 0 1rem;
+}

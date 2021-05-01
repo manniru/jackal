@@ -1,0 +1,167 @@
+a {
+  color: orange;
+  text-decoration: none;
+  &:hover,
+  &:focus,
+  &:active {
+    color: darken(orange, 20%);
+  }
+  .light & {
+    color: blue;
+    &:hover,
+    &:focus,
+    &:active {
+      color: darken(blue, 20%);
+    }
+  }
+}
+
+.main,
+.modal,
+.accordion__btn {
+  color: $dark;
+  background: $black__;
+  .light & {
+    color: $white;
+    background: $black;
+  }
+}
+
+.accordion__btn:hover {
+  color: $black__;
+  background: $white__;
+  .light & {
+    color: $black;
+    background: $white;
+  }
+}
+
+.accordion__btn:hover {
+  color: $black__;
+  background: $white__;
+  .light & {
+    color: $black;
+    background: $white;
+  }
+  .active &,
+  .light .active & {
+    color: inherit;
+  }
+}
+
+table {
+  thead {
+    background: $darker__;
+  }
+  tbody {
+    background: $darkest__;
+  }
+  th {
+    border-color: $darker__;
+  }
+  td {
+    border-color: $dark__;
+  }
+  .light & {
+    thead {
+      background: $darker;
+    }
+    tbody {
+      background: $darkest;
+    }
+    th {
+      border-color: $darker;
+    }
+    td {
+      border-color: $dark;
+    }
+  }
+}
+
+.modal {
+  &__header {
+    border-color: $dark__;
+  }
+  &__ul {
+    li {
+      border-color: $dark__;
+    }
+  }
+  .light & {
+    &__header {
+      border-color: $dark;
+    }
+    &__ul {
+      li {
+        border-color: $dark;
+      }
+    }
+  }
+}
+
+.accordion {
+  &__item {
+    border-color: $darker__;
+    .active {
+      border-color: $dark__;
+      .accordion__btn {
+        background: $darker__;
+      }
+    }
+  }
+  .light & {
+    &__item {
+      border-color: $darker;
+      .active {
+        border-color: $dark;
+        .accordion__btn {
+          background: $darker;
+        }
+      }
+    }
+  }
+}
+
+.main {
+  &__a {
+    color: #1c9cea;
+    &:hover,
+    &:focus {
+      color: darken(#1c9cea, 15%);
+    }
+    .light & {
+      color: #1c9cea;
+      &:hover,
+      &:focus {
+        color: darken(#1c9cea, 15%);
+      }
+    }
+  }
+}
+
+.green {
+  color: green;
+}
+
+.orange {
+  color: orange;
+}
+
+.danger {
+  background: rgba(255, 0, 0, 0.7);
+}
+
+.Toastify {
+  &__toast--dark {
+    background: black;
+  }
+  &__toast--success {
+    background: green;
+  }
+  &__toast--error {
+    background: red;
+  }
+  &__progress-bar--dark {
+    background: orange;
+  }
+}

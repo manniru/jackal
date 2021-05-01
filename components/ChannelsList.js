@@ -62,14 +62,15 @@ const ChannelsList = () => {
     <table>
       <thead>
         <tr>
+          <th>Channel</th>
           <th>
-            <strong>Channel</strong>
-          </th>
-          <th>
-            <strong>Controls</strong>
+            Controls
             <>
               <br />
-              P=Play, C=Copy, L=Like,
+              <strong>P</strong>
+              <em>lay</em>, <strong>C</strong>
+              <em>opy</em>, <strong>L</strong>
+              <em>ike</em>
             </>
           </th>
         </tr>

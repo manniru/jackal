@@ -10,6 +10,8 @@ const MenuContext = createContext({
   showList: false,
   setShowList: () => {},
   handleShowList: () => {},
+  theme: "",
+  toggleTheme: () => {},
 });
 
 export default MenuContext;
