@@ -106,6 +106,16 @@ const Main = () => {
                 1.6
               </a>
             </small>
+            <small style={{ display: "block", marginTop: "0.5rem" }}>
+              <a
+                href="https://counter.dev/dashboard.html?user=tpkahlon&token=qmZeMlhEmLNcn9wo"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="See site performance"
+              >
+                Watch live audience
+              </a>
+            </small>
           </p>
         </div>
       ) : (

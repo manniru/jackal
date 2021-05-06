@@ -2,7 +2,7 @@ import React from "react";
 
 const Toggle = ({ theme, toggleTheme }) => (
   <button style={{ alignSelf: "center" }} onClick={toggleTheme}>
-    Apply {theme === "dark" ? "light" : "dark"} mode
+    Switch to {theme === "dark" ? "Light" : "Dark"} Theme
   </button>
 );
 
