@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { isBrowser, isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
@@ -25,6 +24,10 @@ const CartList = () => {
     if (isMobile) {
       window.open(currentUrl, "_blank");
     }
+  };
+  const handleCopy = (url) => {
+    navigator.clipboard.writeText(url);
+    notify();
   };
   return (
     <table className="table">
@@ -61,13 +64,7 @@ const CartList = () => {
                   <button onClick={() => handlePlay(url)} aria-label="Play">
                     P
                   </button>
-                  <CopyToClipboard
-                    text={url}
-                    onCopy={notify}
-                    aria-label="Copy URL"
-                  >
-                    <button>C</button>
-                  </CopyToClipboard>
+                  <button onClick={() => handleCopy(url)}>C</button>
                 </div>
               </td>
             </tr>

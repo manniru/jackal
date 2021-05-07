@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { isBrowser, isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
 import ChannelsListContext from "../context/ChannelsListContext";
@@ -37,6 +36,10 @@ const ChannelsList = () => {
     if (isMobile) {
       window.open(currentUrl, "_blank");
     }
+  };
+  const handleCopy = (url) => {
+    navigator.clipboard.writeText(url);
+    notifyCopy();
   };
   const handleStoreChannel = (item) => {
     const getPlaylist = localStorage.getItem("playlist");
@@ -95,13 +98,7 @@ const ChannelsList = () => {
                   <button onClick={() => handlePlay(url)} aria-label="Play">
                     P
                   </button>
-                  <CopyToClipboard
-                    text={url}
-                    onCopy={notifyCopy}
-                    aria-label="Copy URL"
-                  >
-                    <button>C</button>
-                  </CopyToClipboard>
+                  <button onClick={() => handleCopy(url)}>C</button>
                   <button
                     onClick={() => handleStoreChannel(j)}
                     aria-label="Add to my playlist"

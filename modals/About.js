@@ -72,14 +72,6 @@ const About = () => {
             </a>
             ,&nbsp;
             <a
-              href="https://www.npmjs.com/package/react-copy-to-clipboard"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <strong>react-copy-to-clipboard</strong>
-            </a>
-            ,&nbsp;
-            <a
               href="https://www.npmjs.com/package/react-country-flag"
               target="_blank"
               rel="noopener noreferrer"
