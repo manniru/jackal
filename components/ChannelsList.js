@@ -1,20 +1,15 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { isBrowser, isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
 import ChannelsListContext from "../context/ChannelsListContext";
 import MenuContext from "../context/MenuContext";
+import { copyToClipboard } from "../common";
 
 const ChannelsList = () => {
   const { item } = useContext(ChannelsListContext);
   const { channel, setChannel } = useContext(MenuContext);
-  const [copiedText, setCopiedText] = useState(null);
-  useEffect(() => {
-    if (copiedText !== null) {
-      navigator.clipboard.writeText(copiedText);
-    }
-  }, [copiedText]);
   const notifyCopy = (url) => {
-    setCopiedText(url);
+    copyToClipboard(url);
     toast.dark("URL copied successfully!", {
       autoClose: 2000,
       pauseOnHover: false,

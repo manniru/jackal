@@ -78,6 +78,31 @@ const parseLinks = async (myPromise, badList) => {
   return parseXLinks(results, badList, codes);
 };
 
+// https://stackoverflow.com/questions/51805395/navigator-clipboard-is-undefined
+const copyToClipboard = (textToCopy) => {
+  // navigator clipboard api needs a secure context (https)
+  if (navigator.clipboard && window.isSecureContext) {
+    // navigator clipboard api method'
+    return navigator.clipboard.writeText(textToCopy);
+  } else {
+    // text area method
+    let textArea = document.createElement("textarea");
+    textArea.value = textToCopy;
+    // make the textarea out of viewport
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999999px";
+    textArea.style.top = "-999999px";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    return new Promise((res, rej) => {
+      // here the magic happens
+      document.execCommand("copy") ? res() : rej();
+      textArea.remove();
+    });
+  }
+};
+
 const getData = async (ctx) => {
   let hasNoError = true;
   try {
@@ -113,4 +138,4 @@ const getData = async (ctx) => {
   }
 };
 
-export { isObjectEmpty, getData };
+export { isObjectEmpty, getData, copyToClipboard };

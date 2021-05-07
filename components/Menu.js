@@ -3,6 +3,7 @@ import { isBrowser, isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
 import ChannelsContext from "../context/ChannelsContext";
+import { copyToClipboard } from "../common";
 import Cart from "./Cart";
 import Channels from "../modals/Channels";
 
@@ -16,14 +17,10 @@ const Menu = () => {
     handleShowFaq,
   } = useContext(MenuContext);
   const [link, setLink] = useState(false);
-  const { keyword, url } = channel;
+  const { keyword } = channel;
   const [isEmpty, setIsEmpty] = useState(true);
-  useEffect(() => {
-    if (url !== null) {
-      navigator.clipboard.writeText(url);
-    }
-  }, [url]);
-  const notify = (title, country) =>
+  const notify = (url, title, country) => {
+    copyToClipboard(url);
     toast.dark(
       `Playing ${title} from ${country}. We copied channel link for you in case you want to keep a note of it!`,
       {
@@ -32,6 +29,8 @@ const Menu = () => {
         position: "top-center",
       }
     );
+  };
+
   const notifyBadLink = () =>
     toast.error(
       `This live stream is broken or outdated. Please try another channel.`,
@@ -48,7 +47,7 @@ const Menu = () => {
     const { content } = randomCountry;
     const randomChannel = content[Math.floor(Math.random() * content.length)];
     const { url, title, keyword, country } = randomChannel;
-    notify(title, country);
+    notify(url, title, country);
     if (!url.includes(".m3u8")) {
       notifyBadLink();
       return;
