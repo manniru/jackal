@@ -8,8 +8,15 @@ import Main from "../components/Main";
 const App = ({ listing }) => {
   let localListing = [];
   const { hasData } = parseCookies();
+  const refresh = () => {
+    localStorage.removeItem("listing");
+    destroyCookie(null, "hasData");
+    window.location.reload();
+  };
   if (process.browser) {
-    if (hasData && localStorage.getItem("listing")) {
+    if (Boolean(hasData) && localStorage.getItem("listing") === "undefined") {
+      refresh();
+    } else if (Boolean(hasData) && localStorage.getItem("listing")) {
       localListing = JSON.parse(localStorage.getItem("listing"));
     } else {
       localStorage.setItem("listing", JSON.stringify(listing));

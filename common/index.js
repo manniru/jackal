@@ -82,8 +82,8 @@ const getData = async (ctx) => {
   let hasNoError = true;
   try {
     const cookies = nookies.get(ctx);
-    const checkCookies = cookies && isObjectEmpty(cookies);
-    if (checkCookies) {
+    const noCookies = cookies && isObjectEmpty(cookies);
+    if (noCookies) {
       const mainPromises = urls.map(getTextFromFetch);
       const results = await Promise.all(mainPromises);
       const [promiseMainList, promiseBadList] = results;
