@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { isBrowser, isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
@@ -7,12 +7,20 @@ import MyPlaylistContext from "../context/MyPlaylistContext";
 const CartList = () => {
   const { channel, setChannel } = useContext(MenuContext);
   const { playlist } = useContext(MyPlaylistContext);
-  const notify = () =>
-    toast.dark("Channel link copied successfully!", {
+  const [copiedText, setCopiedText] = useState(null);
+  useEffect(() => {
+    if (copiedText !== null) {
+      navigator.clipboard.writeText(copiedText);
+    }
+  }, [copiedText]);
+  const notifyCopy = (url) => {
+    setCopiedText(url);
+    toast.dark("URL copied successfully!", {
       autoClose: 2000,
       pauseOnHover: false,
       position: "top-center",
     });
+  };
   const handlePlay = (currentUrl) => {
     if (isBrowser) {
       setChannel({
@@ -24,10 +32,6 @@ const CartList = () => {
     if (isMobile) {
       window.open(currentUrl, "_blank");
     }
-  };
-  const handleCopy = (url) => {
-    navigator.clipboard.writeText(url);
-    notify();
   };
   return (
     <table className="table">
@@ -64,7 +68,7 @@ const CartList = () => {
                   <button onClick={() => handlePlay(url)} aria-label="Play">
                     P
                   </button>
-                  <button onClick={() => handleCopy(url)}>C</button>
+                  <button onClick={() => notifyCopy(url)}>C</button>
                 </div>
               </td>
             </tr>

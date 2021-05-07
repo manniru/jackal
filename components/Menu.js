@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { isBrowser, isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
@@ -16,8 +16,13 @@ const Menu = () => {
     handleShowFaq,
   } = useContext(MenuContext);
   const [link, setLink] = useState(false);
-  const { keyword } = channel;
+  const { keyword, url } = channel;
   const [isEmpty, setIsEmpty] = useState(true);
+  useEffect(() => {
+    if (url !== null) {
+      navigator.clipboard.writeText(url);
+    }
+  }, [url]);
   const notify = (title, country) =>
     toast.dark(
       `Playing ${title} from ${country}. We copied channel link for you in case you want to keep a note of it!`,
@@ -43,6 +48,7 @@ const Menu = () => {
     const { content } = randomCountry;
     const randomChannel = content[Math.floor(Math.random() * content.length)];
     const { url, title, keyword, country } = randomChannel;
+    notify(title, country);
     if (!url.includes(".m3u8")) {
       notifyBadLink();
       return;
@@ -53,8 +59,6 @@ const Menu = () => {
         url,
         keyword,
       });
-      navigator.clipboard.writeText(url);
-      notify(title, country);
     }
     if (isMobile) {
       window.open(url, "_blank");
