@@ -121,6 +121,27 @@ const About = () => {
             &nbsp;libraries.
           </li>
           <li>
+            If you would like to add a new channel in the database, please
+            follow this{" "}
+            <a
+              href="https://github.com/iptv-org/iptv/pulls"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>link</strong>
+            </a>
+            . If you want to report a broken/outdated channel, please follow
+            this{" "}
+            <a
+              href="https://github.com/iptv-org/iptv/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>link</strong>
+            </a>
+            .
+          </li>
+          <li>
             The site performs best on iPhone devices. If you are using an
             iPhone, every stream will open in a new tab. We recommend you use
             Safari to view this site on iPhone.
@@ -129,7 +150,10 @@ const About = () => {
             See available channels by pressing <strong>List</strong> button.
           </li>
           <li>
-            Open a live stream by pasting a M3U8 link in the box and hit the{" "}
+            See a random channel by pressing <strong>Random</strong> button.
+          </li>
+          <li>
+            Open a live stream by pasting a M3U8 link in the form (press the <strong>Test</strong> link) and hit the{" "}
             <strong>Play</strong> button.
           </li>
           <li>
@@ -145,8 +169,8 @@ const About = () => {
           </li>
           <li>
             <span>
-              Inside ID column, orange box means stream comes from a server that
-              uses HTTP protocol and green box means stream uses HTTPS protocol.
+              Orange text means stream comes from a server that
+              uses HTTP protocol and green text means stream uses HTTPS protocol.
             </span>
             <p>
               <strong>Note:</strong> For desktop/laptop users, make sure you
