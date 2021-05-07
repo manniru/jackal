@@ -46,10 +46,6 @@ const Menu = () => {
       notify(title, country);
     }
     if (isMobile) {
-      setChannel({
-        ...channel,
-        keyword: "",
-      });
       window.open(keyword, "_blank");
     }
   };
