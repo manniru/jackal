@@ -29,6 +29,15 @@ const Menu = () => {
         position: "top-center",
       }
     );
+  const notifyBadLink = () =>
+    toast.error(
+      `This live stream is broken or outdated. Please try another channel.`,
+      {
+        autoClose: 2000,
+        pauseOnHover: false,
+        position: "top-center",
+      }
+    );
   const handleRandom = (e) => {
     e.preventDefault();
     const { urls } = channel;
@@ -36,6 +45,10 @@ const Menu = () => {
     const { content } = randomCountry;
     const randomChannel = content[Math.floor(Math.random() * content.length)];
     const { url, title, keyword, country } = randomChannel;
+    if (!url.includes(".m3u8")) {
+      notifyBadLink();
+      return;
+    }
     if (isBrowser) {
       setChannel({
         ...channel,
