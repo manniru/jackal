@@ -12,6 +12,7 @@ const CartList = () => {
     toast.dark("Channel link copied successfully!", {
       autoClose: 2000,
       pauseOnHover: false,
+      position: "top-center",
     });
   const handlePlay = (currentUrl) => {
     if (isBrowser) {

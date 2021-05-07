@@ -22,6 +22,7 @@ const Main = () => {
       {
         autoClose: 2000,
         pauseOnHover: false,
+        position: "top-center",
       }
     );
   const notifyWarn = () =>
@@ -30,6 +31,7 @@ const Main = () => {
       {
         autoClose: 2000,
         pauseOnHover: false,
+        position: "top-center",
       }
     );
   const changeTV = (e, tv, decision) => {
@@ -103,7 +105,7 @@ const Main = () => {
                 rel="noopener noreferrer"
                 aria-label="Check latest version metrics"
               >
-                1.6
+                1.7
               </a>
             </small>
             <small style={{ display: "block", marginTop: "0.5rem" }}>
@@ -114,6 +116,16 @@ const Main = () => {
                 aria-label="See site performance"
               >
                 Watch live audience
+              </a>
+            </small>
+            <small style={{ display: "block", marginTop: "0.5rem" }}>
+              <a
+                href="https://ko-fi.com/tpkahlon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="See site performance"
+              >
+                Buy me a Coffee
               </a>
             </small>
           </p>

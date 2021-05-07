@@ -12,16 +12,19 @@ const ChannelsList = () => {
     toast.dark("URL copied successfully!", {
       autoClose: 2000,
       pauseOnHover: false,
+      position: "top-center",
     });
   const notifyWarn = () =>
     toast.error("This channel is already available in your playlist!", {
       autoClose: 2000,
       pauseOnHover: false,
+      position: "top-center",
     });
   const notifyAdd = () =>
     toast.dark("Channel added successfully to your playlist!", {
       autoClose: 2000,
       pauseOnHover: false,
+      position: "top-center",
     });
   const handlePlay = (currentUrl) => {
     if (isBrowser) {
