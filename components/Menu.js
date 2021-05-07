@@ -105,11 +105,22 @@ const Menu = () => {
           >
             List
           </button>
-          <CopyToClipboard
-            text={randomChannel}
-            aria-label="Copy random channel URL"
-            onCopy={() => setRandomChannel(randomChannel)}
-          >
+          {isBrowser && (
+            <CopyToClipboard
+              text={randomChannel}
+              aria-label="Copy random channel URL"
+              onCopy={() => setRandomChannel(randomChannel)}
+            >
+              <button
+                className="nav__btn"
+                onClick={handleRandom}
+                aria-label="See random channel"
+              >
+                Random
+              </button>
+            </CopyToClipboard>
+          )}
+          {isMobile && (
             <button
               className="nav__btn"
               onClick={handleRandom}
@@ -117,7 +128,7 @@ const Menu = () => {
             >
               Random
             </button>
-          </CopyToClipboard>
+          )}
           <Cart channel={channel} setChannel={setChannel} />
         </div>
         <form className="nav__form" onSubmit={handleSubmit}>
