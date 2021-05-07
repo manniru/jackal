@@ -46,7 +46,7 @@ const Menu = () => {
       notify(title, country);
     }
     if (isMobile) {
-      window.open(keyword, "_blank");
+      window.open(url, "_blank");
     }
   };
   const handleSubmit = (e) => {
