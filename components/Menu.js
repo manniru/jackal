@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { isBrowser, isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import MenuContext from "../context/MenuContext";
 import ChannelsContext from "../context/ChannelsContext";
 import Cart from "./Cart";
@@ -18,6 +19,7 @@ const Menu = () => {
   const [link, setLink] = useState(false);
   const { keyword } = channel;
   const [isEmpty, setIsEmpty] = useState(true);
+  const [randomChannel, setRandomChannel] = useState(null);
   const notify = (title, country) =>
     toast.dark(
       `Playing ${title} from ${country}. We copied channel link for you in case you want to keep a note of it!`,
@@ -40,6 +42,7 @@ const Menu = () => {
         url,
         keyword,
       });
+      setRandomChannel(url);
       notify(title, country);
     }
     if (isMobile) {
@@ -102,13 +105,19 @@ const Menu = () => {
           >
             List
           </button>
-          <button
-            className="nav__btn"
-            onClick={handleRandom}
-            aria-label="See random channel"
+          <CopyToClipboard
+            text={randomChannel}
+            aria-label="Copy random channel URL"
+            onCopy={() => setRandomChannel(randomChannel)}
           >
-            Random
-          </button>
+            <button
+              className="nav__btn"
+              onClick={handleRandom}
+              aria-label="See random channel"
+            >
+              Random
+            </button>
+          </CopyToClipboard>
           <Cart channel={channel} setChannel={setChannel} />
         </div>
         <form className="nav__form" onSubmit={handleSubmit}>
