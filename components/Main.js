@@ -80,10 +80,7 @@ const Main = () => {
           <div className="main__text">
             <h1 role="heading">Jackal</h1>
             <p>
-              <em>
-                Watch live TV channels from across the globe with your friends
-                and family...
-              </em>
+              <em>Watch TV beyond boundaries...</em>
             </p>
           </div>
         ) : (
