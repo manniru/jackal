@@ -1,11 +1,40 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
+import { toast, Slide } from "react-toastify";
 import { getData } from "../common";
 import App from "../components/App";
 import Error from "../components/Error";
 
 export default function Home({ listing }) {
+  const notify = () => {
+    toast.dark(
+      "Always use HTTP protocol when viewing this site for seamless experience. Check FAQs section for more information.",
+      {
+        position: "bottom-center",
+        autoClose: 10000,
+        closeOnClick: true,
+        pauseOnHover: true,
+      }
+    );
+  };
+  const thanks = () => {
+    toast.dark(
+      "If you like the website, you can buy me a coffee to support me or share it on Twitter... 😊",
+      {
+        position: "bottom-center",
+        autoClose: 10000,
+        closeOnClick: true,
+        pauseOnHover: true,
+      }
+    );
+  };
+  useEffect(() => {
+    notify();
+  }, []);
+  setTimeout(() => {
+    thanks();
+  }, 60000);
   return (
     <>
       <Head>
@@ -25,7 +54,7 @@ export default function Home({ listing }) {
       <div id="about"></div>
       <div id="channels"></div>
       <div id="my-playlist"></div>
-      <ToastContainer />
+      <ToastContainer transition={Slide} />
     </>
   );
 }
