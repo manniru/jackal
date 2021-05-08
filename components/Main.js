@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FaTwitter, FaCoffee, FaUserFriends } from "react-icons/fa";
 import ReactPlayer from "react-player";
 import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
@@ -73,82 +74,77 @@ const Main = () => {
   };
   const banTV = (e, tv) => changeTV(e, tv, true);
   return (
-    <main role="main" className="main">
-      {url === null ? (
-        <div className="main__text">
-          <h1 role="heading">Jackal</h1>
-          <p>
-            <em>
-              Watch live TV channels from across the globe with your friends and
-              family...
-            </em>
-          </p>
-          <Toggle theme={theme} toggleTheme={toggleTheme} />
-          <p>
-            Follow Jackal on
-            <a
-              href="https://twitter.com/jackalislive"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="main__a"
-              aria-label="Follow our Twitter account for latest updates"
-            >
-              Twitter
-            </a>
-          </p>
-          <p className="version">
-            <small>
-              Version:&nbsp;
-              <a
-                href="http://jackal.surge.sh/report.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Check latest version metrics"
-              >
-                1.7
-              </a>
-            </small>
-            <small style={{ display: "block", marginTop: "0.5rem" }}>
-              <a
-                href="https://counter.dev/dashboard.html?user=tpkahlon&token=qmZeMlhEmLNcn9wo"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="See site performance"
-              >
-                Watch live audience
-              </a>
-            </small>
-            <small style={{ display: "block", marginTop: "0.5rem" }}>
-              <a
-                href="https://ko-fi.com/tpkahlon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="See site performance"
-              >
-                Buy me a Coffee
-              </a>
-            </small>
-          </p>
-        </div>
-      ) : (
-        <ReactPlayer
-          playing
-          controls
-          url={url}
-          onError={(e) => banTV(e, url)}
-          width="inherit"
-          height="inherit"
-        />
-      )}
-      <AboutContext.Provider
-        value={{
-          showFaq,
-          setShowFaq,
-        }}
-      >
-        <About />
-      </AboutContext.Provider>
-    </main>
+    <>
+      <main role="main" className="main">
+        {url === null ? (
+          <div className="main__text">
+            <h1 role="heading">Jackal</h1>
+            <p>
+              <em>
+                Watch live TV channels from across the globe with your friends
+                and family...
+              </em>
+            </p>
+          </div>
+        ) : (
+          <ReactPlayer
+            playing
+            controls
+            url={url}
+            onError={(e) => banTV(e, url)}
+            width="inherit"
+            height="inherit"
+          />
+        )}
+        <AboutContext.Provider
+          value={{
+            showFaq,
+            setShowFaq,
+          }}
+        >
+          <About />
+        </AboutContext.Provider>
+      </main>
+      <footer className="footer">
+        <Toggle theme={theme} toggleTheme={toggleTheme} />
+        <a
+          href="https://counter.dev/dashboard.html?user=tpkahlon&token=qmZeMlhEmLNcn9wo"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="See site performance"
+        >
+          <FaUserFriends />
+        </a>
+        <a
+          href="https://ko-fi.com/tpkahlon"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="See site performance"
+        >
+          <FaCoffee />
+        </a>
+        <a
+          href="https://twitter.com/jackalislive"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="main__a"
+          aria-label="Follow our Twitter account for latest updates"
+        >
+          <FaTwitter />
+        </a>
+        <small>
+          v
+          <a
+            href="http://jackal.surge.sh/report.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Check latest version metrics"
+          >
+            1.8
+          </a>
+        </small>
+      </footer>
+    </>
   );
 };
 

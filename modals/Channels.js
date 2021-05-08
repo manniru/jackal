@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import Modal from "react-modal";
+import { FiRefreshCw } from "react-icons/fi";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import MenuContext from "../context/MenuContext";
 import ChannelsContext from "../context/ChannelsContext";
 import ChannelsBox from "../components/ChannelsBox";
@@ -19,12 +21,12 @@ const Channels = () => {
       <header className="modal__header">
         <aside className="modal__aside">Channels</aside>
         <footer className="modal__footer">
-          <button onClick={handleClearStorage} aria-label="Reset">
-            Reset
-          </button>
-          <button onClick={handleClose} aria-label="Exit">
-            Exit
-          </button>
+          <a href="#" onClick={handleClearStorage} aria-label="Reset">
+            <FiRefreshCw />
+          </a>
+          <a href="#" onClick={handleClose} aria-label="Exit">
+            <AiOutlineCloseCircle />
+          </a>
         </footer>
       </header>
       <section className="modal__section">

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import Modal from "react-modal";
+import { FiRefreshCw } from "react-icons/fi";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import MenuContext from "../context/MenuContext";
 import AboutContext from "../context/AboutContext";
 
@@ -19,12 +21,12 @@ const About = () => {
       <header className="modal__header">
         <aside className="modal__aside">FAQs</aside>
         <footer className="modal__footer">
-          <button onClick={handleClearStorage} aria-label="Reset">
-            Reset
-          </button>
-          <button onClick={handleClose} aria-label="Exit">
-            Exit
-          </button>
+          <a href="#" onClick={handleClearStorage} aria-label="Reset">
+            <FiRefreshCw />
+          </a>
+          <a href="#" onClick={handleClose} aria-label="Exit">
+            <AiOutlineCloseCircle />
+          </a>
         </footer>
       </header>
       <section className="modal__section">
@@ -77,6 +79,14 @@ const About = () => {
               rel="noopener noreferrer"
             >
               <strong>react-country-flag</strong>
+            </a>
+            ,&nbsp;
+            <a
+              href="https://www.npmjs.com/package/react-icons"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>react-icons</strong>
             </a>
             ,&nbsp;
             <a
@@ -153,8 +163,9 @@ const About = () => {
             See a random channel by pressing <strong>Random</strong> button.
           </li>
           <li>
-            Open a live stream by pasting a M3U8 link in the form (press the <strong>Test</strong> link) and hit the{" "}
-            <strong>Play</strong> button.
+            Open a live stream by pasting a M3U8 link in the form (press the{" "}
+            <strong>Test</strong> link) and hit the <strong>Play</strong>{" "}
+            button.
           </li>
           <li>
             Save your favorite channels on your device by pressing{" "}
@@ -169,8 +180,8 @@ const About = () => {
           </li>
           <li>
             <span>
-              Orange text means stream comes from a server that
-              uses HTTP protocol and green text means stream uses HTTPS protocol.
+              Orange text means stream comes from a server that uses HTTP
+              protocol and green text means stream uses HTTPS protocol.
             </span>
             <p>
               <strong>Note:</strong> For desktop/laptop users, make sure you

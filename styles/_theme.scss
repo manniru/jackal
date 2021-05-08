@@ -8,6 +8,7 @@ html {
 }
 
 body {
+  line-height: 1.5;
   font-size: 1rem;
   font-family: "Verdana";
 }
@@ -46,6 +47,10 @@ table {
   button {
     margin-right: 0.5rem;
   }
+}
+
+svg {
+  font-size: 1.25rem;
 }
 
 .main {
@@ -97,10 +102,16 @@ table {
     }
     &__btn {
       margin-left: 0.5rem;
+      display: flex;
+      align-items: center;
+      &--off {
+        pointer-events: none;
+        opacity: 0.5;
+      }
     }
   }
   &__btn {
-    margin-left: 0.5rem;
+    margin-left: 1rem;
     &--hide {
       display: none;
     }
@@ -253,8 +264,8 @@ table {
 
 .controls {
   display: flex;
-  *:last-child {
-    margin-right: 0;
+  > * {
+    margin-right: 1rem;
   }
 }
 
@@ -270,11 +281,6 @@ table {
   padding: 0 1rem;
 }
 
-.version {
-  margin-top: 0;
-  line-height: 1;
-}
-
 .error {
   color: white;
   background: black;
@@ -287,5 +293,31 @@ table {
   h1 {
     line-height: 1.25;
     text-align: center;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 1rem;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  a {
+    margin-left: 0.25rem;
+  }
+  > * {
+    margin-top: 1rem;
+    &:first-child {
+      margin: 0;
+    }
+  }
+  svg {
+    height: 100%;
   }
 }

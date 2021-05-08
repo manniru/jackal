@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaHeart } from "react-icons/fa";
 import { destroyCookie } from "nookies";
 import MyPlaylistContext from "../context/MyPlaylistContext";
 import CartList from "./CartList";
@@ -32,13 +33,14 @@ const Cart = () => {
   };
   return (
     <>
-      <button
+      <a
+        href="#"
         className={`nav__btn ${myCart ? "nav__btn--hide" : ""}`}
         onClick={handleShow}
         aria-label="My playlist"
       >
-        Likes
-      </button>
+        <FaHeart />
+      </a>
       <MyPlaylistContext.Provider
         value={{
           show,

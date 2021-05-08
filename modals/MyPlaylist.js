@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import Modal from "react-modal";
+import { BsTrash } from "react-icons/bs";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import MyPlaylistContext from "../context/MyPlaylistContext";
 
 const MyPlaylist = () => {
@@ -16,12 +18,12 @@ const MyPlaylist = () => {
       <header className="modal__header">
         <aside className="modal__aside">My Playlist</aside>
         <footer className="modal__footer">
-          <button onClick={handleClear} aria-label="Clear playlist">
-            Clear
-          </button>
-          <button onClick={handleClose} aria-label="Exit">
-            Exit
-          </button>
+          <a href="#" onClick={handleClear} aria-label="Clear playlist">
+            <BsTrash />
+          </a>
+          <a href="#" onClick={handleClose} aria-label="Exit">
+            <AiOutlineCloseCircle />
+          </a>
         </footer>
       </header>
       <section className="modal__section">{playlistComponent}</section>

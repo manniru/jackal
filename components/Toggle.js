@@ -1,9 +1,10 @@
 import React from "react";
+import { FaLightbulb, FaRegLightbulb } from "react-icons/fa";
 
 const Toggle = ({ theme, toggleTheme }) => (
-  <button style={{ alignSelf: "center" }} onClick={toggleTheme}>
-    Switch to {theme === "dark" ? "Light" : "Dark"} Theme
-  </button>
+  <a href="#" aria-label="Switch theme" onClick={toggleTheme}>
+    {theme === "dark" ? <FaRegLightbulb /> : <FaLightbulb />}
+  </a>
 );
 
 export default Toggle;

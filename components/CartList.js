@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { isBrowser, isMobile } from "react-device-detect";
+import { FaPlay, FaRegCopy } from "react-icons/fa";
 import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
 import MyPlaylistContext from "../context/MyPlaylistContext";
@@ -37,12 +38,6 @@ const CartList = () => {
           </th>
           <th>
             <strong>Controls</strong>
-            <>
-              <br />
-              <strong>P</strong>
-              <em>lay</em>, <strong>C</strong>
-              <em>opy</em>
-            </>
           </th>
         </tr>
       </thead>
@@ -55,15 +50,17 @@ const CartList = () => {
               <td>
                 <div className="title" title={title}>
                   <span>{++id}.</span>{" "}
-                  <span className={isHTTP ? "orange" : "green"}>{title}</span>
+                  <span className={isHTTP ? "red" : "green"}>{title}</span>
                 </div>
               </td>
               <td>
                 <div className="controls">
-                  <button onClick={() => handlePlay(url)} aria-label="Play">
-                    P
-                  </button>
-                  <button onClick={() => notifyCopy(url)}>C</button>
+                  <a href="#" onClick={() => handlePlay(url)} aria-label="Play">
+                    <FaPlay />
+                  </a>
+                  <a href="#" onClick={() => notifyCopy(url)}>
+                    <FaRegCopy />
+                  </a>
                 </div>
               </td>
             </tr>

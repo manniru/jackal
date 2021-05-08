@@ -1,4 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import { FaList, FaLink, FaPlay } from "react-icons/fa";
+import { BsShuffle } from "react-icons/bs";
+import { FiHelpCircle } from "react-icons/fi";
 import { isBrowser, isMobile } from "react-device-detect";
 import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
@@ -94,34 +97,38 @@ const Menu = () => {
     <>
       <nav className="nav" role="navigation">
         <div className="nav__row">
-          <button
+          <a
+            href="#"
             className="nav__btn"
             onClick={handleLink}
             aria-label="Paste URL"
           >
-            Test
-          </button>
-          <button
+            <FaLink />
+          </a>
+          <a
+            href="#"
             className="nav__btn"
             onClick={handleShowFaq}
             aria-label="Get help"
           >
-            Help
-          </button>
-          <button
+            <FiHelpCircle />
+          </a>
+          <a
+            href="#"
             className="nav__btn"
             onClick={handleShowList}
             aria-label="See channels"
           >
-            List
-          </button>
-          <button
+            <FaList />
+          </a>
+          <a
+            href="#"
             className="nav__btn"
             onClick={handleRandom}
             aria-label="See random channel"
           >
-            Random
-          </button>
+            <BsShuffle />
+          </a>
           <Cart channel={channel} setChannel={setChannel} />
         </div>
         <form className="nav__form" onSubmit={handleSubmit}>
@@ -136,14 +143,16 @@ const Menu = () => {
                 placeholder="M3U8 URL..."
               />
               {link && (
-                <button
-                  className="nav__form__btn"
+                <a
+                  href="#"
+                  className={`nav__form__btn ${
+                    isEmpty ? "nav__form__btn--off" : ""
+                  }`}
                   type="submit"
                   aria-label="Play"
-                  disabled={isEmpty ? "disabled" : ""}
                 >
-                  Play
-                </button>
+                  <FaPlay />
+                </a>
               )}
             </>
           )}
