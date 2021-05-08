@@ -169,6 +169,16 @@ svg {
   }
 }
 
+.li {
+  &--flex {
+    display: flex;
+    align-items: center;
+    svg {
+      margin: 0 0 0 0.5rem;
+    }
+  }
+}
+
 .accordion {
   &__item {
     border-top: 1px solid;

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Modal from "react-modal";
-import { FaList, FaLink, FaPlay, FaHeart } from "react-icons/fa";
+import { FaList, FaLink, FaHeart } from "react-icons/fa";
 import { BsShuffle } from "react-icons/bs";
 import { FiRefreshCw } from "react-icons/fi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -153,110 +153,90 @@ const About = () => {
             </a>
             .
           </li>
-          <li>
-            The site performs best on iPhone devices. If you are using an
-            iPhone, every stream will open in a new tab. We recommend you use
-            Safari to view this site on iPhone.
+          <li className="li li--flex">
+            To check available channels, use <FaList />
+          </li>
+          <li className="li li--flex">
+            To watch a random channel, use <BsShuffle />
+          </li>
+          <li className="li li--flex">
+            To play a live stream through a M3U8 link, use
+            <FaLink />
+          </li>
+          <li className="li li--flex">
+            To view or add channels to your playlist, use
+            <FaHeart />
+          </li>
+          <li className="li li--flex">
+            Jackal use localStorage API in your browser, to store data received
+            from IPTV repository. To clear this data, use
+            <FiRefreshCw />
           </li>
           <li>
-            See available channels by pressing{" "}
-            <strong>
-              <FaList />
-            </strong>{" "}
-            button.
-          </li>
-          <li>
-            See a random channel by pressing{" "}
-            <strong>
-              <BsShuffle />
-            </strong>{" "}
-            button.
-          </li>
-          <li>
-            Open a live stream by pasting a M3U8 link in the form (press the{" "}
-            <strong>
-              <FaLink />
-            </strong>{" "}
-            link) and hit the{" "}
-            <strong>
-              <FaPlay />
-            </strong>{" "}
-            button.
-          </li>
-          <li>
-            Save your favorite channels on your device by pressing{" "}
-            <strong>
-              <FaHeart />
-            </strong>{" "}
-            button. View your liked channels by pressing{" "}
-            <strong>
-              <FaHeart />
-            </strong>{" "}
-            button.
-          </li>
-          <li>
-            We use localStorage API to store data received from IPTV, in your
-            browser. If you want to remove the local data, please click&nbsp;
-            <strong>
-              <FiRefreshCw />
-            </strong>{" "}
-            button. This step is done to make sure site loads faster on your
-            browser.
+            If you have a Chromecast, cast any stream to your TV by using
+            Chromium based browser from your PC/Laptop. Right click on the
+            playing live stream and click Cast.
           </li>
           <li>
             <span>
-              Red text means stream comes from a server that uses HTTP protocol
-              and green text means stream uses HTTPS protocol.
+              In a channel, <span style={{ color: "red" }}>red text</span> means
+              live stream uses HTTP protocol and{" "}
+              <span style={{ color: "green" }}>green text</span>&nbsp; means
+              live stream uses HTTPS protocol.
             </span>
-            <p>
-              <strong>Note:</strong> For desktop/laptop users, make sure you
-              load site with http protocol instead of https protocol to view
-              streams. For example, under Vietnam, channel no. 1 (ANTV) stream
-              will work if you load the page{" "}
+            <br />
+            <br />
+            <span>
+              <strong>Note:</strong> If you are using a Desktop/Laptop machine,
+              please make sure that you load this site with http protocol
+              instead of https.
+              <br />
+              For example, under Vietnam, channel no. 1 (ANTV) stream will work
+              if you load the page{" "}
               <a href="http://jackal.surge.sh">
                 <strong>http://jackal.surge.sh</strong>
               </a>{" "}
               rather than <strong>https://jackal.surge.sh</strong>.
-            </p>
-            <p>
-              If a stream does not load, please copy its URL and test it{" "}
-              <a
-                href="https://hls-js.netlify.app/demo/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <strong>here</strong>
-              </a>
-              . If it does not load, it can likely work on iPad/iPhone devices
-              but may not work on desktop/laptop. In such cases, you may use
-              VLC.
-            </p>
-            <span>
-              <strong>Note:</strong> For example, under Vietnam, channel no. 4
-              (Bến Tre) stream does not work on desktop/laptop devices but it
-              works on iPhone/iOS devices or VLC.
+              <br />
+              <span>
+                For example, under Vietnam, channel no. 4 (Bến Tre) stream may
+                not work on desktop/laptop devices but it works on iPhone/iOS
+                devices or VLC.
+              </span>
+              <br />
+              <br />
+              <span>
+                If a stream does not load, please copy its URL and test it{" "}
+                <a
+                  href="https://hls-js.netlify.app/demo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <strong>here</strong>
+                </a>
+                . If it does not load, it can likely work on iPad/iPhone devices
+                but may not work on desktop/laptop. In such cases, you may try
+                VLC.
+              </span>
             </span>
           </li>
           <li>
-            If you have a Chromecast, cast any stream to your TV by using Google
-            Chrome browser from your PC/Laptop. Right click on the stream and
-            click Cast.
-          </li>
-          <li>
-            No video files are stored in this repository. The repository simply
-            contains user-submitted links to publicly available video stream
-            URLs, which to the best of our knowledge have been intentionally
-            made publicly by the copyright holders. If any links in these
-            playlists infringe on your rights as a copyright holder, they may be
-            removed by sending a pull request or opening an issue. However, note
-            that we have no control over the destination of the link, and just
-            removing the link from the playlist will not remove its contents
-            from the web. Note that linking does not directly infringe copyright
-            because no copy is made on the site providing the link, and thus
-            this is not a valid reason to send a DMCA notice to GitHub. To
-            remove this content from the web, you should contact the web host
-            that's actually hosting the content (not GitHub, nor the maintainers
-            of this repository).
+            <small>
+              No video files are stored in this repository. The repository
+              simply contains user-submitted links to publicly available video
+              stream URLs, which to the best of our knowledge have been
+              intentionally made publicly by the copyright holders. If any links
+              in these playlists infringe on your rights as a copyright holder,
+              they may be removed by sending a pull request or opening an issue.
+              However, note that we have no control over the destination of the
+              link, and just removing the link from the playlist will not remove
+              its contents from the web. Note that linking does not directly
+              infringe copyright because no copy is made on the site providing
+              the link, and thus this is not a valid reason to send a DMCA
+              notice to GitHub. To remove this content from the web, you should
+              contact the web host that's actually hosting the content (not
+              GitHub, nor the maintainers of this repository).
+            </small>
           </li>
         </ul>
       </section>
