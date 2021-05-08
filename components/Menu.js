@@ -148,7 +148,6 @@ const Menu = () => {
                   className={`nav__form__btn ${
                     isEmpty ? "nav__form__btn--off" : ""
                   }`}
-                  type="submit"
                   aria-label="Play"
                 >
                   <FaPlay />
