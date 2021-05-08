@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import Modal from "react-modal";
+import { FaList, FaLink, FaPlay, FaHeart } from "react-icons/fa";
+import { BsShuffle } from "react-icons/bs";
 import { FiRefreshCw } from "react-icons/fi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import MenuContext from "../context/MenuContext";
@@ -157,31 +159,54 @@ const About = () => {
             Safari to view this site on iPhone.
           </li>
           <li>
-            See available channels by pressing <strong>List</strong> button.
+            See available channels by pressing{" "}
+            <strong>
+              <FaList />
+            </strong>{" "}
+            button.
           </li>
           <li>
-            See a random channel by pressing <strong>Random</strong> button.
+            See a random channel by pressing{" "}
+            <strong>
+              <BsShuffle />
+            </strong>{" "}
+            button.
           </li>
           <li>
             Open a live stream by pasting a M3U8 link in the form (press the{" "}
-            <strong>Test</strong> link) and hit the <strong>Play</strong>{" "}
+            <strong>
+              <FaLink />
+            </strong>{" "}
+            link) and hit the{" "}
+            <strong>
+              <FaPlay />
+            </strong>{" "}
             button.
           </li>
           <li>
             Save your favorite channels on your device by pressing{" "}
-            <strong>Like</strong> button. View your liked channels by pressing{" "}
-            <strong>Likes</strong> button.
+            <strong>
+              <FaHeart />
+            </strong>{" "}
+            button. View your liked channels by pressing{" "}
+            <strong>
+              <FaHeart />
+            </strong>{" "}
+            button.
           </li>
           <li>
             We use localStorage API to store data received from IPTV, in your
             browser. If you want to remove the local data, please click&nbsp;
-            <strong>Reset</strong> button below. This step is done to make sure
-            site loads faster on your browser.
+            <strong>
+              <FiRefreshCw />
+            </strong>{" "}
+            button. This step is done to make sure site loads faster on your
+            browser.
           </li>
           <li>
             <span>
-              Orange text means stream comes from a server that uses HTTP
-              protocol and green text means stream uses HTTPS protocol.
+              Red text means stream comes from a server that uses HTTP protocol
+              and green text means stream uses HTTPS protocol.
             </span>
             <p>
               <strong>Note:</strong> For desktop/laptop users, make sure you
