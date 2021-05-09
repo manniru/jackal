@@ -11,6 +11,7 @@ body {
   line-height: 1.5;
   font-size: 1rem;
   font-family: "Verdana";
+  overflow: hidden;
 }
 
 table {
@@ -173,7 +174,12 @@ svg {
   &--flex {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    span {
+      flex-grow: 1;
+    }
     svg {
+      min-width: 1.25rem;
       margin: 0 0 0 0.5rem;
     }
   }

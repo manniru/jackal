@@ -154,22 +154,26 @@ const About = () => {
             .
           </li>
           <li className="li li--flex">
-            To check available channels, use <FaList />
+            <span>To check available channels, use:</span>
+            <FaList />
           </li>
           <li className="li li--flex">
-            To watch a random channel, use <BsShuffle />
+            <span>To watch a random channel, use:</span>
+            <BsShuffle />
           </li>
           <li className="li li--flex">
-            To play a live stream through a M3U8 link, use
+            <span>To play a live stream through a M3U8 link, use:</span>
             <FaLink />
           </li>
           <li className="li li--flex">
-            To view or add channels to your playlist, use
+            <span>To view or add channels to your playlist, use:</span>
             <FaHeart />
           </li>
           <li className="li li--flex">
-            Jackal use localStorage API in your browser, to store data received
-            from IPTV repository. To clear this data, use
+            <span>
+              Jackal use localStorage API in your browser, to store data
+              received from IPTV repository. To clear this data, use:
+            </span>
             <FiRefreshCw />
           </li>
           <li>
