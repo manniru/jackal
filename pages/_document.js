@@ -12,11 +12,11 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="icon"
-            href="https://as2.ftcdn.net/jpg/01/05/24/69/500_F_105246940_XgMq601ANX7QuKnXjFrtYhNWlB8PPyMn.jpg"
+            href="https://pics.freeicons.io/uploads/icons/png/4785625811557996998-512.png"
           />
           <link
             rel="apple-touch-icon"
-            href="https://as2.ftcdn.net/jpg/01/05/24/69/500_F_105246940_XgMq601ANX7QuKnXjFrtYhNWlB8PPyMn.jpg"
+            href="https://pics.freeicons.io/uploads/icons/png/4785625811557996998-512.png"
           />
           <script
             dangerouslySetInnerHTML={{
