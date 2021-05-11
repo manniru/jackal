@@ -20,7 +20,7 @@ export default function Home({ listing }) {
   };
   const thanks = () => {
     toast.dark(
-      "If you like the website, you can buy me a coffee to support me or share it on Twitter... 😊",
+      "If you can, please make a difference in a child's life by donating books, clothes etc. or any help in whatever way possible for you.",
       {
         position: "bottom-center",
         autoClose: 10000,

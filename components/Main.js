@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FaTwitter, FaCoffee, FaUserFriends } from "react-icons/fa";
+import { FaTwitter, FaChild, FaUserFriends } from "react-icons/fa";
 import ReactPlayer from "react-player";
 import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
@@ -113,12 +113,12 @@ const Main = () => {
           <FaUserFriends />
         </a>
         <a
-          href="https://ko-fi.com/tpkahlon"
+          href="https://www.savethechildren.org/us/ways-to-help"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="See site performance"
+          aria-label="Help make a difference in a child's life"
         >
-          <FaCoffee />
+          <FaChild />
         </a>
         <a
           href="https://twitter.com/jackalislive"
