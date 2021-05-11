@@ -7,11 +7,11 @@ a {
     color: darken(orange, 20%);
   }
   .light & {
-    color: blue;
+    color: #1e88e5;
     &:hover,
     &:focus,
     &:active {
-      color: darken(blue, 20%);
+      color: darken(#1e88e5, 20%);
     }
   }
 }
