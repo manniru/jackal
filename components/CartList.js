@@ -1,21 +1,17 @@
 import React, { useContext } from "react";
 import { isBrowser, isMobile } from "react-device-detect";
 import { FaPlay, FaRegCopy } from "react-icons/fa";
-import { toast } from "react-toastify";
 import MenuContext from "../context/MenuContext";
 import MyPlaylistContext from "../context/MyPlaylistContext";
 import { copyToClipboard } from "../common";
+import { darkNotification } from "../common/notification";
 
 const CartList = () => {
   const { channel, setChannel } = useContext(MenuContext);
   const { playlist } = useContext(MyPlaylistContext);
   const notifyCopy = (url) => {
     copyToClipboard(url);
-    toast.dark("URL copied successfully!", {
-      autoClose: 2000,
-      pauseOnHover: false,
-      position: "top-center",
-    });
+    darkNotification("URL copied successfully!");
   };
   const handlePlay = (currentUrl) => {
     if (isBrowser) {

@@ -1,34 +1,22 @@
 import React, { useContext } from "react";
 import { isBrowser, isMobile } from "react-device-detect";
 import { FaPlay, FaRegCopy, FaHeart } from "react-icons/fa";
-import { toast } from "react-toastify";
 import ChannelsListContext from "../context/ChannelsListContext";
 import MenuContext from "../context/MenuContext";
 import { copyToClipboard } from "../common";
+import { errorNotification, darkNotification } from "../common/notification";
 
 const ChannelsList = () => {
   const { item } = useContext(ChannelsListContext);
   const { channel, setChannel } = useContext(MenuContext);
   const notifyCopy = (url) => {
     copyToClipboard(url);
-    toast.dark("URL copied successfully!", {
-      autoClose: 2000,
-      pauseOnHover: false,
-      position: "top-center",
-    });
+    darkNotification("URL copied successfully!");
   };
   const notifyWarn = () =>
-    toast.error("This channel is already available in your playlist!", {
-      autoClose: 2000,
-      pauseOnHover: false,
-      position: "top-center",
-    });
+    errorNotification("This channel is already available in your playlist!");
   const notifyAdd = () =>
-    toast.dark("Channel added successfully to your playlist!", {
-      autoClose: 2000,
-      pauseOnHover: false,
-      position: "top-center",
-    });
+    darkNotification("Channel added successfully to your playlist!");
   const handlePlay = (currentUrl) => {
     if (isBrowser) {
       setChannel({

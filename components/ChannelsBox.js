@@ -7,6 +7,7 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import ReactCountryFlag from "react-country-flag";
+import { fixBrokenFlags } from "../common";
 import MenuContext from "../context/MenuContext";
 import ChannelsListContext from "../context/ChannelsListContext";
 import ChannelsList from "./ChannelsList";
@@ -15,73 +16,6 @@ const ChannelsBox = () => {
   const { channel } = useContext(MenuContext);
   const { urls } = channel;
   const [show, setShow] = useState(null);
-  const edgeFlags = (country) => {
-    if (country === "Gambia")
-      return (
-        <ReactCountryFlag
-          className="accordion__flag__img"
-          svg
-          countryCode="gm"
-        />
-      );
-    if (country === "Bahamas")
-      return (
-        <ReactCountryFlag
-          className="accordion__flag__img"
-          svg
-          countryCode="bs"
-        />
-      );
-    if (country === "Ivory Coast")
-      return (
-        <ReactCountryFlag
-          className="accordion__flag__img"
-          svg
-          countryCode="ie"
-        />
-      );
-    if (country === "Kosovo")
-      return (
-        <ReactCountryFlag
-          className="accordion__flag__img"
-          svg
-          countryCode="xk"
-        />
-      );
-    if (country === "Myanmar")
-      return (
-        <ReactCountryFlag
-          className="accordion__flag__img"
-          svg
-          countryCode="mm"
-        />
-      );
-    if (country === "Palestine")
-      return (
-        <ReactCountryFlag
-          className="accordion__flag__img"
-          svg
-          countryCode="ps"
-        />
-      );
-    if (country === "Vatican City")
-      return (
-        <ReactCountryFlag
-          className="accordion__flag__img"
-          svg
-          countryCode="va"
-        />
-      );
-    if (country === "Virgin Islands of the United States")
-      return (
-        <ReactCountryFlag
-          className="accordion__flag__img"
-          svg
-          countryCode="vi"
-        />
-      );
-    return null;
-  };
   return (
     <Accordion>
       {urls.map(({ content, id, code }) => {
@@ -117,7 +51,7 @@ const ChannelsBox = () => {
                             countryCode={code.iso2}
                           />
                         ) : (
-                          edgeFlags(content[0].country)
+                          fixBrokenFlags(content[0].country)
                         )}
                       </div>
                       <div className="accordion__content">{content.length}</div>
