@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "country-code-lookup": "^0.0.19",
-    "marky": "^1.2.2",
     "next": "^10.2.0",
     "nookies": "^2.5.2",
     "normalize.css": "^8.0.1",
@@ -25,7 +24,6 @@
     "react-modal": "^3.13.1",
     "react-player": "^2.9.0",
     "react-toastify": "^7.0.4",
-    "sass": "^1.32.11",
-    "surge": "^0.23.0"
+    "sass": "^1.32.11"
   }
 }
