@@ -4,7 +4,7 @@ import MenuContext from "../context/MenuContext";
 import ChannelsContext from "../context/ChannelsContext";
 import NavigationContext from "../context/NavigationContext";
 import { copyToClipboard } from "../common";
-import { darkNotification, errorNotification } from "../common/notification";
+import { darkNotification } from "../common/notification";
 import Channels from "../modals/Channels";
 import Navigation from "./Navigation";
 
@@ -20,10 +20,6 @@ const Menu = () => {
       `Playing ${title} from ${country}. We copied channel link for you in case you want to keep a note of it!`
     );
   };
-  const notifyBadLink = () =>
-    errorNotification(
-      "This live stream is broken or outdated. Please try another channel."
-    );
   const handleRandom = (e) => {
     e.preventDefault();
     const { urls } = channel;
@@ -32,10 +28,6 @@ const Menu = () => {
     const randomChannel = content[Math.floor(Math.random() * content.length)];
     const { url, title, keyword, country } = randomChannel;
     notify(url, title, country);
-    if (!url.includes(".m3u8")) {
-      notifyBadLink();
-      return;
-    }
     if (isBrowser) {
       setChannel({
         ...channel,
