@@ -88,11 +88,7 @@ svg {
   left: 0;
   right: 0;
   z-index: 2;
-  &--bg {
-    background: rgba(0, 0, 0, 0.5);
-  }
   &__label {
-    color: white;
     padding-bottom: 1rem;
     display: flex;
     align-items: center;

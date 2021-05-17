@@ -32,7 +32,7 @@ const Navigation = () => {
   } = useContext(NavigationContext);
   return (
     <nav
-      className={`nav ${isPlaying && label !== null ? "nav--bg" : ""}`}
+      className={`nav ${isPlaying && label !== null ? "nav--two" : ""}`}
       role="navigation"
     >
       <div

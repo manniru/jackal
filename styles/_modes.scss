@@ -16,6 +16,17 @@ a {
   }
 }
 
+.nav--two {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+.light {
+  .nav--two {
+    color: black;
+    background: rgba(255, 255, 255, 0.75);
+  }
+}
+
 small {
   color: white;
   .light & {
@@ -27,10 +38,8 @@ small {
 .modal,
 .accordion__btn {
   color: $dark;
-  // background: $black__;
   .light & {
     color: $white;
-    // background: $black;
   }
 }
 
@@ -66,12 +75,6 @@ body {
 }
 
 .table {
-  // .thead {
-  //   background: $darker__;
-  // }
-  // .tbody {
-  //   background: $darkest__;
-  // }
   th {
     border-color: $dark__;
     &:last-child {
@@ -85,12 +88,6 @@ body {
     }
   }
   .light & {
-    // thead {
-    //   background: $darker;
-    // }
-    // tbody {
-    //   background: $darkest;
-    // }
     th {
       border-color: $dark;
       &:last-child {
