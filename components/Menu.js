@@ -16,9 +16,7 @@ const Menu = () => {
   const [isEmpty, setIsEmpty] = useState(true);
   const notify = (url, title, country) => {
     copyToClipboard(url);
-    darkNotification(
-      `Playing ${title} from ${country}. We copied channel link for you in case you want to keep a note of it!`
-    );
+    darkNotification(`You are watching ${title} from ${country}.`);
   };
   const handleRandom = (e) => {
     e.preventDefault();
@@ -27,13 +25,14 @@ const Menu = () => {
     const { content } = randomCountry;
     const randomChannel = content[Math.floor(Math.random() * content.length)];
     const { url, title, keyword, country } = randomChannel;
-    notify(url, title, country);
     if (isBrowser) {
       setChannel({
         ...channel,
         url,
         keyword,
+        isPlaying: true,
       });
+      notify(url, title, country);
     }
     if (isMobile) {
       window.open(url, "_blank");
@@ -41,19 +40,15 @@ const Menu = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(keyword);
     if (isBrowser) {
       setChannel({
         ...channel,
         url: keyword,
         keyword: "",
+        isPlaying: true,
       });
     }
     if (isMobile) {
-      setChannel({
-        ...channel,
-        keyword: "",
-      });
       window.open(keyword, "_blank");
     }
   };

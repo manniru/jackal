@@ -183,7 +183,12 @@ const AboutPage = () => {
               <strong>here</strong>
             </a>
             . If it does not load, it can likely work on iPad/iPhone devices but
-            may not work on desktop/laptop. In such cases, you may try VLC.
+            may not work on desktop/laptop. In such cases, you may try VLC
+            software. For example, this{" "}
+            <a href="http://s1.media-planet.sk:80/live/novezamky/playlist.m3u8">
+              <strong>stream</strong>
+            </a>{" "}
+            does not load in browser but works on iPhone/iOS devices or VLC.
           </span>
         </span>
       </li>

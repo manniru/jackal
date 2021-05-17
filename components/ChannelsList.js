@@ -23,6 +23,7 @@ const ChannelsList = () => {
         ...channel,
         url: currentUrl,
         keyword: "",
+        isPlaying: true,
       });
     }
     if (isMobile) {

@@ -17,10 +17,10 @@ const Main = () => {
     );
   const notifyWarn = () =>
     errorNotification(
-      "This live stream is either broken or outdated. We are so sorry for this."
+      "This live stream seems broken or outdated. Please read FAQs section for more information."
     );
-  const changeTV = (e, tv, decision) => {
-    if (decision && e.type === "error") {
+  const changeTV = (e, f, tv, decision) => {
+    if (decision && (e.type === "error" || (e === "hlsError" && f.fatal))) {
       const newListing = [...urls];
       const foundCountry = newListing.filter((i) => {
         return i.content.find((j) => j.url === tv);
@@ -49,14 +49,21 @@ const Main = () => {
       setChannel({
         ...channel,
         urls: revisedListing,
+        url: null,
+        keyword: "",
+        isPlaying: false,
       });
       localStorage.setItem("listing", JSON.stringify(revisedListing));
       notifyWarn();
     } else {
       notifyOkay();
+      setChannel({
+        ...channel,
+        isPlaying: true,
+      });
     }
   };
-  const banTV = (e, tv) => changeTV(e, tv, true);
+  const banTV = (e, f, tv) => changeTV(e, f, tv, true);
   return (
     <>
       <main role="main" className="main">
@@ -72,7 +79,7 @@ const Main = () => {
             playing
             controls
             url={url}
-            onError={(e) => banTV(e, url)}
+            onError={(e, f) => banTV(e, f, url)}
             width="inherit"
             height="inherit"
           />

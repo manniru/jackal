@@ -15,7 +15,7 @@ const darkNotificationBottom = (text) =>
   });
 const errorNotification = (text) =>
   toast.error(text, {
-    autoClose: 2000,
+    autoClose: 4000,
     pauseOnHover: false,
     position: "top-center",
   });

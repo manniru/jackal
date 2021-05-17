@@ -19,6 +19,7 @@ const CartList = () => {
         ...channel,
         url: currentUrl,
         keyword: "",
+        isPlaying: true,
       });
     }
     if (isMobile) {

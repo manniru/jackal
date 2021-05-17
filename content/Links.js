@@ -37,7 +37,7 @@ const Links = () => {
           rel="noopener noreferrer"
           aria-label="Check latest version metrics"
         >
-          1.8
+          1.9
         </a>
       </small>
     </>
