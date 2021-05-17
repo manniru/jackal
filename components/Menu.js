@@ -16,7 +16,9 @@ const Menu = () => {
   const [isEmpty, setIsEmpty] = useState(true);
   const notify = (url, title, country) => {
     copyToClipboard(url);
-    darkNotification(`You are watching ${title} from ${country}.`);
+    darkNotification(
+      `You are watching ${title} from ${country}. We copied the channel link for you.`
+    );
   };
   const handleRandom = (e) => {
     e.preventDefault();
