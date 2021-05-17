@@ -17,7 +17,7 @@ const Main = () => {
     );
   const notifyWarn = () =>
     errorNotification(
-      "This live stream seems broken or outdated. Please read FAQs section for more information."
+      "This live stream cannot work in the browser. Please read FAQs section for more information."
     );
   const changeTV = (e, f, tv, decision) => {
     if (decision && (e.type === "error" || (e === "hlsError" && f.fatal))) {

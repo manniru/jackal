@@ -91,7 +91,7 @@ const Navigation = () => {
                   name="keyword"
                   value={keyword}
                   onChange={handleChange}
-                  placeholder="M3U8 URL..."
+                  placeholder="Video source..."
                 />
                 <a
                   href="#"
