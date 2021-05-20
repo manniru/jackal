@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
+import { isBrowser } from "react-device-detect";
 import { FaList, FaLink, FaPlay } from "react-icons/fa";
 import { BsShuffle } from "react-icons/bs";
 import { FiHelpCircle } from "react-icons/fi";
 import { SiAirplayaudio } from "react-icons/si";
+import { MdHttp } from "react-icons/md";
 import MenuContext from "../context/MenuContext";
 import NavigationContext from "../context/NavigationContext";
 import Cart from "./Cart";
@@ -30,6 +32,8 @@ const Navigation = () => {
     handleLink,
     handleChange,
   } = useContext(NavigationContext);
+  const isHTTP =
+    process.browser && isBrowser && window.location.href.indexOf("https") > -1;
   return (
     <nav
       className={`nav ${isPlaying && label !== null ? "nav--two" : ""}`}
@@ -48,6 +52,18 @@ const Navigation = () => {
         )}
         <div>
           <div className="nav__content">
+            {isHTTP && (
+              <a
+                href="http://jackal.surge.sh"
+                className="nav__btn"
+                onClick={handleLink}
+                aria-label="Open HTTP version of this website"
+                title="Open HTTP version of this website"
+              >
+                <MdHttp />
+              </a>
+            )}
+
             <a
               href="#"
               className="nav__btn"
