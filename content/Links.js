@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTwitter, FaChild, FaUserFriends } from "react-icons/fa";
+import { RiContactsFill } from "react-icons/ri";
 
 const Links = () => {
   return (
@@ -9,6 +10,7 @@ const Links = () => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="See site performance"
+        title="See site performance"
       >
         <FaUserFriends />
       </a>
@@ -17,8 +19,18 @@ const Links = () => {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Help make a difference in a child's life"
+        title="Help make a difference in a child's life"
       >
         <FaChild />
+      </a>
+      <a
+        href="https://forms.gle/pQephvzviE7xxE6H8"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Use this form to send new feature requests or report bugs"
+        title="Use this form to send new feature requests or report bugs"
+      >
+        <RiContactsFill />
       </a>
       <a
         href="https://twitter.com/jackalislive"
@@ -26,6 +38,7 @@ const Links = () => {
         rel="noopener noreferrer"
         className="main__a"
         aria-label="Follow our Twitter account for latest updates"
+        title="Follow our Twitter account for latest updates"
       >
         <FaTwitter />
       </a>
@@ -36,6 +49,7 @@ const Links = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Check latest version metrics"
+          title="Check latest version metrics"
         >
           1.9
         </a>

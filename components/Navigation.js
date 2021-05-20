@@ -52,7 +52,8 @@ const Navigation = () => {
               href="#"
               className="nav__btn"
               onClick={handleLink}
-              aria-label="Paste URL"
+              aria-label="Enter video source"
+              title="Enter video source"
             >
               <FaLink />
             </a>
@@ -61,6 +62,7 @@ const Navigation = () => {
               className="nav__btn"
               onClick={handleShowFaq}
               aria-label="Get help"
+              title="Get help"
             >
               <FiHelpCircle />
             </a>
@@ -68,7 +70,8 @@ const Navigation = () => {
               href="#"
               className="nav__btn"
               onClick={handleShowList}
-              aria-label="See channels"
+              aria-label="Watch channels"
+              title="Watch channels"
             >
               <FaList />
             </a>
@@ -76,7 +79,8 @@ const Navigation = () => {
               href="#"
               className="nav__btn"
               onClick={handleRandom}
-              aria-label="See random channel"
+              aria-label="Watch random channel"
+              title="Watch random channel"
             >
               <BsShuffle />
             </a>

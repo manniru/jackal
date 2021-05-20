@@ -38,6 +38,7 @@ const Cart = () => {
         className={`nav__btn ${myCart ? "nav__btn--hide" : ""}`}
         onClick={handleShow}
         aria-label="My playlist"
+        title="My playlist"
       >
         <FaHeart />
       </a>
