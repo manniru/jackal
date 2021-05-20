@@ -80,8 +80,8 @@ const Navigation = () => {
             >
               <BsShuffle />
             </a>
+            <Cart channel={channel} setChannel={setChannel} />
           </div>
-          <Cart channel={channel} setChannel={setChannel} />
           <form className="nav__form" onSubmit={handleSubmit}>
             {link && (
               <div className="nav__form__items">
