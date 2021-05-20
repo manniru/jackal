@@ -56,7 +56,6 @@ const Navigation = () => {
               <a
                 href="http://jackal.surge.sh"
                 className="nav__btn"
-                onClick={handleLink}
                 aria-label="Open HTTP version of this website"
                 title="Open HTTP version of this website"
               >
