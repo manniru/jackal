@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FaList, FaLink, FaPlay } from "react-icons/fa";
+import { MdHttp } from "react-icons/md";
 import { BsShuffle } from "react-icons/bs";
 import { FiHelpCircle } from "react-icons/fi";
 import { SiAirplayaudio } from "react-icons/si";
@@ -48,6 +49,14 @@ const Navigation = () => {
         )}
         <div>
           <div className="nav__content">
+            <a
+              href="http://jackal.surge.sh"
+              className="nav__btn"
+              aria-label="Open HTTP version of this website"
+              title="Open HTTP version of this website"
+            >
+              <MdHttp />
+            </a>
             <a
               href="#"
               className="nav__btn"
