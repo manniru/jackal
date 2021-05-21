@@ -150,7 +150,7 @@ const fixBrokenFlags = (country) => {
     );
   if (country === "Ivory Coast")
     return (
-      <ReactCountryFlag className="accordion__flag__img" svg countryCode="ie" />
+      <ReactCountryFlag className="accordion__flag__img" svg countryCode="ci" />
     );
   if (country === "Kosovo")
     return (
