@@ -7,7 +7,7 @@ a {
     color: darken(orange, 20%);
   }
   .light & {
-    color: #1e88e5;
+    color: darken(#1e88e5, 10%);
     &:hover,
     &:focus,
     &:active {
@@ -43,7 +43,6 @@ small {
   }
 }
 
-// .main,
 .modal,
 .accordion__btn {
   background: $blackO;
@@ -159,10 +158,40 @@ body {
       color: darken(#1c9cea, 15%);
     }
     .light & {
-      color: #1c9cea;
+      color: darken(#1e88e5, 10%);
       &:hover,
       &:focus {
-        color: darken(#1c9cea, 15%);
+        color: darken(#1c9cea, 20%);
+      }
+    }
+  }
+  &__ft {
+    &__a {
+      color: inherit;
+      background: rgba(0, 0, 0, 0.25);
+      transition: background-color 0.7s ease;
+      &:hover,
+      &:focus,
+      &:active {
+        color: inherit;
+        transition: background-color 0.7s ease;
+        background: rgba(0, 0, 0, 0.75);
+      }
+    }
+  }
+  .light & {
+    &__ft {
+      &__a {
+        color: inherit;
+        background: rgba(28, 156, 234, 0.25);
+        transition: background-color 0.7s ease;
+        &:hover,
+        &:focus,
+        &:active {
+          color: inherit;
+          transition: background-color 0.7s ease;
+          background: rgba(28, 156, 234, 0.75);
+        }
       }
     }
   }
@@ -170,10 +199,16 @@ body {
 
 .green {
   color: green;
+  .light & {
+    color: darkgreen;
+  }
 }
 
 .red {
   color: red;
+  .light & {
+    color: darkred;
+  }
 }
 
 .danger {

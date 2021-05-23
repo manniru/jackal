@@ -6,6 +6,7 @@ import { successNotification, errorNotification } from "../common/notification";
 import About from "../modals/About";
 import Toggle from "../components/Toggle";
 import Links from "../content/Links";
+import Intro from "../content/Intro";
 
 const Main = () => {
   const { channel, setChannel, showFaq, setShowFaq, theme, toggleTheme } =
@@ -68,12 +69,7 @@ const Main = () => {
     <>
       <main role="main" className="main">
         {url === null ? (
-          <div className="main__text">
-            <h1 role="heading">Jackal</h1>
-            <p>
-              <em>Watch TV beyond boundaries...</em>
-            </p>
-          </div>
+          <Intro />
         ) : (
           <ReactPlayer
             playing
