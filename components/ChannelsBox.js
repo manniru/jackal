@@ -44,7 +44,7 @@ const ChannelsBox = () => {
                     <div className="accordion__title">
                       <AccordionItemState>
                         {({ expanded }) =>
-                          expanded ? <VscChevronDown /> : <VscChevronUp />
+                          expanded ? <VscChevronUp /> : <VscChevronDown />
                         }
                       </AccordionItemState>
                       <div className="accordion__country">

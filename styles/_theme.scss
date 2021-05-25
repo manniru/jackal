@@ -308,7 +308,8 @@ svg {
     display: flex;
     align-items: center;
     svg {
-      margin-right: 0.5rem;
+      min-width: 32px;
+      margin-right: 0.25rem;
     }
   }
 }
