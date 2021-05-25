@@ -5,8 +5,10 @@ import {
   AccordionItemHeading,
   AccordionItemButton,
   AccordionItemPanel,
+  AccordionItemState,
 } from "react-accessible-accordion";
 import ReactCountryFlag from "react-country-flag";
+import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
 import { fixBrokenFlags } from "../common";
 import MenuContext from "../context/MenuContext";
 import ChannelsListContext from "../context/ChannelsListContext";
@@ -17,7 +19,7 @@ const ChannelsBox = () => {
   const { urls } = channel;
   const [show, setShow] = useState(null);
   return (
-    <Accordion>
+    <Accordion allowZeroExpanded>
       {urls.map(({ content, id, code }) => {
         const handleClick = (e, id) => {
           const key = e.currentTarget.dataset.key
@@ -39,8 +41,15 @@ const ChannelsBox = () => {
               {content.length !== 0 ? (
                 <AccordionItemButton className="accordion__btn">
                   <div className="accordion__details">
-                    <div className="accordion__country">
-                      {content[0].country}
+                    <div className="accordion__title">
+                      <AccordionItemState>
+                        {({ expanded }) =>
+                          expanded ? <VscChevronDown /> : <VscChevronUp />
+                        }
+                      </AccordionItemState>
+                      <div className="accordion__country">
+                        {content[0].country}
+                      </div>
                     </div>
                     <div className="accordion__data">
                       <div className="accordion__flag">

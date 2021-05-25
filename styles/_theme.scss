@@ -257,18 +257,6 @@ svg {
   &__btn {
     display: flex;
     justify-content: space-between;
-    &[aria-expanded="true"] {
-      &::before {
-        content: "-";
-      }
-    }
-    &::before {
-      content: "+";
-      height: inherit;
-      display: flex;
-      align-items: center;
-      margin-left: 1rem;
-    }
   }
   &__data {
     display: flex;
@@ -314,6 +302,13 @@ svg {
       min-width: 3rem;
       margin-left: 0;
       margin-right: 0;
+    }
+  }
+  &__title {
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 0.5rem;
     }
   }
 }
