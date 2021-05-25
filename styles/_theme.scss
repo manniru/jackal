@@ -273,6 +273,9 @@ svg {
       }
     }
   }
+  &__heading {
+    outline: none;
+  }
   &__country {
     display: -webkit-box;
     -webkit-line-clamp: 1;

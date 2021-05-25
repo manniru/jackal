@@ -34,7 +34,7 @@ const ChannelsBox = () => {
         return (
           <AccordionItem key={id}>
             <AccordionItemHeading
-              className={`${show === id ? "active" : ""}`}
+              className={`accordion__heading ${show === id ? "active" : ""}`}
               data-key={id}
               onClick={(e) => handleClick(e, id)}
             >
