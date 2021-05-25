@@ -273,7 +273,9 @@ svg {
       }
     }
   }
-  &__heading {
+  &__heading:focus,
+  &__details:focus,
+  &__btn:focus {
     outline: none;
   }
   &__country {
