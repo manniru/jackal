@@ -183,6 +183,13 @@ svg {
   &::-webkit-scrollbar {
     display: none;
   }
+  &__search {
+    padding: 1rem;
+  }
+  &__input {
+    padding: 0.5rem;
+    width: 100%;
+  }
   &__header {
     background: inherit;
     position: sticky;
@@ -345,6 +352,7 @@ svg {
 
 .empty-cart,
 .empty-list {
+  margin: 0;
   padding: 0 1rem;
 }
 
