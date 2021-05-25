@@ -18,28 +18,26 @@ const Channels = () => {
     setSearchText(value);
   };
   useEffect(() => {
-    if (searchText.trim() !== "") {
-      const newChannel = { ...originalState };
-      const { urls } = newChannel;
-      const newUrls = urls
-        .map((i) => {
-          const newContent = i.content.filter((j) =>
-            j.title.toLowerCase().includes(searchText)
-          );
-          return {
-            ...i,
-            content: newContent,
-          };
-        })
-        .filter((i) => i.content.length !== 0);
-      const newChannels = {
-        ...channels,
-        urls: newUrls,
-      };
-      setChannel(newChannels);
-    } else {
-      setChannel(originalState);
-    }
+    const newChannel = { ...originalState };
+    const { urls } = newChannel;
+    const newUrls = urls
+      .map((i) => {
+        const newContent = i.content.filter((j) =>
+          j.title.toLowerCase().includes(searchText.trim())
+        );
+        return {
+          ...i,
+          content: newContent,
+        };
+      })
+      .filter((i) => i.content.length !== 0);
+    const newChannels = {
+      ...newChannel,
+      urls: newUrls,
+      isPlaying: channel.url,
+      url: channel.url,
+    };
+    setChannel(newChannels);
   }, [searchText]);
   return (
     <Modal
