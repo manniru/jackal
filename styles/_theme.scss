@@ -184,7 +184,10 @@ svg {
     display: none;
   }
   &__search {
+    position: sticky;
+    top: 58.5px;
     padding: 1rem;
+    background: inherit;
   }
   &__input {
     padding: 0.5rem;
@@ -245,9 +248,6 @@ svg {
 .accordion {
   &__item {
     border-top: 1px solid;
-    &:first-child {
-      border-top: 0;
-    }
     .active {
       border-bottom: 0;
     }
