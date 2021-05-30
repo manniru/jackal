@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Total from "./Total";
 
 const Intro = () => {
   return (
     <div className="main__text">
       <h1 role="heading">Jackal</h1>
       <p>
-        <em>Watch TV beyond boundaries...</em>
+        Watch TV beyond boundaries.{" "}
+        <strong>
+          <Total />
+        </strong>{" "}
+        live channels at your service and updated regulary by open source
+        community.
       </p>
       <h2>Featured on</h2>
       <div className="main__ft">
