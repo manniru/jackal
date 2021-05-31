@@ -10,7 +10,7 @@ const Intro = () => {
         <strong>
           <Total />
         </strong>{" "}
-        live channels at your service and updated regulary by open source
+        live channels at your service and updated regularly by open source
         community.
       </p>
       <h2>Featured on</h2>

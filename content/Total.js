@@ -4,7 +4,7 @@ import MenuContext from "../context/MenuContext";
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 const Total = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState("Unlimited");
   const { channel } = useContext(MenuContext);
   const { urls } = channel;
   const newText =
