@@ -149,7 +149,7 @@ const AboutPage = () => {
         <span>
           In a channel, <span style={{ color: "red" }}>red text</span> means
           live stream uses HTTP protocol and{" "}
-          <span style={{ color: "green" }}>green text</span>&nbsp; means live
+          <span style={{ color: "green" }}>green text</span> means live
           stream uses HTTPS protocol.
         </span>
         <br />
