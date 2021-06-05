@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.12] - 2021-06-04
 
+- Update `README.md` file
 - Add `CHANGELOG.md` file for activity logs.
 - Remove trailing # symbol in URL when click an hyperlink
 - Upgrade yarn packages
