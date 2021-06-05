@@ -3,7 +3,7 @@ import { isBrowser, isMobile } from "react-device-detect";
 import MenuContext from "../context/MenuContext";
 import ChannelsContext from "../context/ChannelsContext";
 import NavigationContext from "../context/NavigationContext";
-import { copyToClipboard } from "../common";
+import { copyToClipboard, isValidUrl } from "../common";
 import { darkNotification } from "../common/notification";
 import Channels from "../modals/Channels";
 import Navigation from "./Navigation";
@@ -42,6 +42,11 @@ const Menu = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!isValidUrl(keyword)) {
+      darkNotification(`Please enter a valid stream link.`);
+      return;
+    }
+    console.log("x", isValidUrl(keyword));
     if (isBrowser) {
       setChannel({
         ...channel,
@@ -54,7 +59,10 @@ const Menu = () => {
       window.open(keyword, "_blank");
     }
   };
-  const handleLink = () => setLink(!link);
+  const handleLink = (e) => {
+    e.preventDefault();
+    setLink(!link);
+  };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setChannel({ ...channel, [name]: value });

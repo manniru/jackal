@@ -12,7 +12,10 @@ const Channels = () => {
   const [searchText, setSearchText] = useState("");
   const [originalState] = useState(channel);
   const { urls } = channel;
-  const handleClose = () => setShowList(false);
+  const handleClose = (e) => {
+    e.preventDefault();
+    setShowList(false);
+  };
   const handleChange = (e) => {
     const { value } = e.target;
     setSearchText(value);

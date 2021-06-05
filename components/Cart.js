@@ -24,9 +24,16 @@ const Cart = () => {
   );
   const myCart = cart ? false : true;
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const handleClear = () => {
+  const handleClose = (e) => {
+    e.preventDefault();
+    setShow(false);
+  };
+  const handleShow = (e) => {
+    e.preventDefault();
+    setShow(true);
+  };
+  const handleClear = (e) => {
+    e.preventDefault();
     localStorage.removeItem("playlist");
     destroyCookie(null, "hasData");
     setCart(false);

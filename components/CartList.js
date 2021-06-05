@@ -9,11 +9,13 @@ import { darkNotification } from "../common/notification";
 const CartList = () => {
   const { channel, setChannel } = useContext(MenuContext);
   const { playlist } = useContext(MyPlaylistContext);
-  const notifyCopy = (url) => {
+  const notifyCopy = (url, e) => {
+    e.preventDefault();
     copyToClipboard(url);
     darkNotification("URL copied successfully!");
   };
-  const handlePlay = (currentUrl) => {
+  const handlePlay = (currentUrl, e) => {
+    e.preventDefault();
     if (isBrowser) {
       setChannel({
         ...channel,
@@ -52,10 +54,14 @@ const CartList = () => {
               </td>
               <td>
                 <div className="controls">
-                  <a href="#" onClick={() => handlePlay(url)} aria-label="Play">
+                  <a
+                    href="#"
+                    onClick={(e) => handlePlay(url, e)}
+                    aria-label="Play"
+                  >
                     <FaPlay />
                   </a>
-                  <a href="#" onClick={() => notifyCopy(url)}>
+                  <a href="#" onClick={(e) => notifyCopy(url, e)}>
                     <FaRegCopy />
                   </a>
                 </div>

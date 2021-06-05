@@ -31,8 +31,14 @@ const App = ({ listing }) => {
     urls: localListing,
     keyword: "",
   });
-  const handleShowFaq = () => setShowFaq(true);
-  const handleShowList = () => setShowList(true);
+  const handleShowFaq = (e) => {
+    e.preventDefault();
+    setShowFaq(true);
+  };
+  const handleShowList = (e) => {
+    e.preventDefault();
+    setShowList(true);
+  };
   const handleClearStorage = (e) => {
     e.preventDefault();
     localStorage.removeItem("listing");

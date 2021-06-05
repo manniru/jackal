@@ -11,7 +11,10 @@ Modal.setAppElement("#about");
 const About = () => {
   const { handleClearStorage } = useContext(MenuContext);
   const { showFaq, setShowFaq } = useContext(AboutContext);
-  const handleClose = () => setShowFaq(false);
+  const handleClose = (e) => {
+    e.preventDefault();
+    setShowFaq(false);
+  };
   return (
     <Modal
       isOpen={showFaq}

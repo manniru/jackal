@@ -175,4 +175,15 @@ const fixBrokenFlags = (country) => {
   return null;
 };
 
-export { getData, copyToClipboard, fixBrokenFlags };
+// https://stackoverflow.com/a/43467144
+const isValidUrl = (string) => {
+  let url;
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+  return url.protocol === "http:" || url.protocol === "https:";
+};
+
+export { getData, copyToClipboard, fixBrokenFlags, isValidUrl };

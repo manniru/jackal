@@ -9,7 +9,8 @@ import { errorNotification, darkNotification } from "../common/notification";
 const ChannelsList = () => {
   const { item } = useContext(ChannelsListContext);
   const { channel, setChannel } = useContext(MenuContext);
-  const notifyCopy = (url) => {
+  const notifyCopy = (url, e) => {
+    e.preventDefault();
     copyToClipboard(url);
     darkNotification("URL copied successfully!");
   };
@@ -17,7 +18,8 @@ const ChannelsList = () => {
     errorNotification("This channel is already available in your playlist!");
   const notifyAdd = () =>
     darkNotification("Channel added successfully to your playlist!");
-  const handlePlay = (currentUrl) => {
+  const handlePlay = (currentUrl, e) => {
+    e.preventDefault();
     if (isBrowser) {
       setChannel({
         ...channel,
@@ -30,7 +32,8 @@ const ChannelsList = () => {
       window.open(currentUrl, "_blank");
     }
   };
-  const handleStoreChannel = (item) => {
+  const handleStoreChannel = (item, e) => {
+    e.preventDefault();
     const getPlaylist = localStorage.getItem("playlist");
     const checkDuplicates = (playList) =>
       playList.find((channel) => channel.url === item.url);
@@ -75,15 +78,19 @@ const ChannelsList = () => {
               </td>
               <td>
                 <div className="controls">
-                  <a href="#" onClick={() => handlePlay(url)} aria-label="Play">
+                  <a
+                    href="#"
+                    onClick={(e) => handlePlay(url, e)}
+                    aria-label="Play"
+                  >
                     <FaPlay />
                   </a>
-                  <a href="#" onClick={() => notifyCopy(url)}>
+                  <a href="#" onClick={(e) => notifyCopy(url, e)}>
                     <FaRegCopy />
                   </a>
                   <a
                     href="#"
-                    onClick={() => handleStoreChannel(j)}
+                    onClick={(e) => handleStoreChannel(j, e)}
                     aria-label="Add to my playlist"
                   >
                     <FaHeart />
