@@ -311,6 +311,10 @@ svg {
   }
   &__flag {
     &__img {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      vertical-align: middle;
       min-height: 1rem;
       min-width: auto;
       object-fit: contain;

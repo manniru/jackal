@@ -173,9 +173,7 @@ const fixBrokenFlags = (country) => {
       <ReactCountryFlag className="accordion__flag__img" svg countryCode="vi" />
     );
   if (country === "Netherlands Antilles")
-    return (
-      <ReactCountryFlag className="accordion__flag__img" svg countryCode="an" />
-    );
+    return <img className="accordion__flag__img" src="./an.svg" />;
   return null;
 };
 

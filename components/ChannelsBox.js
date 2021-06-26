@@ -53,7 +53,8 @@ const ChannelsBox = () => {
                     </div>
                     <div className="accordion__data">
                       <div className="accordion__flag">
-                        {code !== null ? (
+                        {code !== null &&
+                        code.country !== "Netherlands Antilles" ? (
                           <ReactCountryFlag
                             className="accordion__flag__img"
                             svg
