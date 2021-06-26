@@ -5,13 +5,19 @@
 html {
   font-size: 16px;
   line-height: 1.75;
+  @media screen and (min-width: 540px) {
+    font-size: 18px;
+  }
 }
 
 body {
+  overflow: hidden;
   line-height: 1.5;
   font-size: 1rem;
-  font-family: "Verdana";
-  overflow: hidden;
+  font-family: "Ubuntu", sans-serif;
+  * {
+    font-family: inherit;
+  }
 }
 
 table {
@@ -52,6 +58,7 @@ table {
 
 svg {
   font-size: 1.25rem;
+  max-height: 22px;
 }
 
 .main {
@@ -74,9 +81,12 @@ svg {
   &__text {
     display: flex;
     flex-direction: column;
-    max-width: 250px;
+    max-width: 280px;
     padding: 1rem;
     text-align: center;
+    @media screen and (min-width: 768px) {
+      max-width: 300px;
+    }
     h1 {
       margin: 0;
       line-height: 1;
@@ -145,11 +155,12 @@ svg {
     margin: 0;
     &__input {
       width: 140px;
+      font-size: inherit;
     }
     &__items {
       margin-top: 0.5rem;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
     }
     &__btn {
       margin-left: 0.5rem;
@@ -163,6 +174,9 @@ svg {
   }
   &__btn {
     margin-left: 1rem;
+    &:first-child {
+      margin-left: 0;
+    }
     &--hide {
       display: none;
     }
@@ -185,13 +199,17 @@ svg {
   }
   &__search {
     position: sticky;
-    top: 58.5px;
+    top: 58.25px;
     padding: 1rem;
     background: inherit;
+    @media screen and (min-width: 540px) {
+      top: 65.75px;
+    }
   }
   &__input {
     padding: 0.5rem;
     width: 100%;
+    font-size: inherit;
   }
   &__header {
     background: inherit;
@@ -385,6 +403,12 @@ svg {
   transform: translateY(-50%);
   a {
     margin-left: 0.25rem;
+    max-height: 22px;
+  }
+  small {
+    max-height: 16px;
+    display: flex;
+    align-items: flex-end;
   }
   > * {
     margin-top: 1rem;
@@ -394,5 +418,11 @@ svg {
   }
   svg {
     height: 100%;
+  }
+}
+
+.Toastify {
+  &__toast {
+    font-family: inherit;
   }
 }

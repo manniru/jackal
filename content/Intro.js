@@ -6,7 +6,7 @@ const Intro = () => {
     <div className="main__text">
       <h1 role="heading">Jackal</h1>
       <p>
-        Watch TV beyond boundaries.{" "}
+        <em>Watch TV beyond boundaries.</em>{" "}
         <strong>
           <Total />
         </strong>{" "}
