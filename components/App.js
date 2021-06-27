@@ -11,26 +11,24 @@ const App = ({ listing }) => {
   const refresh = () => {
     localStorage.removeItem("listing");
     // destroyCookie(null, "hasData");
-    window.location.reload();
+    // window.location.reload();
   };
-  if (process.browser) {
-    // if (Boolean(hasData) && localStorage.getItem("listing") === "undefined") {
-    if (localStorage.getItem("listing") === "undefined") {
-      refresh();
-      // } else if (Boolean(hasData) && localStorage.getItem("listing")) {
-    } else if (localStorage.getItem("listing")) {
-      localListing = JSON.parse(localStorage.getItem("listing"));
-    } else {
-      localStorage.setItem("listing", JSON.stringify(listing));
-      localListing = JSON.parse(localStorage.getItem("listing"));
-    }
-  }
+  // if (process.browser) {
+  //   if (Boolean(hasData) && localStorage.getItem("listing") === "undefined") {
+  //     refresh();
+  //   } else if (Boolean(hasData) && localStorage.getItem("listing")) {
+  //     localListing = JSON.parse(localStorage.getItem("listing"));
+  //   } else {
+  //     localStorage.setItem("listing", JSON.stringify(listing));
+  //     localListing = JSON.parse(localStorage.getItem("listing"));
+  //   }
+  // }
   const [theme, toggleTheme] = useDarkMode();
   const [showFaq, setShowFaq] = useState(false);
   const [showList, setShowList] = useState(false);
   const [channel, setChannel] = useState({
     url: null,
-    urls: localListing,
+    urls: listing,
     keyword: "",
   });
   const handleShowFaq = (e) => {
