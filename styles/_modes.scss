@@ -164,6 +164,20 @@ body {
         color: darken(#1c9cea, 20%);
       }
     }
+    &--yt {
+      color: #ff0000;
+      &:hover,
+      &:focus {
+        color: darken(#ff0000, 10%);
+      }
+      .light & {
+        color: #ff0000;
+        &:hover,
+        &:focus {
+          color: darken(#ff0000, 10%);
+        }
+      }
+    }
   }
   &__ft {
     &__a {

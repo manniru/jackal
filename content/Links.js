@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTwitter, FaChild, FaUserFriends } from "react-icons/fa";
+import { FaTwitter, FaChild, FaUserFriends, FaYoutube } from "react-icons/fa";
 import { RiContactsFill } from "react-icons/ri";
 
 const Links = () => {
@@ -41,6 +41,16 @@ const Links = () => {
         title="Follow our Twitter account for latest updates"
       >
         <FaTwitter />
+      </a>
+      <a
+        href="https://www.youtube.com/channel/UCv0_oeHIYDdvZxYd1Se3ptA"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="main__a main__a--yt"
+        aria-label="Subscribe to our YouTube account"
+        title="Subscribe to our YouTube account"
+      >
+        <FaYoutube />
       </a>
       <small>
         v
