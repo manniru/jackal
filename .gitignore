@@ -36,3 +36,4 @@ yarn-error.log*
 # surge
 /dist
 /latest-run
+/public/report.html
