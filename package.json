@@ -13,7 +13,6 @@
   "dependencies": {
     "country-code-lookup": "^0.0.19",
     "next": "^10.2.0",
-    "nookies": "^2.5.2",
     "normalize.css": "^8.0.1",
     "react": "17.0.2",
     "react-accessible-accordion": "^3.3.4",

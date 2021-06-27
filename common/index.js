@@ -1,5 +1,5 @@
 import lookup from "country-code-lookup";
-import nookies from "nookies";
+// import nookies from "nookies";
 import ReactCountryFlag from "react-country-flag";
 
 const urls = [
@@ -105,38 +105,39 @@ const copyToClipboard = (textToCopy) => {
 };
 
 const getData = async (ctx) => {
-  let hasNoError = true;
+  // let hasNoError = true;
   try {
-    const cookies = nookies.get(ctx);
-    const noCookies = cookies && isObjectEmpty(cookies);
-    if (noCookies) {
-      const mainPromises = urls.map(getTextFromFetch);
-      const results = await Promise.all(mainPromises);
-      const [promiseMainList, promiseBadList] = results;
-      const badList = parseBadLinks(promiseBadList);
-      const mainList = await parseLinks(promiseMainList, badList);
-      const finalList = mainList.map((i, idx) => {
-        return {
-          id: ++idx,
-          code: lookup.byCountry(i[0].country),
-          content: [...i],
-        };
-      });
-      return finalList;
-    }
+    // const cookies = nookies.get(ctx);
+    // const noCookies = cookies && isObjectEmpty(cookies);
+    // if (noCookies) {
+    const mainPromises = urls.map(getTextFromFetch);
+    const results = await Promise.all(mainPromises);
+    const [promiseMainList, promiseBadList] = results;
+    const badList = parseBadLinks(promiseBadList);
+    const mainList = await parseLinks(promiseMainList, badList);
+    const finalList = mainList.map((i, idx) => {
+      return {
+        id: ++idx,
+        code: lookup.byCountry(i[0].country),
+        content: [...i],
+      };
+    });
+    return finalList;
+    // }
   } catch (e) {
-    hasNoError = false;
+    // hasNoError = false;
     return "fail";
-  } finally {
-    if (hasNoError) {
-      nookies.set(ctx, "hasData", true, {
-        maxAge: 30 * 24 * 60 * 60,
-        path: "/",
-      });
-    } else {
-      nookies.destroy(ctx, "hasData");
-    }
   }
+  // finally {
+  //   if (hasNoError) {
+  //     nookies.set(ctx, "hasData", true, {
+  //       maxAge: 30 * 24 * 60 * 60,
+  //       path: "/",
+  //     });
+  //   } else {
+  //     nookies.destroy(ctx, "hasData");
+  //   }
+  // }
 };
 
 const fixBrokenFlags = (country) => {

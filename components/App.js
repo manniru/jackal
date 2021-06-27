@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { parseCookies, destroyCookie } from "nookies";
+// import { parseCookies, destroyCookie } from "nookies";
 import MenuContext from "../context/MenuContext";
 import { useDarkMode } from "../common/useDarkMode";
 import Menu from "../components/Menu";
@@ -7,16 +7,18 @@ import Main from "../components/Main";
 
 const App = ({ listing }) => {
   let localListing = [];
-  const { hasData } = parseCookies();
+  // const { hasData } = parseCookies();
   const refresh = () => {
     localStorage.removeItem("listing");
-    destroyCookie(null, "hasData");
+    // destroyCookie(null, "hasData");
     window.location.reload();
   };
   if (process.browser) {
-    if (Boolean(hasData) && localStorage.getItem("listing") === "undefined") {
+    // if (Boolean(hasData) && localStorage.getItem("listing") === "undefined") {
+    if (localStorage.getItem("listing") === "undefined") {
       refresh();
-    } else if (Boolean(hasData) && localStorage.getItem("listing")) {
+      // } else if (Boolean(hasData) && localStorage.getItem("listing")) {
+    } else if (localStorage.getItem("listing")) {
       localListing = JSON.parse(localStorage.getItem("listing"));
     } else {
       localStorage.setItem("listing", JSON.stringify(listing));
@@ -42,7 +44,7 @@ const App = ({ listing }) => {
   const handleClearStorage = (e) => {
     e.preventDefault();
     localStorage.removeItem("listing");
-    destroyCookie(null, "hasData");
+    // destroyCookie(null, "hasData");
     window.location.reload();
   };
   if (process.browser && theme === "dark") {

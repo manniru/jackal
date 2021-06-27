@@ -1,6 +1,6 @@
 import React from "react";
 import { FaList, FaLink, FaHeart } from "react-icons/fa";
-import { FiRefreshCw } from "react-icons/fi";
+// import { FiRefreshCw } from "react-icons/fi";
 import { BsShuffle } from "react-icons/bs";
 
 const AboutPage = () => {
@@ -133,13 +133,13 @@ const AboutPage = () => {
         <span>To view or add channels to your playlist, use:</span>
         <FaHeart />
       </li>
-      <li className="li li--flex">
+      {/* <li className="li li--flex">
         <span>
           Jackal use localStorage API in your browser, to store data received
           from IPTV repository. To clear this data, use:
         </span>
         <FiRefreshCw />
-      </li>
+      </li> */}
       <li>
         If you have a Chromecast, cast any stream to your TV by using Chromium
         based browser from your PC/Laptop. Right click on the playing live
@@ -149,8 +149,8 @@ const AboutPage = () => {
         <span>
           In a channel, <span style={{ color: "red" }}>red text</span> means
           live stream uses HTTP protocol and{" "}
-          <span style={{ color: "green" }}>green text</span> means live
-          stream uses HTTPS protocol.
+          <span style={{ color: "green" }}>green text</span> means live stream
+          uses HTTPS protocol.
         </span>
         <br />
         <br />

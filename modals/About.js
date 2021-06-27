@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Modal from "react-modal";
-import { FiRefreshCw } from "react-icons/fi";
+// import { FiRefreshCw } from "react-icons/fi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import MenuContext from "../context/MenuContext";
 import AboutContext from "../context/AboutContext";
@@ -25,9 +25,9 @@ const About = () => {
       <header className="modal__header">
         <aside className="modal__aside">FAQs</aside>
         <footer className="modal__footer">
-          <a href="#" onClick={handleClearStorage} aria-label="Reset">
+          {/* <a href="#" onClick={handleClearStorage} aria-label="Reset">
             <FiRefreshCw />
-          </a>
+          </a> */}
           <a href="#" onClick={handleClose} aria-label="Exit">
             <AiOutlineCloseCircle />
           </a>
