@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { parseCookies, destroyCookie } from "nookies";
 import MenuContext from "../context/MenuContext";
 import { useDarkMode } from "../common/useDarkMode";
@@ -55,6 +55,15 @@ const App = ({ listing }) => {
     document.body.classList.add("light");
     document.body.classList.remove("dark");
   }
+  useEffect(() => {
+    // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+  }, []);
   return (
     <>
       <MenuContext.Provider
