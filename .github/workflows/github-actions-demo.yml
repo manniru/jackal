@@ -15,5 +15,5 @@ jobs:
           check-latest: true
       - run: npm install
       - run: npm run export
-      - run: npm install -g surge
+      - run: sudo npm install -g surge
       - run: surge --domain `cat CNAME` dist --token {{TOKEN}}
