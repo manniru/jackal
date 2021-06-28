@@ -1,12 +1,14 @@
 language: node_js
 node_js:
   - node
-
-after_success:
-  - npm run export
-before_deploy:
-  - cd dist
+cache:
+  directories:
+    - node_modules
+script:
+  - yarn export
 deploy:
   provider: surge
+  project: ./dist/
+  skip_cleanup: true
   on:
       branch: main
