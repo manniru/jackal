@@ -2,6 +2,10 @@ language: node_js
 node_js:
   - node
 
+  after_success:
+  - npm run export
+before_deploy:
+  - cd dist
 deploy:
   provider: surge
   on:
