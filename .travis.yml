@@ -1,0 +1,6 @@
+deploy:
+  provider: surge
+  project: ./dist/
+  domain: jackal.surge.sh
+  on:
+    branch: main
