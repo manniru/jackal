@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "export": "next build && next export -o dist",
-    "deploy": "npm run export && npx surge --domain `cat CNAME` dist"
+    "deploy": "npm run export && npx surge --domain `cat CNAME` dist",
+    "test": "echo TEST"
   },
   "dependencies": {
     "country-code-lookup": "^0.0.19",
