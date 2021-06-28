@@ -4,7 +4,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '0 * * * *'
 jobs:
   cron:
     runs-on: ubuntu-latest
@@ -16,4 +16,4 @@ jobs:
       - run: npm install
       - run: npm run export
       - run: sudo npm install -g surge
-      - run: surge --domain `cat CNAME` dist --token ${{TOKEN}}
+      - run: surge --domain `cat CNAME` dist --token ${{secret.TOKEN}}
