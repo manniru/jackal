@@ -4,11 +4,7 @@ import ReactCountryFlag from "react-country-flag";
 
 const urls = [
   `https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u`,
-  `https://iptv-org.github.io/iptv/categories/xxx.m3u`,
 ];
-
-const isObjectEmpty = (obj) =>
-  Object.keys(obj).length === 0 && obj.constructor === Object;
 
 const getTextFromFetch = async (url) => {
   const req = await fetch(url);
@@ -16,41 +12,66 @@ const getTextFromFetch = async (url) => {
   return text;
 };
 
-const parseBadLinks = (myPromise) => {
-  return myPromise
-    .split("#")
-    .map((i) => i.replace(/\n/gi, ""))
-    .filter((i) => i !== "")
-    .filter((i) => (i.includes("EXTM3U") ? null : i))
-    .map((i) => i.split("group-title")[1])
-    .map((i) => {
-      const currentIndex = i.indexOf("http");
-      const currentUrl = i.slice(currentIndex);
-      return currentUrl;
-    });
+// const parseBadLinks = (myPromise) => {
+//   return myPromise
+//     .split("#")
+//     .map((i) => i.replace(/\n/gi, ""))
+//     .filter((i) => i !== "")
+//     .filter((i) => (i.includes("EXTM3U") ? null : i))
+//     .map((i) => i.split("group-title")[1])
+//     .map((i) => {
+//       const currentIndex = i.indexOf("http");
+//       const currentUrl = i.slice(currentIndex);
+//       return currentUrl;
+//     });
+// };
+
+const parseXLinks = (myPromise, codes) => {
+  return (
+    myPromise
+      .map((i) => i.split("#"))
+      .map((i) => i.filter((j) => j !== ""))
+      .map((i) => i.filter((j) => (j.includes("EXTM3U") ? null : j)))
+      .map((i) => i.map((j) => j.split(",")))
+      .map((i) => i.map((j) => ({ type: j[0], url: j[1] })))
+      .map((i) => i.filter((j) => (typeof j.url === undefined ? null : j)))
+      .map((i) =>
+        i.map((j) => {
+          let word;
+          if (j.type.includes("group-title=")) {
+            const array = j.type.split("group-title=");
+            word = array[1].replace(/"/g, "");
+            word = word.trim() ? word : "None";
+          } else {
+            word = "None";
+          }
+          return {
+            type: word,
+            url: j.url ? j.url.split("\n") : null,
+          };
+        })
+      )
+      .map((i, index) =>
+        i.map((j) => ({
+          type: j.type,
+          title: j.url ? j.url[0].trim() : null,
+          url: j.url ? j.url[1] : null,
+          country: codes[index],
+        }))
+      )
+      .map((i) => i.filter((j) => j.url))
+      .map((i) =>
+        i.sort((a, b) =>
+          a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1
+        )
+      )
+      // .map((i) => i.filter((j) => (badList.indexOf(j.url) === -1 ? j : false)))
+      .map((i) => i.filter((j) => j.type !== "XXX"))
+      .map((i) => i.filter((j) => (j.title.includes("XXX") ? false : j)))
+  );
 };
 
-const parseXLinks = (myPromise, badList, codes) => {
-  return myPromise
-    .map((i) => i.split("#"))
-    .map((i) => i.filter((j) => j !== ""))
-    .map((i) => i.filter((j) => (j.includes("EXTM3U") ? null : j)))
-    .map((i) => i.map((j) => j.split(",")))
-    .map((i) => i.map((j) => j[1]))
-    .map((i) => i.filter((j) => (typeof j === undefined ? null : j)))
-    .map((i) => i.map((j) => j.split("\n")))
-    .map((i, index) =>
-      i.map((j) => ({ title: j[0], url: j[1], country: codes[index] }))
-    )
-    .filter((i) => i.length !== 0)
-    .map((i) =>
-      i.sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1))
-    )
-    .map((i) => i.filter((j) => (badList.indexOf(j.url) === -1 ? j : false)))
-    .map((i) => i.filter((j) => (j.title.includes("XXX") ? false : j)));
-};
-
-const parseLinks = async (myPromise, badList) => {
+const parseLinks = async (myPromise) => {
   let codes = myPromise
     .split("#")
     .map((i) => i.replace(/\n/gi, ""))
@@ -76,7 +97,8 @@ const parseLinks = async (myPromise, badList) => {
     );
   const promises = urls.map(getTextFromFetch);
   const results = await Promise.all(promises);
-  return parseXLinks(results, badList, codes);
+  // return parseXLinks(results, badList, codes);
+  return parseXLinks(results, codes);
 };
 
 // https://stackoverflow.com/questions/51805395/navigator-clipboard-is-undefined
@@ -104,7 +126,7 @@ const copyToClipboard = (textToCopy) => {
   }
 };
 
-const getData = async (ctx) => {
+const getData = async () => {
   // let hasNoError = true;
   try {
     // const cookies = nookies.get(ctx);
@@ -112,16 +134,20 @@ const getData = async (ctx) => {
     // if (noCookies) {
     const mainPromises = urls.map(getTextFromFetch);
     const results = await Promise.all(mainPromises);
-    const [promiseMainList, promiseBadList] = results;
-    const badList = parseBadLinks(promiseBadList);
-    const mainList = await parseLinks(promiseMainList, badList);
-    const finalList = mainList.map((i, idx) => {
-      return {
-        id: ++idx,
-        code: lookup.byCountry(i[0].country),
-        content: [...i],
-      };
-    });
+    const [promiseMainList] = results;
+    // const [promiseMainList, promiseBadList] = results;
+    // const badList = parseBadLinks(promiseBadList);
+    // const mainList = await parseLinks(promiseMainList, badList);
+    const mainList = await parseLinks(promiseMainList);
+    const finalList = mainList
+      .filter((i) => i.length)
+      .map((i, idx) => {
+        return {
+          id: ++idx,
+          code: lookup.byCountry(i[0].country),
+          content: [...i],
+        };
+      });
     return finalList;
     // }
   } catch (e) {

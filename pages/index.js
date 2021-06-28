@@ -45,8 +45,8 @@ export default function Home({ listing }) {
   );
 }
 
-Home.getInitialProps = async (ctx) => {
+Home.getInitialProps = async () => {
   return {
-    listing: await getData(ctx),
+    listing: await getData(),
   };
 };

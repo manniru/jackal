@@ -6,7 +6,7 @@ import Menu from "../components/Menu";
 import Main from "../components/Main";
 
 const App = ({ listing }) => {
-  let localListing = [];
+  // let localListing = [];
   // const { hasData } = parseCookies();
   const refresh = () => {
     localStorage.removeItem("listing");
