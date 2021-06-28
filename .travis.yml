@@ -11,5 +11,6 @@ deploy:
   provider: surge
   project: ./dist/
   cleanup: false
+  domain: jackal.surge.sh
   on:
       branch: main
