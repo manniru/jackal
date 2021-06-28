@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: 14
           check-latest: true
+      - run: npm install
       - run: npm run export
       - run: npm install -g surge
       - run: surge ./dist/ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
