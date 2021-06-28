@@ -1,0 +1,19 @@
+name: Deploy To Surge
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "*/* 1 * * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          check-latest: true
+      - run: npm install
+      - run: npm run export
+      - run: npm install -g surge
+      - run: surge --domain `cat CNAME` dist --token {{TOKEN}}
