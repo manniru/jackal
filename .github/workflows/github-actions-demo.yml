@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 14
       - run: npm install
-      - run: npm install -g surge lighthouse
-      - run: npm run report
+      - run: npm install -g surge lighthouse-ci
+      - run: npm run report-ci
       - run: npm run export
       - run: surge ./dist/ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
