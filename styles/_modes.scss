@@ -178,6 +178,20 @@ body {
         }
       }
     }
+    &--rd {
+      color: #ff4500;
+      &:hover,
+      &:focus {
+        color: darken(#ff4500, 10%);
+      }
+      .light & {
+        color: #ff4500;
+        &:hover,
+        &:focus {
+          color: darken(#ff4500, 10%);
+        }
+      }
+    }
   }
   &__ft {
     &__a {

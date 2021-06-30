@@ -1,5 +1,11 @@
 import React from "react";
-import { FaTwitter, FaChild, FaUserFriends, FaYoutube } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaChild,
+  FaUserFriends,
+  FaYoutube,
+  FaRedditAlien,
+} from "react-icons/fa";
 import { RiContactsFill } from "react-icons/ri";
 
 const Links = () => {
@@ -33,16 +39,6 @@ const Links = () => {
         <RiContactsFill />
       </a>
       <a
-        href="https://twitter.com/jackalislive"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="main__a"
-        aria-label="Follow our Twitter account for latest updates"
-        title="Follow our Twitter account for latest updates"
-      >
-        <FaTwitter />
-      </a>
-      <a
         href="https://www.youtube.com/channel/UCv0_oeHIYDdvZxYd1Se3ptA"
         target="_blank"
         rel="noopener noreferrer"
@@ -51,6 +47,26 @@ const Links = () => {
         title="Subscribe to our YouTube account"
       >
         <FaYoutube />
+      </a>
+      <a
+        href="https://www.reddit.com/r/jackalislive"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="main__a main__a--rd"
+        aria-label="Connect with our Reddit community"
+        title="Connect with our Reddit community"
+      >
+        <FaRedditAlien />
+      </a>
+      <a
+        href="https://twitter.com/jackalislive"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="main__a"
+        aria-label="Follow our Twitter account for latest updates"
+        title="Follow our Twitter account for latest updates"
+      >
+        <FaTwitter />
       </a>
       <small>
         v
