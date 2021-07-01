@@ -76,8 +76,8 @@ const Main = () => {
             controls
             url={url}
             onError={(e, f) => banTV(e, f, url)}
-            width="inherit"
-            height="auto"
+            height="inherit"
+            width="auto"
           />
         )}
         <AboutContext.Provider
