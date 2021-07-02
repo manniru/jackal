@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import Modal from "react-modal";
-// import { FiRefreshCw } from "react-icons/fi";
+import { FiRefreshCw } from "react-icons/fi";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import MenuContext from "../context/MenuContext";
 import ChannelsContext from "../context/ChannelsContext";
@@ -19,6 +19,10 @@ const Channels = () => {
   const handleChange = (e) => {
     const { value } = e.target;
     setSearchText(value);
+  };
+  const handleClearSearch = (e) => {
+    e.preventDefault();
+    setSearchText("");
   };
   useEffect(() => {
     const newChannel = { ...originalState };
@@ -60,7 +64,11 @@ const Channels = () => {
           </a>
         </footer>
       </header>
-      <section className="modal__search">
+      <section
+        className={`modal__search ${
+          searchText.trim() === "" ? "" : "modal__search--filled"
+        }`}
+      >
         <input
           placeholder="Search a channel..."
           type="text"
@@ -68,6 +76,16 @@ const Channels = () => {
           className="modal__input"
           onChange={handleChange}
         />
+        <a
+          href="#"
+          aria-label="Clear Search"
+          onClick={handleClearSearch}
+          className={`modal__reset ${
+            searchText.trim() !== "" ? "modal__reset--visible" : ""
+          }`}
+        >
+          <FiRefreshCw />
+        </a>
       </section>
       <section className="modal__section">
         {urls.length === 0 && searchText.trim() !== "" ? (
