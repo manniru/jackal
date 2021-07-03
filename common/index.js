@@ -1,5 +1,4 @@
 import lookup from "country-code-lookup";
-// import nookies from "nookies";
 import ReactCountryFlag from "react-country-flag";
 
 const urls = [
@@ -12,63 +11,33 @@ const getTextFromFetch = async (url) => {
   return text;
 };
 
-// const parseBadLinks = (myPromise) => {
-//   return myPromise
-//     .split("#")
-//     .map((i) => i.replace(/\n/gi, ""))
-//     .filter((i) => i !== "")
-//     .filter((i) => (i.includes("EXTM3U") ? null : i))
-//     .map((i) => i.split("group-title")[1])
-//     .map((i) => {
-//       const currentIndex = i.indexOf("http");
-//       const currentUrl = i.slice(currentIndex);
-//       return currentUrl;
-//     });
-// };
-
 const parseXLinks = (myPromise, codes) => {
-  return (
-    myPromise
-      .map((i) => i.split("#"))
-      .map((i) => i.filter((j) => j !== ""))
-      .map((i) => i.filter((j) => (j.includes("EXTM3U") ? null : j)))
-      .map((i) => i.map((j) => j.split(",")))
-      .map((i) => i.map((j) => ({ type: j[0], url: j[1] })))
-      .map((i) => i.filter((j) => (typeof j.url === undefined ? null : j)))
-      .map((i) =>
-        i.map((j) => {
-          let word;
-          if (j.type.includes("group-title=")) {
-            const array = j.type.split("group-title=");
-            word = array[1].replace(/"/g, "");
-            word = word.trim() ? word : "None";
-          } else {
-            word = "None";
-          }
-          return {
-            type: word,
-            url: j.url ? j.url.split("\n") : null,
-          };
-        })
-      )
-      .map((i, index) =>
-        i.map((j) => ({
-          type: j.type,
-          title: j.url ? j.url[0].trim() : null,
-          url: j.url ? j.url[1] : null,
+  return myPromise.map((i, index) => {
+    return i
+      .split("#")
+      .filter((j) => (j !== "" && j.includes("EXTM3U") ? null : j))
+      .map((j) => ({ type: j.split(",")[0], url: j.split(",")[1] }))
+      .filter((j) => (typeof j.url === undefined ? null : j))
+      .map((j) => {
+        let word;
+        if (j.type.includes("group-title=")) {
+          const array = j.type.split("group-title=");
+          word = array[1].replace(/"/g, "");
+          word = word.trim() ? word : "None";
+        } else {
+          word = "None";
+        }
+        return {
+          type: word,
+          title: j.url ? j.url.split("\n")[0].trim() : null,
+          url: j.url ? j.url.split("\n")[1] : null,
           country: codes[index],
-        }))
-      )
-      .map((i) => i.filter((j) => j.url))
-      .map((i) =>
-        i.sort((a, b) =>
-          a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1
-        )
-      )
-      // .map((i) => i.filter((j) => (badList.indexOf(j.url) === -1 ? j : false)))
-      .map((i) => i.filter((j) => j.type !== "XXX"))
-      .map((i) => i.filter((j) => (j.title.includes("XXX") ? false : j)))
-  );
+        };
+      })
+      .filter((j) => j.url && j.type !== "XXX")
+      .sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1))
+      .filter((j) => (j.title.includes("XXX") ? false : j));
+  });
 };
 
 const parseLinks = async (myPromise) => {
@@ -97,21 +66,16 @@ const parseLinks = async (myPromise) => {
     );
   const promises = urls.map(getTextFromFetch);
   const results = await Promise.all(promises);
-  // return parseXLinks(results, badList, codes);
   return parseXLinks(results, codes);
 };
 
 // https://stackoverflow.com/questions/51805395/navigator-clipboard-is-undefined
 const copyToClipboard = (textToCopy) => {
-  // navigator clipboard api needs a secure context (https)
   if (navigator.clipboard && window.isSecureContext) {
-    // navigator clipboard api method'
     return navigator.clipboard.writeText(textToCopy);
   } else {
-    // text area method
     let textArea = document.createElement("textarea");
     textArea.value = textToCopy;
-    // make the textarea out of viewport
     textArea.style.position = "fixed";
     textArea.style.left = "-999999px";
     textArea.style.top = "-999999px";
@@ -119,7 +83,6 @@ const copyToClipboard = (textToCopy) => {
     textArea.focus();
     textArea.select();
     return new Promise((res, rej) => {
-      // here the magic happens
       document.execCommand("copy") ? res() : rej();
       textArea.remove();
     });
@@ -127,17 +90,10 @@ const copyToClipboard = (textToCopy) => {
 };
 
 const getData = async () => {
-  // let hasNoError = true;
   try {
-    // const cookies = nookies.get(ctx);
-    // const noCookies = cookies && isObjectEmpty(cookies);
-    // if (noCookies) {
     const mainPromises = urls.map(getTextFromFetch);
     const results = await Promise.all(mainPromises);
     const [promiseMainList] = results;
-    // const [promiseMainList, promiseBadList] = results;
-    // const badList = parseBadLinks(promiseBadList);
-    // const mainList = await parseLinks(promiseMainList, badList);
     const mainList = await parseLinks(promiseMainList);
     const finalList = mainList
       .filter((i) => i.length)
@@ -149,21 +105,9 @@ const getData = async () => {
         };
       });
     return finalList;
-    // }
   } catch (e) {
-    // hasNoError = false;
     return "fail";
   }
-  // finally {
-  //   if (hasNoError) {
-  //     nookies.set(ctx, "hasData", true, {
-  //       maxAge: 30 * 24 * 60 * 60,
-  //       path: "/",
-  //     });
-  //   } else {
-  //     nookies.destroy(ctx, "hasData");
-  //   }
-  // }
 };
 
 const fixBrokenFlags = (country) => {

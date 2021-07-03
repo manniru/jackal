@@ -1,17 +1,16 @@
 import { createContext } from "react";
 
 const MenuContext = createContext({
-  channel: {},
-  setChannel: () => {},
-  handleClearStorage: () => {},
-  showFaq: false,
-  setShowFaq: () => {},
-  handleShowFaq: () => {},
-  showList: false,
-  setShowList: () => {},
-  handleShowList: () => {},
   theme: "",
+  channel: {},
+  showFaq: false,
+  showList: false,
+  setChannel: () => {},
+  setShowFaq: () => {},
+  setShowList: () => {},
   toggleTheme: () => {},
+  handleShowFaq: () => {},
+  handleShowList: () => {},
 });
 
 export default MenuContext;

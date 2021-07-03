@@ -1,6 +1,5 @@
 import React from "react";
 import { FaList, FaLink, FaHeart } from "react-icons/fa";
-// import { FiRefreshCw } from "react-icons/fi";
 import { BsShuffle } from "react-icons/bs";
 
 const AboutPage = () => {

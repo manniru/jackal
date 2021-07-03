@@ -7,7 +7,7 @@ import ChannelsContext from "../context/ChannelsContext";
 import ChannelsBox from "../components/ChannelsBox";
 
 const Channels = () => {
-  const { channel, setChannel, handleClearStorage } = useContext(MenuContext);
+  const { channel, setChannel } = useContext(MenuContext);
   const { showList, setShowList } = useContext(ChannelsContext);
   const [searchText, setSearchText] = useState("");
   const [originalState] = useState(channel);
@@ -56,9 +56,6 @@ const Channels = () => {
       <header className="modal__header">
         <aside className="modal__aside">Channels</aside>
         <footer className="modal__footer">
-          {/* <a href="#" onClick={handleClearStorage} aria-label="Reset">
-            <FiRefreshCw />
-          </a> */}
           <a href="#" onClick={handleClose} aria-label="Exit">
             <AiOutlineCloseCircle />
           </a>

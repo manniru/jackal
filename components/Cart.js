@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { FaHeart } from "react-icons/fa";
-// import { destroyCookie } from "nookies";
 import MyPlaylistContext from "../context/MyPlaylistContext";
 import CartList from "./CartList";
 import MyPlaylist from "../modals/MyPlaylist";
@@ -35,7 +34,6 @@ const Cart = () => {
   const handleClear = (e) => {
     e.preventDefault();
     localStorage.removeItem("playlist");
-    // destroyCookie(null, "hasData");
     setCart(false);
   };
   return (
