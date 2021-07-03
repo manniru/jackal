@@ -115,6 +115,10 @@ body {
       border-color: $dark__;
     }
   }
+  &__input {
+    color: $white__;
+    background: $darkest__;
+  }
   .light & {
     &__header {
       border-color: $darker;
@@ -123,6 +127,10 @@ body {
       li {
         border-color: $dark;
       }
+    }
+    &__input {
+      color: $white;
+      background: $whiteO;
     }
   }
 }
