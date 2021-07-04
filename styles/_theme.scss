@@ -79,13 +79,9 @@ svg {
   justify-content: center;
   align-items: center;
   &__ft {
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    display: flex;
     justify-content: center;
-    &--single {
-      grid-template-columns: auto;
-    }
     &__a {
       max-height: 4rem;
       max-width: 4rem;
@@ -115,8 +111,7 @@ svg {
     }
     a {
       display: flex;
-      padding: 0.25rem;
-      border-radius: 10px;
+      padding: 0.5rem;
       border: 1px solid #333;
     }
     p {

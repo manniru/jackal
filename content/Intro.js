@@ -68,7 +68,7 @@ const Intro = () => {
         </a>
       </div>
       <h2>Support IPTV project</h2>
-      <div className="main__ft main__ft--single">
+      <div className="main__ft">
         <a
           className="main__ft__a"
           href="https://opencollective.com/iptv-org#category-CONTRIBUTE"
