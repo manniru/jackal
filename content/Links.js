@@ -21,6 +21,7 @@ const Links = () => {
         <FaUserFriends />
       </a>
       <a
+        className="children"
         href="https://www.savethechildren.org/us/ways-to-help"
         target="_blank"
         rel="noopener noreferrer"

@@ -61,6 +61,11 @@ svg {
   max-height: 22px;
 }
 
+.children {
+  animation: beat 0.5s infinite alternate;
+  transform-origin: center;
+}
+
 .main {
   position: absolute;
   z-index: 1;
@@ -76,10 +81,14 @@ svg {
   &__ft {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-content: center;
+    &--single {
+      grid-template-columns: auto;
+    }
     &__a {
       max-height: 4rem;
+      max-width: 4rem;
     }
   }
   &__text {
@@ -96,7 +105,7 @@ svg {
       line-height: 1;
     }
     h2 {
-      margin: 0 0 0.5rem;
+      margin: 0.5rem 0;
       font-size: 16px;
     }
     img {
@@ -109,6 +118,9 @@ svg {
       padding: 0.25rem;
       border-radius: 10px;
       border: 1px solid #333;
+    }
+    p {
+      margin-bottom: 0;
     }
   }
   &__a {
@@ -448,5 +460,18 @@ svg {
 .Toastify {
   &__toast {
     font-family: inherit;
+  }
+}
+
+.trademark {
+  position: fixed;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  font-size: 0.7rem;
+}
+
+@keyframes beat {
+  to {
+    transform: scale(1.2);
   }
 }

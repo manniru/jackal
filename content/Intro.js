@@ -67,6 +67,29 @@ const Intro = () => {
           />
         </a>
       </div>
+      <h2>Support IPTV project</h2>
+      <div className="main__ft main__ft--single">
+        <a
+          className="main__ft__a"
+          href="https://opencollective.com/iptv-org#category-CONTRIBUTE"
+          rel="noopener noreferrer"
+          target="_blank"
+          aria-label="Please support maintainers of IPTV project"
+          title="Please support maintainers of IPTV project"
+        >
+          <img
+            className="main__ft__img"
+            loading="lazy"
+            width="520"
+            height="208"
+            src="https://images.opencollective.com/iptv-org/cb888b4/logo/256.png"
+            alt="Please support maintainers of IPTV project"
+          />
+        </a>
+      </div>
+      <footer className="trademark">
+        &copy; {new Date().getFullYear()} - Made with ❤️ for the people
+      </footer>
     </div>
   );
 };
