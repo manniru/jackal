@@ -22,14 +22,6 @@ const AboutPage = () => {
         <a href="https://surge.sh/" target="_blank" rel="noopener noreferrer">
           <strong>Surge</strong>
         </a>
-        . Source code is available on{" "}
-        <a
-          href="https://github.com/tpkahlon/jackal"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <strong>GitHub</strong>
-        </a>
         . Huge thanks to&nbsp;
         <a
           href="https://www.npmjs.com/package/country-code-lookup"
