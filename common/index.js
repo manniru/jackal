@@ -1,9 +1,7 @@
 import lookup from "country-code-lookup";
-import ReactCountryFlag from "react-country-flag";
 
-const urls = [
-  `https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u`,
-];
+const BASE_URL =
+  "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u";
 
 const getTextFromFetch = async (url) => {
   const req = await fetch(url);
@@ -11,26 +9,78 @@ const getTextFromFetch = async (url) => {
   return text;
 };
 
+const methodForEXTVLCOPT = (i, brokenIndex) => {
+  const textString = i
+    .split("#")
+    .filter((j) => j)
+    .filter((j) => (j.includes("EXTM3U") ? null : j))
+    .filter((i, idx) => idx === brokenIndex)
+    .map((j) => {
+      const text = j.split('",')[1];
+      const finalText = text.replace(/\n/g, "");
+      return finalText;
+    });
+  const urlString = i
+    .split("#")
+    .filter((j) => j)
+    .filter((j) => (j.includes("EXTM3U") ? null : j))
+    .filter((i, idx) => idx === brokenIndex + 1)
+    .map((j) => {
+      const array = j.split(",");
+      if (array.length === 1) {
+        return array[0];
+      } else {
+        const url = array[1];
+        return url;
+      }
+    });
+  const newUrlString = urlString[0];
+  const getUrl = newUrlString.split("http")[1];
+  const cleanUrl = getUrl.replace(/\n/g, "");
+  const finalUrl = textString[0] + "\n" + "http" + cleanUrl;
+  return finalUrl;
+};
+
 const parseXLinks = (myPromise, codes) => {
   return myPromise.map((i, index) => {
     return i
       .split("#")
       .filter((j) => (j !== "" && j.includes("EXTM3U") ? null : j))
-      .map((j) => ({ type: j.split(",")[0], url: j.split(",")[1] }))
+      .map((j, index) => {
+        const array = j.split(",");
+        const type = array[0];
+        const url = array[1];
+        if (url && !url.includes("://")) {
+          return {
+            type,
+            url: methodForEXTVLCOPT(i, index),
+          };
+        }
+        return { type, url };
+      })
       .filter((j) => (typeof j.url === undefined ? null : j))
       .map((j) => {
         let word;
-        if (j.type.includes("group-title=")) {
+        let myUrl;
+        let myTitle;
+        if (j.type && j.type.includes("group-title=")) {
           const array = j.type.split("group-title=");
           word = array[1].replace(/"/g, "");
           word = word.trim() ? word : "None";
         } else {
           word = "None";
         }
+        if (j.url && j.url.includes("\n")) {
+          myTitle = j.url.split("\n")[0].trim();
+          myUrl = j.url.split("\n")[1].trim();
+        } else {
+          myUrl = j.url;
+          myTitle = "Unknown";
+        }
         return {
           type: word,
-          title: j.url ? j.url.split("\n")[0].trim() : null,
-          url: j.url ? j.url.split("\n")[1] : null,
+          url: myUrl,
+          title: myTitle,
           country: codes[index],
         };
       })
@@ -91,10 +141,10 @@ const copyToClipboard = (textToCopy) => {
 
 const getData = async () => {
   try {
-    const mainPromises = urls.map(getTextFromFetch);
-    const results = await Promise.all(mainPromises);
-    const [promiseMainList] = results;
-    const mainList = await parseLinks(promiseMainList);
+    const promiseBit = await fetch(BASE_URL);
+    const textBit = await promiseBit.text();
+    console.log(textBit);
+    const mainList = await parseLinks(textBit);
     const finalList = mainList
       .filter((i) => i.length)
       .map((i, idx) => {
@@ -110,44 +160,6 @@ const getData = async () => {
   }
 };
 
-const fixBrokenFlags = (country) => {
-  if (country === "Gambia")
-    return (
-      <ReactCountryFlag className="accordion__flag__img" svg countryCode="gm" />
-    );
-  if (country === "Bahamas")
-    return (
-      <ReactCountryFlag className="accordion__flag__img" svg countryCode="bs" />
-    );
-  if (country === "Ivory Coast")
-    return (
-      <ReactCountryFlag className="accordion__flag__img" svg countryCode="ci" />
-    );
-  if (country === "Kosovo")
-    return (
-      <ReactCountryFlag className="accordion__flag__img" svg countryCode="xk" />
-    );
-  if (country === "Myanmar")
-    return (
-      <ReactCountryFlag className="accordion__flag__img" svg countryCode="mm" />
-    );
-  if (country === "Palestine")
-    return (
-      <ReactCountryFlag className="accordion__flag__img" svg countryCode="ps" />
-    );
-  if (country === "Vatican City")
-    return (
-      <ReactCountryFlag className="accordion__flag__img" svg countryCode="va" />
-    );
-  if (country === "Virgin Islands of the United States")
-    return (
-      <ReactCountryFlag className="accordion__flag__img" svg countryCode="vi" />
-    );
-  if (country === "Netherlands Antilles")
-    return <img className="accordion__flag__img" src="./an.svg" />;
-  return null;
-};
-
 // https://stackoverflow.com/a/43467144
 const isValidUrl = (string) => {
   let url;
@@ -159,4 +171,4 @@ const isValidUrl = (string) => {
   return url.protocol === "http:" || url.protocol === "https:";
 };
 
-export { getData, copyToClipboard, fixBrokenFlags, isValidUrl };
+export { getData, copyToClipboard, isValidUrl };

@@ -9,7 +9,7 @@ import {
 } from "react-accessible-accordion";
 import ReactCountryFlag from "react-country-flag";
 import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
-import { fixBrokenFlags } from "../common";
+import { fixBrokenFlags } from "../common/components";
 import MenuContext from "../context/MenuContext";
 import ChannelsListContext from "../context/ChannelsListContext";
 import ChannelsList from "./ChannelsList";

@@ -23,7 +23,7 @@ const Links = () => {
           aria-label="Check latest version metrics"
           title="Check latest version metrics"
         >
-          1.13
+          1.14
         </a>
       </small>
     </>

@@ -46,7 +46,6 @@ const Menu = () => {
       darkNotification(`Please enter a valid stream link.`);
       return;
     }
-    console.log("x", isValidUrl(keyword));
     if (isBrowser) {
       setChannel({
         ...channel,
