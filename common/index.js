@@ -143,7 +143,6 @@ const getData = async () => {
   try {
     const promiseBit = await fetch(BASE_URL);
     const textBit = await promiseBit.text();
-    console.log(textBit);
     const mainList = await parseLinks(textBit);
     const finalList = mainList
       .filter((i) => i.length)
