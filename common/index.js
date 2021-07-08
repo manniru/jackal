@@ -3,6 +3,9 @@ import lookup from "country-code-lookup";
 const BASE_URL =
   "https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u";
 
+const GET_CH_URL = (cn) =>
+  `https://raw.githubusercontent.com/iptv-org/iptv/master/channels/${cn}.m3u`;
+
 const getTextFromFetch = async (url) => {
   const req = await fetch(url);
   const text = await req.text();
@@ -13,59 +16,34 @@ const getCountryCodes = (array) => {
   return array
     .split("#")
     .map((i) => i.replace(/\n/gi, ""))
-    .filter((i) => i !== "")
-    .filter((i) => (i.includes("EXTM3U") ? null : i))
-    .map((i) => i.split("channels"))
-    .map((i) => i[0])
-    .map((i) => i.split(","))
-    .map((i) => i[1]);
+    .filter((i) => i !== "" && (i.includes("EXTM3U") ? null : i))
+    .map((i) => i.split("channels")[0].split(",")[1]);
 };
 
 const getChannelUrls = (array) => {
   return array
     .split("#")
-    .map((i) => i.replace(/\n/gi, ""))
-    .map((i) => i.replace(/EXTINF:-1,/gi, ""))
-    .filter((i) => i !== "")
-    .filter((i) => (i.includes("EXTM3U") ? null : i))
-    .map((i) => i.split("/"))
-    .map((i) => i[1])
-    .map((i) => i.split("."))
-    .map((i) => i[0])
-    .map(
-      (i) =>
-        `https://raw.githubusercontent.com/iptv-org/iptv/master/channels/${i}.m3u`
-    );
+    .map((i) => i.replace(/\n/gi, "").replace(/EXTINF:-1,/gi, ""))
+    .filter((i) => i !== "" && (i.includes("EXTM3U") ? null : i))
+    .map((i) => GET_CH_URL(i.split("/")[1].split(".")[0]));
 };
 
 const getChannelUrlForMethod = (i, brokenIndex) => {
   return i
     .split("#")
-    .filter((j) => j)
     .filter((j) => (j.includes("EXTM3U") ? null : j))
     .filter((j, idx) => idx === brokenIndex + 1)
-    .map((j) => {
-      const array = j.split(",");
-      if (array.length === 1) {
-        return array[0];
-      } else {
-        const url = array[1];
-        return url;
-      }
-    });
+    .map((j) =>
+      j.split(",").length === 1 ? j.split(",")[0] : j.split(",")[1]
+    );
 };
 
 const getChannelNameForMethod = (i, brokenIndex) => {
   return i
     .split("#")
-    .filter((j) => j)
     .filter((j) => (j.includes("EXTM3U") ? null : j))
     .filter((j, idx) => idx === brokenIndex)
-    .map((j) => {
-      const text = j.split('",')[1];
-      const finalText = text.replace(/\n/g, "");
-      return finalText;
-    });
+    .map((j) => j.split('",')[1].replace(/\n/g, ""));
 };
 
 const methodForEXTVLCOPT = (i, brokenIndex) => {
