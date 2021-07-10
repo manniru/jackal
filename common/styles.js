@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        max-width: 50vw;
     }
     .trademark {
         position: fixed;
