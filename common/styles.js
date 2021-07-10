@@ -18,6 +18,75 @@ const GlobalStyle = createGlobalStyle`
     .danger {
         background: rgba(255, 0, 0, 0.7);
     }
+    /* UTILITY */
+    .children {
+        animation: beat 0.5s infinite alternate;
+        transform-origin: center;
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.75);
+        z-index: 3;
+    }
+    .title {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .trademark {
+        position: fixed;
+        left: 0.75rem;
+        bottom: 0.75rem;
+        font-size: 0.7rem;
+    }
+    .controls {
+        display: flex;
+    }
+    .controls > * {
+        margin-right: 1rem;
+    }
+    .empty-cart, .empty-list {
+        margin: 0;
+        padding: 1rem;
+    }
+    .error {
+        color: white;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+        overflow: hidden;
+        padding: 1rem;
+    }
+    .error h1 {
+        line-height: 1.25;
+        text-align: center;
+    }
+    /* TAGS */
+    svg {
+        font-size: 1.25rem;
+        max-height: 22px;
+    }
+    .li--flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .li--flex span {
+        flex-grow: 1;
+    }
+    .li--flex svg {
+        min-width: 1.25rem;
+        margin: 0 0 0 0.5rem;
+    }
+    /* TOAST */
     .Toastify__toast {
         font-family: inherit;
     }
@@ -33,6 +102,7 @@ const GlobalStyle = createGlobalStyle`
     .Toastify__progress-bar--dark {
         background: orange;
     }
+    /* TABLE */
     table {
         width: 100%;
         border-collapse: collapse;
@@ -62,14 +132,7 @@ const GlobalStyle = createGlobalStyle`
     table button {
         margin-right: 0.5rem;
     }
-    svg {
-        font-size: 1.25rem;
-        max-height: 22px;
-    }
-    .children {
-        animation: beat 0.5s infinite alternate;
-        transform-origin: center;
-    }
+    /* MAIN */
     .main {
         position: absolute;
         z-index: 1;
@@ -126,6 +189,7 @@ const GlobalStyle = createGlobalStyle`
     .light .main__ft__a {
         border: 1px solid #1c9cea;
     }
+    /* NAV */
     .nav {
         position: fixed;
         padding: 1rem;
@@ -185,6 +249,7 @@ const GlobalStyle = createGlobalStyle`
     .nav__btn--hide {
         display: none;
     }
+    /* MODAL */
     .modal {
         position: absolute;
         top: 0;
@@ -257,18 +322,7 @@ const GlobalStyle = createGlobalStyle`
         align-items: center;
         justify-content: center;
     }
-    .li--flex {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .li--flex span {
-        flex-grow: 1;
-    }
-    .li--flex svg {
-        min-width: 1.25rem;
-        margin: 0 0 0 0.5rem;
-    }
+    /* ACCORDION */
     .accordion__item {
         border-top: 1px solid;
     }
@@ -335,46 +389,7 @@ const GlobalStyle = createGlobalStyle`
         min-width: 20px;
         margin-right: 0.25rem;
     }
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.75);
-        z-index: 3;
-    }
-    .controls {
-        display: flex;
-    }
-    .controls > * {
-        margin-right: 1rem;
-    }
-    .title {
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-    .empty-cart, .empty-list {
-        margin: 0;
-        padding: 1rem;
-    }
-    .error {
-        color: white;
-        background: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        height: calc(var(--vh, 1vh) * 100);
-        overflow: hidden;
-        padding: 1rem;
-    }
-    .error h1 {
-        line-height: 1.25;
-        text-align: center;
-    }
+    /* FOOTER */
     .footer {
         display: flex;
         flex-direction: column;
@@ -406,12 +421,7 @@ const GlobalStyle = createGlobalStyle`
     .footer svg {
         height: 100%;
     }
-    .trademark {
-        position: fixed;
-        left: 0.75rem;
-        bottom: 0.75rem;
-        font-size: 0.7rem;
-    }
+    /* QUERIES */
     @media screen and (min-width: 320px) {
         table th, table td {
             padding: 0.5rem 1rem;
@@ -449,7 +459,7 @@ const GlobalStyle = createGlobalStyle`
             transform: scale(1.2);
         }
     }
-    /* THEME */
+    /* THEME: COLORS */
     a {
         color: orange;
         text-decoration: none;
