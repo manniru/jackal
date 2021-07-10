@@ -13,7 +13,6 @@
   "dependencies": {
     "country-code-lookup": "^0.0.19",
     "next": "^10.2.0",
-    "normalize.css": "^8.0.1",
     "react": "17.0.2",
     "react-accessible-accordion": "^3.3.4",
     "react-country-flag": "^2.3.0",
@@ -23,6 +22,9 @@
     "react-modal": "^3.13.1",
     "react-player": "^2.9.0",
     "react-toastify": "^7.0.4",
-    "sass": "^1.32.11"
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.13.2"
   }
 }

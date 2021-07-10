@@ -1,7 +1,18 @@
-import "normalize.css";
 import "react-toastify/dist/ReactToastify.css";
-import "../styles/globals.scss";
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "../common/styles";
 
-const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />;
+const theme = {
+  colors: null,
+};
+
+const MyApp = ({ Component, pageProps }) => (
+  <>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  </>
+);
 
 export default MyApp;
