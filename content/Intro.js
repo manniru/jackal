@@ -15,7 +15,7 @@ const Intro = () => {
           community
         </em>
       </p>
-      <h2>Featured on</h2>
+      {/* <h2>Featured on</h2>
       <div className="main__ft">
         <a
           className="main__ft__a"
@@ -68,7 +68,7 @@ const Intro = () => {
             alt="Visit FreesOff"
           />
         </a>
-      </div>
+      </div> */}
       <h2>Please Support</h2>
       <div className="main__ft">
         <a
