@@ -6,12 +6,14 @@ const Intro = () => {
     <div className="main__text">
       <h1 role="heading">Jackal</h1>
       <p>
-        <em>Watch TV beyond boundaries.</em>{" "}
-        <strong>
-          <Total />
-        </strong>{" "}
-        live channels at your service and updated regularly by open source
-        community.
+        Watch TV beyond boundaries{" "}
+        <em>
+          <strong>
+            <Total />
+          </strong>{" "}
+          live channels at your service and updated regularly by open source
+          community
+        </em>
       </p>
       <h2>Featured on</h2>
       <div className="main__ft">
@@ -67,8 +69,25 @@ const Intro = () => {
           />
         </a>
       </div>
-      <h2>Support IPTV project</h2>
+      <h2>Please Support</h2>
       <div className="main__ft">
+        <a
+          className="main__ft__a"
+          href="https://www.savethechildren.org/us/about-us"
+          rel="noopener noreferrer"
+          target="_blank"
+          aria-label="Giving to Save the Children is one of the world’s best investments."
+          title="Giving to Save the Children is one of the world’s best investments."
+        >
+          <img
+            className="main__ft__img"
+            loading="lazy"
+            width="520"
+            height="208"
+            src="./stc.jpg"
+            alt="Giving to Save the Children is one of the world’s best investments."
+          />
+        </a>
         <a
           className="main__ft__a"
           href="https://opencollective.com/iptv-org#category-CONTRIBUTE"

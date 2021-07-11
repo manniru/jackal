@@ -14,18 +14,15 @@ const Links = () => {
       >
         <FaChild />
       </a>
-      <small>
-        v
-        <a
-          href="http://jackal.surge.sh/report.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Check latest version metrics"
-          title="Check latest version metrics"
-        >
-          1.14
-        </a>
-      </small>
+      <a
+        href="http://jackal.surge.sh/report.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Check latest version metrics"
+        title="Check latest version metrics"
+      >
+        v1.14
+      </a>
     </>
   );
 };
