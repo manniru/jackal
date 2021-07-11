@@ -84,7 +84,7 @@ const Intro = () => {
             loading="lazy"
             width="520"
             height="208"
-            src="./stc.jpg"
+            src="https://i.ibb.co/XpCBLWn/stc.jpg"
             alt="Giving to Save the Children is one of the world’s best investments."
           />
         </a>
