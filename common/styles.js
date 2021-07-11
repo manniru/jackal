@@ -10,6 +10,8 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1.75;
     }
     body {
+        margin: 0;
+        padding: 0;
         overflow: hidden;
         line-height: 1.5;
         font-size: 1rem;
@@ -59,12 +61,17 @@ const GlobalStyle = createGlobalStyle`
         color: white;
         background: black;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
         overflow: hidden;
         padding: 1rem;
+    }
+    .error__logo svg {
+        font-size: 7.5rem;
+        max-height: inherit;
     }
     .error h1 {
         line-height: 1.25;
