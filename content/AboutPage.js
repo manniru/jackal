@@ -6,6 +6,18 @@ const AboutPage = () => {
   return (
     <ul className="modal__ul">
       <li>
+        Jackal is a few lines of open source code written in JavaScript that
+        beautifies data congregated in{" "}
+        <a
+          href="https://github.com/iptv-org/iptv"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>IPTV</strong>
+        </a>{" "}
+        repository.
+      </li>
+      <li>
         Powered by{" "}
         <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
           <strong>Next</strong>
@@ -77,6 +89,14 @@ const AboutPage = () => {
           rel="noopener noreferrer"
         >
           <strong>react-modal</strong>
+        </a>
+        ,&nbsp;
+        <a
+          href="https://www.npmjs.com/package/react-countup"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>react-countup</strong>
         </a>
         ,&nbsp;
         <a

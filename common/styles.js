@@ -174,8 +174,11 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         line-height: 1;
     }
+    .main__text sup {
+        font-size: 1rem;
+    }
     .main__text h2 {
-        margin: 0.5rem 0;
+        margin: 0.75rem 0 0.5rem;
         font-size: 16px;
     }
     .main__text img {

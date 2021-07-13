@@ -1,3 +1,4 @@
+import CountUp from "react-countup";
 import { useEffect, useState, useContext } from "react";
 import MenuContext from "../context/MenuContext";
 
@@ -14,7 +15,7 @@ const Total = () => {
   useEffect(() => {
     setText(newText);
   }, []);
-  return text;
+  return <CountUp end={newText} duration={5} />;
 };
 
 export default Total;

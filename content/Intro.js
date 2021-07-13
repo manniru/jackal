@@ -4,16 +4,14 @@ import Total from "./Total";
 const Intro = () => {
   return (
     <div className="main__text">
-      <h1 role="heading">Jackal</h1>
+      <h1 role="heading">
+        Jackal
+        <sup>
+          <Total />
+        </sup>
+      </h1>
       <p>
-        Watch TV beyond boundaries{" "}
-        <em>
-          <strong>
-            <Total />
-          </strong>{" "}
-          live channels at your service and updated regularly by open source
-          community
-        </em>
+        <em>Watch TV beyond boundaries</em>
       </p>
       {/* <h2>Featured on</h2>
       <div className="main__ft">
